@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackie du Plooy — Behavioural Science · AI · Neuroscience</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A2E;
+    --paper: #F7F7F7;
+    --accent: #FF6B6B;
+    --gold: #1A1A2E;
+    --muted: #1A1A2E;
+    --surface: #F0F0F5;
+    --border: rgba(26,26,46,0.1);
+    --nav-h: 64px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    cursor: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed; top: 0; left: 0; width: 10px; height: 10px;
+    background: var(--accent); border-radius: 50%; pointer-events: none;
+    z-index: 9999; transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: multiply;
+  }
+  .cursor.big { width: 40px; height: 40px; background: var(--aqua); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; letter-spacing: 0.1em;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; padding-top: var(--nav-h);
+    display: grid; grid-template-columns: 5fr 6fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 3.5rem 3rem 3rem 4rem; position: relative; z-index: 2; overflow: hidden;
+  }
+  .hero-tag {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+    white-space: nowrap; flex-wrap: nowrap;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 2rem; height: 1px; background: var(--accent);
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--ink); margin-bottom: 0.2rem;
+  }
+  .hero-name .line2 { color: var(--accent); }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic; font-size: 1.4rem;
+    color: var(--muted); margin: 1.5rem 0 2.5rem;
+    line-height: 1.4;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-bottom: 3rem;
+  }
+  .hero-stat { text-align: left; }
+  .hero-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; color: var(--ink); line-height: 1;
+  }
+  .hero-stat .num span { color: var(--accent); }
+  .hero-stat .label {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-top: 0.25rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary {
+    background: var(--ink); color: var(--paper);
+    padding: 0.85rem 2rem; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1.5px solid var(--ink); color: var(--ink);
+    padding: 0.85rem 2rem; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; cursor: none;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: #1A1A2E;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 1rem; color: rgba(245,240,232,0.2);
+    padding: 2rem; text-align: center;
+  }
+  .hero-photo-placeholder .big-initial {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18rem; line-height: 1; opacity: 0.08;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .globe-decoration {
+    position: absolute; bottom: -4rem; right: -4rem;
+    width: 22rem; height: 22rem; border-radius: 50%;
+    border: 1px solid rgba(78,205,196,0.1);
+  }
+  .globe-decoration::before {
+    content: ''; position: absolute; inset: 2rem; border-radius: 50%;
+    border: 1px solid rgba(78,205,196,0.07);
+  }
+  .hero-countries {
+    position: absolute; bottom: 2rem; left: 2rem; right: 2rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem; z-index: 3;
+  }
+  .country-pill {
+    background: rgba(228,242,234,0.1); color: rgba(228,242,234,0.8);
+    padding: 0.35rem 0.85rem; font-size: 0.72rem;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    border: 1px solid rgba(78,205,196,0.25);
+    animation: float 6s ease-in-out infinite;
+  }
+  .country-pill:nth-child(2) { animation-delay: 0.8s; }
+  .country-pill:nth-child(3) { animation-delay: 1.6s; }
+  .country-pill:nth-child(4) { animation-delay: 2.4s; }
+  .country-pill:nth-child(5) { animation-delay: 3.2s; }
+  .country-pill:nth-child(6) { animation-delay: 4.0s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); animation: bounce 2.5s ease-in-out infinite;
+  }
+  .scroll-hint::after {
+    content: ''; display: block; width: 1px; height: 2rem;
+    background: var(--muted);
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* SECTION LAYOUT */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 2rem; height: 1px; background: var(--accent);
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    line-height: 1; letter-spacing: 0.02em;
+    margin-bottom: 4rem;
+  }
+
+  /* LOCATIONS */
+  #map { background: #FFF5F5; }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .loc-block {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    display: flex; gap: 1.25rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .loc-block::after {
+    content: ''; position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+  .loc-block:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .loc-block:hover::after { background: var(--accent); }
+
+  .loc-block.loc-home::after { background: #FF6B6B; }
+  .loc-block.loc-home { border-color: rgba(255,107,107,0.3); }
+
+  .loc-block.loc-current::after { background: #1A1A2E; }
+  .loc-block.loc-current { border-color: rgba(26,26,46,0.3); }
+
+  .loc-flag { font-size: 2rem; line-height: 1; flex-shrink: 0; padding-top: 0.1rem; }
+
+  .loc-content { flex: 1; }
+
+  .loc-label {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #4ECDC4;
+    margin-bottom: 0.2rem;
+  }
+  .loc-block.loc-home .loc-label { color: #FF6B6B; }
+  .loc-block.loc-current .loc-label { color: #1A1A2E; }
+
+  .loc-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.03em;
+    color: var(--ink); line-height: 1;
+  }
+  .loc-city {
+    font-size: 0.78rem; color: var(--muted);
+    margin-bottom: 0.75rem; margin-top: 0.1rem;
+  }
+  .loc-desc {
+    font-size: 0.83rem; line-height: 1.7;
+    color: rgba(26,26,46,0.65);
+    margin-bottom: 0.85rem;
+  }
+  .loc-tags {
+    display: flex; flex-wrap: wrap; gap: 0.3rem;
+  }
+  .loc-tags span {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.2rem 0.55rem;
+    border: 1px solid var(--border); color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .locations-grid { grid-template-columns: 1fr 1fr; }
+    .loc-next-inner { grid-template-columns: 1fr; }
+    .loc-next-tags { justify-content: flex-start; grid-column: 1; }
+  }
+  @media (max-width: 600px) {
+    .locations-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* LANGUAGES SECTION */
+  #languages { background: #FFFDE7; }
+  .lang-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .lang-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .lang-block:hover { border-color: #4ECDC4; transform: translateY(-2px); }
+  .lang-block.lang-active { border-bottom-color: #FF6B6B; }
+  .lang-block.lang-cultural { border-bottom-color: #1A1A2E; }
+  .lang-top {
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .lang-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: 0.03em;
+    color: var(--ink); line-height: 1;
+  }
+  .lang-level {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #4ECDC4;
+  }
+  .lang-level-progress { color: #FF6B6B; }
+  .lang-level-culture { color: #1A1A2E; }
+
+  .lang-bar {
+    height: 3px;
+    background: rgba(26,26,46,0.1);
+    position: relative; margin: 0.25rem 0;
+  }
+  .lang-fill {
+    position: absolute; left: 0; top: 0; height: 100%;
+    background: #4ECDC4;
+    transition: width 1.2s ease;
+  }
+  .lang-fill-progress { background: #FF6B6B; }
+  .lang-fill-culture { background: #1A1A2E; }
+
+  .lang-note {
+    font-size: 0.8rem; line-height: 1.65;
+    color: rgba(26,26,46,0.55);
+  }
+
+  @media (max-width: 900px) {
+    .lang-blocks { grid-template-columns: 1fr 1fr; }
+    .languages-strip { padding: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .lang-blocks { grid-template-columns: 1fr; }
+  }
+
+  /* INDUSTRIES */
+  #industries { background: var(--ink); color: var(--paper); }
+  #industries .section-label { color: #FF6B6B; }
+  #industries .section-label::before { background: #FF6B6B; }
+  #industries .section-title { color: var(--paper); }
+
+  .industries-intro {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.05rem; color: rgba(26,26,46,0.55);
+    max-width: 560px; line-height: 1.7; margin-bottom: 3rem;
+  }
+
+  /* FOUNDATION BANNER */
+  .ind-foundation {
+    background: var(--ink); color: var(--paper);
+    padding: 2.5rem 3rem; margin-bottom: 1.5rem;
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 2.5rem; align-items: center;
+  }
+  .ind-foundation-label {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #FF6B6B;
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+  .ind-foundation-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem; letter-spacing: 0.01em;
+    color: var(--paper); margin-bottom: 0.6rem;
+  }
+  .ind-foundation-desc {
+    font-size: 0.85rem; line-height: 1.75;
+    color: rgba(239,234,230,0.55); margin-bottom: 1rem;
+  }
+  .ind-foundation-tags {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+  }
+  .ind-foundation-tags span {
+    font-size: 0.63rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem;
+    border: 1px solid rgba(78,205,196,0.25); color: #4ECDC4;
+  }
+  .ind-foundation-stat { text-align: right; }
+  .ind-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem; line-height: 1; color: var(--paper);
+  }
+  .ind-stat-num span { color: #FF6B6B; }
+  .ind-stat-label {
+    font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(239,234,230,0.4);
+  }
+
+  /* SECTOR GRID */
+  .ind-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; background: rgba(78,205,196,0.15);
+  }
+  .ind-card {
+    background: #252540; padding: 2rem;
+    display: flex; flex-direction: column; gap: 0.85rem;
+    transition: background 0.2s;
+    border-bottom: 3px solid transparent;
+  }
+  .ind-card:hover { background: #2e2e50; border-bottom-color: #FF6B6B; }
+  .ind-card.ind-card-emerging { background: #1f1f38; }
+  .ind-card.ind-card-emerging:hover { background: #292945; border-bottom-color: #FFE66D; }
+
+  .ind-card-header {
+    display: flex; align-items: flex-start; gap: 0.85rem;
+  }
+  .ind-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(78,205,196,0.12); display: flex;
+    align-items: center; justify-content: center;
+    color: #4ECDC4;
+  }
+  .ind-card.ind-card-emerging .ind-icon { background: rgba(26,26,46,0.12); color: #1A1A2E; }
+
+  .ind-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem; color: var(--paper); line-height: 1.2;
+  }
+  .ind-depth {
+    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #4ECDC4; margin-top: 0.15rem;
+  }
+  .ind-card.ind-card-emerging .ind-depth { color: #FFE66D; }
+
+  .ind-desc {
+    font-size: 0.82rem; line-height: 1.72;
+    color: rgba(247,247,247,0.55); flex: 1;
+  }
+  .ind-tags {
+    display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: auto;
+  }
+  .ind-tags span {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 0.18rem 0.5rem;
+    border: 1px solid rgba(78,205,196,0.2); color: #4ECDC4;
+  }
+
+  @media (max-width: 900px) {
+    .ind-grid { grid-template-columns: 1fr 1fr; }
+    .ind-foundation { grid-template-columns: 1fr; }
+    .ind-foundation-label { writing-mode: horizontal-tb; transform: none; }
+    .ind-foundation-stat { text-align: left; }
+  }
+  @media (max-width: 600px) {
+    .ind-grid { grid-template-columns: 1fr; }
+  }
+
+  /* JOURNEY TIMELINE */
+  #journey { background: var(--paper); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 2.5rem; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 5rem 1fr;
+    gap: 2rem; margin-bottom: 3rem; position: relative;
+    cursor: none;
+    animation: fadeInLeft 0.5s ease both;
+  }
+  .timeline-item:nth-child(1) { animation-delay: 0.0s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(6) { animation-delay: 0.5s; }
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .timeline-dot {
+    display: flex; flex-direction: column; align-items: center; padding-top: 0.35rem;
+  }
+  .timeline-dot .dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--paper); border: 2px solid var(--accent);
+    position: relative; z-index: 1; flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .timeline-item:hover .dot { background: var(--accent); transform: scale(1.3); }
+  .timeline-dot .year {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    color: var(--muted); margin-top: 0.5rem; writing-mode: vertical-rl;
+    text-orientation: mixed; letter-spacing: 0.08em;
+  }
+  .timeline-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.75rem 2rem; position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .timeline-item:hover .timeline-card {
+    transform: translateX(6px);
+    border-color: var(--accent);
+  }
+  .timeline-card::before {
+    content: ''; position: absolute; left: -8px; top: 1.1rem;
+    width: 14px; height: 14px; background: var(--surface);
+    border-left: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    transform: rotate(45deg);
+  }
+  .timeline-item:hover .timeline-card::before { border-color: var(--accent); }
+  .timeline-location {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .flag { font-size: 1rem; }
+  .timeline-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--ink); margin-bottom: 0.75rem;
+  }
+  .timeline-desc {
+    font-size: 0.85rem; line-height: 1.8; color: rgba(26,26,46,0.65);
+  }
+  .timeline-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+  }
+  .tag {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.65rem; border: 1px solid var(--border);
+    color: var(--muted); font-weight: 500;
+  }
+
+  /* CV SUMMARY */
+  #cv { background: #1A1A2E; color: var(--paper); }
+  #cv .section-title { color: var(--paper); }
+  #cv .section-label { color: #4ECDC4; }
+  #cv .section-label::before { background: #4ECDC4; }
+  .cv-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5px; background: rgba(78,205,196,0.12);
+    border: 1px solid rgba(78,205,196,0.15);
+  }
+  .cv-cell {
+    background: #1A1A2E; padding: 2.5rem 2rem;
+    transition: background 0.25s;
+  }
+  .cv-cell:hover { background: #163a52; }
+  .cv-cell-label {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #4ECDC4; margin-bottom: 0.75rem;
+  }
+  .cv-cell-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem; color: var(--paper);
+    margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .cv-cell-sub {
+    font-size: 0.82rem; color: rgba(78,205,196,0.75);
+    line-height: 1.6;
+  }
+  .cv-skills-list {
+    list-style: none; margin-top: 1rem;
+  }
+  .cv-skills-list li {
+    font-size: 0.82rem; color: rgba(78,205,196,0.85);
+    padding: 0.35rem 0; border-bottom: 1px solid rgba(78,205,196,0.15);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .cv-skills-list li::after {
+    content: '→'; color: #FF6B6B; font-size: 0.75rem;
+  }
+
+  /* LINKEDIN SECTION */
+  #connect { background: var(--surface); }
+  .connect-inner {
+    display: grid; grid-template-columns: 5fr 6fr; gap: 4rem; align-items: center;
+  }
+  .linkedin-card {
+    background: var(--paper); border: 1px solid var(--border);
+    padding: 2.5rem; position: relative; overflow: hidden;
+  }
+  .linkedin-card::after {
+    content: 'in'; font-family: 'Bebas Neue', sans-serif;
+    font-size: 12rem; position: absolute; right: -1.5rem; bottom: -3rem;
+    color: rgba(10,10,10,0.04); line-height: 1;
+  }
+  .li-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .li-avatar {
+    width: 56px; height: 56px; background: var(--ink); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--paper);
+    flex-shrink: 0;
+  }
+  .li-name { font-family: 'DM Serif Display', serif; font-size: 1.2rem; }
+  .li-role { font-size: 0.8rem; color: var(--muted); }
+  .li-stats {
+    display: flex; gap: 2rem; margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem; border-bottom: 1px solid var(--border);
+  }
+  .li-stat .n { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--ink); }
+  .li-stat .l { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .li-updates { list-style: none; }
+  .li-updates li {
+    padding: 0.85rem 0; border-bottom: 1px solid rgba(10,10,10,0.06);
+    font-size: 0.85rem; color: var(--muted); display: flex; gap: 0.75rem;
+    align-items: flex-start; line-height: 1.5;
+  }
+  .li-updates li::before { content: '•'; color: var(--accent); flex-shrink: 0; margin-top: 0.1rem; }
+  .li-btn {
+    margin-top: 1.75rem; display: inline-flex; align-items: center; gap: 0.6rem;
+    background: #1A1A2E; color: white; padding: 0.75rem 1.75rem;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; text-transform: uppercase; cursor: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .li-btn:hover { background: #1A1A2E; transform: translateY(-2px); }
+
+  .connect-right { }
+  .updates-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
+    letter-spacing: 0.02em; margin-bottom: 1.5rem;
+  }
+  .update-feed { list-style: none; }
+  .update-feed li {
+    padding: 1.25rem 0; border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: 4rem 1fr; gap: 1rem;
+    align-items: start; cursor: none;
+    transition: transform 0.2s;
+  }
+  .update-feed li:hover { transform: translateX(4px); }
+  .update-date {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem;
+    color: var(--accent); line-height: 1.2; text-align: right;
+  }
+  .update-text { font-size: 0.88rem; line-height: 1.6; color: var(--muted); }
+  .update-text strong { color: var(--ink); font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: #1A1A2E; color: var(--paper);
+    padding: 4rem 5rem 3rem;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem; letter-spacing: 0.05em; color: var(--paper);
+  }
+  .footer-logo span { color: #FF6B6B; }
+  .footer-tagline {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1rem; color: rgba(255,107,107,0.7); margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .footer-col-title {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #4ECDC4; margin-bottom: 1.25rem;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a {
+    font-size: 0.88rem; color: rgba(78,205,196,0.7);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-bottom {
+    background: #091e30; padding: 1.25rem 5rem;
+    border-top: 1px solid rgba(78,205,196,0.12);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom span {
+    font-size: 0.75rem; color: rgba(78,205,196,0.4); letter-spacing: 0.05em;
+  }
+
+
+  /* HERO RIGHT CONTENT PANEL */
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: #1A1A2E !important;
+    display: flex; align-items: stretch; justify-content: center;
+  }
+  .hero-right-content {
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 2.5rem 3.5rem 2.5rem 3.5rem;
+    height: 100%; gap: 1.25rem; width: 100%;
+    overflow: hidden;
+  }
+  .hero-right-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic; font-size: 0.95rem;
+    color: rgba(247,247,247,0.45);
+    border-left: 2px solid #FF6B6B;
+    padding-left: 0.85rem;
+    line-height: 1.4;
+  }
+  .hero-impact-label {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #FF6B6B;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-impact-label::before {
+    content: ''; display: block; width: 1.5rem; height: 1.5px;
+    background: #FF6B6B; flex-shrink: 0;
+  }
+  .hero-impact-label::after {
+    content: ''; display: block; flex: 1; height: 1px;
+    background: rgba(255,107,107,0.15);
+  }
+  .hero-approach-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border: 1px solid rgba(255,255,255,0.05);
+  }
+  .approach-step {
+    display: grid; grid-template-columns: 2rem 1fr;
+    gap: 0.65rem; padding: 1.25rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-right: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .approach-step:nth-child(even) { border-right: none; }
+  .approach-step:nth-child(3),
+  .approach-step:nth-child(4) { border-bottom: none; }
+  .approach-step-last { border-bottom: none; }
+  .approach-step:hover { background: rgba(255,107,107,0.06); }
+  .approach-num {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.65rem; color: #FF6B6B;
+    opacity: 0.45; padding-top: 0.15rem;
+    transition: opacity 0.2s;
+  }
+  .approach-step:hover .approach-num { opacity: 1; }
+  .approach-title {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 0.82rem; color: rgba(247,247,247,0.92);
+    margin-bottom: 0.3rem; letter-spacing: 0.01em;
+  }
+  .approach-step:hover .approach-title { color: #FF6B6B; }
+  .approach-desc {
+    font-size: 0.75rem; line-height: 1.6;
+    color: rgba(247,247,247,0.38);
+    transition: color 0.2s;
+  }
+  .approach-step:hover .approach-desc { color: rgba(247,247,247,0.65); }
+  .hero-countries {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    padding-top: 0.5rem;
+  }
+
+  /* ARTICLES SECTION */
+  #articles { background: var(--ink); color: var(--paper); }
+  #articles .section-label { color: var(--gold); }
+  #articles .section-label::before { background: var(--gold); }
+  #articles .section-title { color: var(--paper); }
+
+  .articles-intro {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.1rem; color: rgba(239,234,230,0.6);
+    max-width: 600px; line-height: 1.7; margin-bottom: 3.5rem;
+  }
+
+  /* FEATURED — 2 col large cards */
+  .articles-featured {
+    display: grid; grid-template-columns: 5fr 6fr;
+    gap: 1.5px; margin-bottom: 1.5px;
+    background: rgba(78,205,196,0.1);
+  }
+  .article-featured-card {
+    background: var(--ink); padding: 2.75rem 2.5rem;
+    display: flex; flex-direction: column; gap: 1rem;
+    transition: background 0.2s;
+    border-bottom: 3px solid transparent;
+  }
+  .article-featured-card:hover {
+    background: #252540;
+    border-bottom-color: var(--gold);
+  }
+  .art-feat-meta {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .art-topic {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .art-read {
+    font-size: 0.72rem; color: rgba(239,234,230,0.35);
+  }
+  .art-feat-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem; color: var(--paper);
+    line-height: 1.35; flex: 1;
+  }
+  .art-feat-excerpt {
+    font-size: 0.88rem; color: rgba(239,234,230,0.55);
+    line-height: 1.75;
+  }
+  .art-feat-footer {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-top: auto; padding-top: 1rem;
+    border-top: 1px solid rgba(78,205,196,0.1);
+  }
+  .art-date { font-size: 0.75rem; color: rgba(239,234,230,0.3); }
+  .art-read-btn {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .art-read-btn:hover { color: var(--aqua); }
+
+  /* GRID — 4 smaller cards */
+  .articles-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px; background: rgba(78,205,196,0.1);
+    margin-bottom: 4rem;
+  }
+  .article-card {
+    background: var(--ink); padding: 2rem 1.75rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    transition: background 0.2s;
+    border-bottom: 3px solid transparent;
+  }
+  .article-card:hover {
+    background: #252540;
+    border-bottom-color: var(--aqua);
+  }
+  .art-topic-tag {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--aqua);
+  }
+  .art-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem; color: var(--paper);
+    line-height: 1.4; flex: 1;
+  }
+  .art-excerpt {
+    font-size: 0.82rem; color: rgba(239,234,230,0.45);
+    line-height: 1.7;
+  }
+  .art-footer {
+    display: flex; align-items: center;
+    justify-content: space-between; padding-top: 0.75rem;
+    border-top: 1px solid rgba(78,205,196,0.08);
+    margin-top: auto;
+  }
+  .art-date-sm { font-size: 0.7rem; color: rgba(239,234,230,0.25); }
+  .art-link {
+    font-size: 0.75rem; font-weight: 500; color: var(--gold);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .art-link:hover { color: var(--aqua); }
+  .art-badge {
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; font-weight: 500;
+  }
+  .art-badge.upcoming {
+    background: rgba(255,107,107,0.12);
+    color: var(--gold); border: 1px solid rgba(255,107,107,0.2);
+  }
+
+  /* SUBSCRIBE CTA */
+  .articles-cta {
+    border: 1px solid rgba(78,205,196,0.15);
+    margin-top: 1rem;
+  }
+  .articles-cta-inner {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 3rem;
+    padding: 3rem 3.5rem;
+  }
+  .cta-label {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.75rem;
+  }
+  .cta-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.02em;
+    color: var(--paper); line-height: 1.1; margin-bottom: 0.75rem;
+  }
+  .cta-sub {
+    font-size: 0.85rem; color: rgba(239,234,230,0.45); line-height: 1.7;
+    max-width: 480px;
+  }
+  .cta-actions {
+    display: flex; flex-direction: column; gap: 0.75rem;
+    min-width: 200px;
+  }
+  #articles .btn-primary { background: var(--gold); color: var(--ink); text-align: center; }
+  #articles .btn-primary:hover { background: #c8903a; }
+  #articles .btn-outline { border-color: rgba(78,205,196,0.4); color: var(--aqua); text-align: center; }
+  #articles .btn-outline:hover { background: rgba(78,205,196,0.08); }
+
+  @media (max-width: 900px) {
+    .articles-featured { grid-template-columns: 1fr; }
+    .articles-grid { grid-template-columns: 1fr 1fr; }
+    .articles-cta-inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .articles-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { min-height: 50vh; }
+    section { padding: 5rem 2rem; }
+    nav { padding: 0 1.5rem; }
+    footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
+    .footer-bottom { padding: 1.25rem 2rem; flex-direction: column; gap: 0.5rem; }
+    .cv-grid { grid-template-columns: 1fr; }
+    .future-grid { grid-template-columns: 1fr; }
+    .connect-inner { grid-template-columns: 1fr; }
+    .hero-left { padding: 4rem 2rem 3rem; }
+    .nav-links { display: none; }
+  }
+
+  /* ═══ PERSONALITY & FUN ═══ */
+
+  /* Syne for hero display */
+  .hero-name {
+    font-family: 'Syne', 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.0; letter-spacing: -0.01em;
+    color: var(--ink); margin-bottom: 0.2rem;
+  }
+  .hero-name .line2 { color: var(--accent); }
+
+  /* Sketch underline on hero em */
+  .hero-em {
+    font-style: italic;
+    position: relative; display: inline-block;
+    color: var(--accent);
+  }
+  .hero-em::after {
+    content: '';
+    position: absolute; left: 0; bottom: -4px;
+    width: 100%; height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 Q30 1 60 5 Q90 9 120 4 Q150 0 180 5 Q195 7 198 6' stroke='%23FF6B6B' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+  }
+
+  /* Oversized hero title */
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic; font-size: 1.25rem;
+    color: var(--muted); margin: 1.25rem 0 2rem;
+    line-height: 1.5;
+  }
+
+  /* Hero tag with hand-drawn feel */
+  .hero-tag {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+    white-space: nowrap; flex-wrap: nowrap;
+  }
+  .hero-tag::before {
+    content: ''; display: block; width: 2.5rem; height: 2px;
+    background: var(--accent);
+    border-radius: 0;
+  }
+
+  /* Diagonal slash divider between sections */
+  .slash-divider {
+    height: 60px; overflow: hidden; position: relative;
+    background: var(--paper);
+  }
+  .slash-divider::after {
+    content: '';
+    position: absolute; bottom: 0; left: -5%; right: -5%;
+    height: 100%;
+    background: var(--ink);
+    clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Section title — bigger, bolder, Syne */
+  .section-title {
+    font-family: 'Syne', 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    line-height: 1.1; letter-spacing: -0.01em;
+    margin-bottom: 3rem;
+  }
+
+  /* Punchy pull-quote style */
+  .pull-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-weight: 400; font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--ink); line-height: 1.25;
+    padding: 2rem 2.5rem; margin: 3rem 0;
+    border-left: 5px solid var(--accent);
+    background: var(--paper);
+    position: relative;
+  }
+  .pull-quote em { color: var(--accent); font-style: normal; }
+  .pull-quote::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 8rem; line-height: 1;
+    color: var(--accent); opacity: 0.12;
+    position: absolute; top: -1rem; left: 1rem;
+    pointer-events: none;
+  }
+
+  /* Wiggle animation on hover for nav logo */
+  .nav-logo { display: inline-block; }
+  .nav-logo:hover { animation: wiggle 0.4s ease; }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+  }
+
+  /* Stagger reveal on timeline items */
+  .timeline-item { animation: none; }
+  .timeline-item.visible {
+    animation: slideInLeft 0.5s ease both;
+  }
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Hover surprise on loc blocks — colour flash */
+  .loc-block { transition: transform 0.2s, border-color 0.2s, background 0.2s; }
+  .loc-block:hover { background: #fff5f5; }
+  .loc-block.loc-home:hover { background: #fff8ec; }
+  .loc-block.loc-current:hover { background: #f0fff8; }
+
+  /* Hover surprise on lang blocks — bold the name */
+  .lang-block:hover .lang-name {
+    color: var(--accent);
+    transition: color 0.2s;
+  }
+
+  /* Industry card hover — icon bounces */
+  .ind-card:hover .ind-icon {
+    animation: bounce 0.4s ease;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    40% { transform: translateY(-6px); }
+    70% { transform: translateY(-2px); }
+  }
+
+  /* Article featured card — coral left flash on hover */
+  .article-featured-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0; background: var(--accent);
+    transition: width 0.25s ease;
+  }
+  .article-featured-card:hover::before { width: 4px; }
+
+  /* Stat numbers — Syne bold */
+  .hero-stat .num {
+    font-family: 'Syne', 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem; color: var(--ink); line-height: 1;
+  }
+  .hero-stat .num span { color: var(--accent); }
+
+  /* Nav link hover — underline slides in */
+  .nav-links a {
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; left: 0; bottom: -3px;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* Button hover — slide fill left-to-right */
+  .btn-primary {
+    position: relative; overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute; left: -100%; top: 0;
+    width: 100%; height: 100%;
+    background: var(--accent);
+    transition: left 0.25s ease;
+    z-index: 0;
+  }
+  .btn-primary:hover::before { left: 0; }
+  .btn-primary:hover { background: var(--ink); }
+  .btn-primary span, .btn-primary { position: relative; z-index: 1; }
+
+  /* Hero right panel — coral tinted dark */
+  .hero-right { background: #1A1A2E !important; }
+
+  /* Pillar label colour */
+  .pillar-label { color: #FFE66D !important; }
+  .pillar-sub { color: rgba(247,247,247,0.45) !important; }
+  .hero-quote { color: rgba(247,247,247,0.9) !important; border-left-color: #FF6B6B !important; }
+
+  /* Country pills on dark */
+  .country-pill {
+    background: rgba(255,107,107,0.1) !important;
+    color: rgba(247,247,247,0.85) !important;
+    border-color: rgba(255,107,107,0.2) !important;
+  }
+
+  /* CV on dark — update colours */
+  .cv-cell-label { color: #FFE66D !important; }
+  .cv-cell-sub { color: rgba(78,205,196,0.8) !important; }
+  .cv-skills-list li { color: rgba(247,247,247,0.7) !important; }
+  .cv-skills-list li::after { color: #FF6B6B !important; }
+
+  /* Footer colours */
+  footer { background: #0d0d1a !important; }
+  .footer-bottom { background: #050510 !important; border-top-color: rgba(255,107,107,0.12) !important; }
+  .footer-logo span { color: #FF6B6B !important; }
+  .footer-col-title { color: #FFE66D !important; }
+  .footer-tagline { color: rgba(78,205,196,0.6) !important; }
+  .footer-links a { color: rgba(247,247,247,0.5) !important; }
+  .footer-bottom span { color: rgba(247,247,247,0.25) !important; }
+
+  /* Progress bars — coral */
+  .progress-fill { background: #FF6B6B !important; }
+
+
+
+  /* Languages section on yellow bg */
+  #languages .lang-block {
+    background: rgba(255,255,255,0.7) !important;
+    border-color: rgba(255,107,107,0.15) !important;
+  }
+  #languages .lang-level { color: #1A1A2E !important; opacity: 0.5; }
+  #languages .lang-level-progress { color: #FF6B6B !important; opacity: 1; }
+  #languages .lang-level-culture { color: #1A1A2E !important; opacity: 0.65; }
+  #languages .lang-name { color: #1A1A2E !important; }
+  #languages .lang-block:hover .lang-name { color: #FF6B6B !important; }
+  #languages .lang-note { color: rgba(26,26,46,0.6) !important; }
+  #languages .lang-fill { background: #1A1A2E !important; }
+  #languages .lang-fill-progress { background: #FF6B6B !important; }
+  #languages .lang-fill-culture { background: #4ECDC4 !important; }
+  #languages .section-label { color: #FF6B6B !important; }
+  #languages .section-label::before { background: #FF6B6B !important; }
+
+  /* Map/locations section on light coral bg */
+  #map .section-label { color: #FF6B6B !important; }
+  #map .section-label::before { background: #FF6B6B !important; }
+  .loc-label { color: #4ECDC4 !important; }
+  .loc-block.loc-home .loc-label { color: #FF6B6B !important; }
+  .loc-block.loc-current .loc-label { color: #4ECDC4 !important; }
+  .loc-block.loc-home { border-color: rgba(255,107,107,0.25) !important; }
+  .loc-block.loc-current { border-color: rgba(78,205,196,0.25) !important; }
+
+  /* Timeline dots */
+  .timeline-item:hover .dot { background: var(--accent) !important; transform: scale(1.4) !important; }
+  .timeline-item:hover .timeline-card { border-color: var(--accent) !important; }
+
+  /* CV section label on dark */
+  #cv .section-label { color: #FFE66D !important; }
+  #cv .section-label::before { background: #FFE66D !important; }
+
+  /* LinkedIn button */
+  .li-btn { background: var(--accent) !important; }
+  .li-btn:hover { background: #e05555 !important; }
+
+  /* Article section */
+  #articles .section-label { color: #FFE66D !important; }
+  #articles .section-label::before { background: #FFE66D !important; }
+
+  /* Connect section */
+  #connect { background: var(--surface) !important; }
+
+  /* Cursor big */
+  .cursor.big { background: #FFE66D !important; }
+
+  /* ═══ END PERSONALITY ═══ */
+
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Jackie <span>dP.</span></a>
+  <ul class="nav-links">
+    <li><a href="#map">Locations</a></li>
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-tag"><span class="tag-line"></span>Client Executive · Strategic Deal Maker · Behavioural Scientist</div>
+    <h1 class="hero-name">
+      Jackie<br>
+      <span class="line2">du Plooy</span>
+    </h1>
+    <p class="hero-title">Closing enterprise deals<br>with the science of how<br><em class="hero-em">humans actually decide.</em></p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">$150<span>M</span></div>
+        <div class="label">TCV Managed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">$33<span>M</span></div>
+        <div class="label">ARR · Current</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">15<span>+</span></div>
+        <div class="label">Yrs Enterprise</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#journey" class="btn-primary">My Journey ↓</a>
+      <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="btn-outline">LinkedIn</a>
+    </div>
+  </div>
+    <div class="hero-right">
+    <div class="hero-right-content">
+
+      <div class="hero-impact-label">The approach that actually works</div>
+      <div class="hero-right-quote">"The brain is the missing layer<br>in every AI strategy."</div>
+
+      <div class="hero-approach-list">
+
+        <div class="approach-step">
+          <div class="approach-num">01</div>
+          <div class="approach-body">
+            <div class="approach-title">Decode the human layer first</div>
+            <div class="approach-desc">Before any AI strategy. Cognitive biases, loss aversion, and status-quo thinking are baked into every procurement decision and change programme. Map them — then design around them.</div>
+          </div>
+        </div>
+
+        <div class="approach-step">
+          <div class="approach-num">02</div>
+          <div class="approach-body">
+            <div class="approach-title">Close deals others can't</div>
+            <div class="approach-desc">$150M TCV across BFSI, Energy, and Insurance. The edge? Understanding what's really blocking the yes — and structuring the deal to resolve it. Behavioural economics in the boardroom.</div>
+          </div>
+        </div>
+
+        <div class="approach-step">
+          <div class="approach-num">03</div>
+          <div class="approach-body">
+            <div class="approach-title">Build AI strategies that stick</div>
+            <div class="approach-desc">70% of AI transformations fail at adoption, not implementation. The fix isn't more change management. It's designing for how the brain actually responds to uncertainty, novelty, and loss of control.</div>
+          </div>
+        </div>
+
+        <div class="approach-step approach-step-last">
+          <div class="approach-num">04</div>
+          <div class="approach-body">
+            <div class="approach-title">Bridge science and the boardroom</div>
+            <div class="approach-desc">MSc Behavioural Economics. Industrial PhD in Neuroeconomics in progress. The rare practitioner who operates at C-suite level and can translate neuroscience into commercial strategy.</div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+    <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="map">
+  <div class="section-label">Where I've lived &amp; worked</div>
+  <h2 class="section-title reveal">6 Countries.<br>4 Continents.</h2>
+  <div class="locations-grid reveal">
+
+    <div class="loc-block loc-home">
+      <div class="loc-flag">🇿🇦</div>
+      <div class="loc-content">
+        <div class="loc-label">Home Country</div>
+        <div class="loc-name">South Africa</div>
+        <div class="loc-city">Johannesburg</div>
+        <p class="loc-desc">Where it all began. BCom I&amp;O Psychology at UNISA. Africa shaped the resilience, the ability to read people across context, and the hunger to understand what actually drives human behaviour.</p>
+        <div class="loc-tags"><span>Foundation</span><span>UNISA</span><span>BCom I&amp;O Psych</span></div>
+      </div>
+    </div>
+
+    <div class="loc-block">
+      <div class="loc-flag">🇬🇧</div>
+      <div class="loc-content">
+        <div class="loc-label">Chapter 1</div>
+        <div class="loc-name">United Kingdom</div>
+        <div class="loc-city">London</div>
+        <p class="loc-desc">First move abroad. Built and led a 120-person BFSI team across South Africa and the UK at Wipro. Learned that the biggest blocker to enterprise transformation is never the technology — it's the human layer.</p>
+        <div class="loc-tags"><span>Wipro</span><span>T-Systems</span><span>BFSI</span><span>120-person team</span></div>
+      </div>
+    </div>
+
+    <div class="loc-block">
+      <div class="loc-flag">🇸🇬</div>
+      <div class="loc-content">
+        <div class="loc-label">Chapter 2</div>
+        <div class="loc-name">Singapore</div>
+        <div class="loc-city">Singapore</div>
+        <p class="loc-desc">Asia Pacific chapter at Concentrix. Applied gamification, nudge theory, and choice architecture to product development for Telco and Airline clients. Asia taught me that context shapes cognition — behaviour is not universal.</p>
+        <div class="loc-tags"><span>Concentrix</span><span>APAC</span><span>Nudge Design</span><span>Telco &amp; Airlines</span></div>
+      </div>
+    </div>
+
+    <div class="loc-block">
+      <div class="loc-flag">🇨🇿</div>
+      <div class="loc-content">
+        <div class="loc-label">Chapter 3</div>
+        <div class="loc-name">Czechia</div>
+        <div class="loc-city">Prague</div>
+        <p class="loc-desc">Strategic deal-making and commercial leadership at Monstarlab. Secured a pioneering $5M contract using behavioural economics in B2B procurement. Led $20M M&amp;A strategies reshaping European positioning.</p>
+        <div class="loc-tags"><span>Monstarlab</span><span>$5M Deal</span><span>$20M M&amp;A</span><span>Europe</span></div>
+      </div>
+    </div>
+
+    <div class="loc-block">
+      <div class="loc-flag">🇦🇪</div>
+      <div class="loc-content">
+        <div class="loc-label">Chapter 4</div>
+        <div class="loc-name">United Arab Emirates</div>
+        <div class="loc-city">Dubai</div>
+        <p class="loc-desc">Client executive across Gulf insurance and BFSI. Led Guidewire, Sapiens, and Oracle Health Insurance platform transformations at enterprise scale. A live laboratory in cross-cultural decision science.</p>
+        <div class="loc-tags"><span>Guidewire</span><span>Sapiens</span><span>Oracle HI</span><span>Gulf BFSI</span></div>
+      </div>
+    </div>
+
+    <div class="loc-block loc-current">
+      <div class="loc-flag">🇳🇴</div>
+      <div class="loc-content">
+        <div class="loc-label">Current · Chapter 5</div>
+        <div class="loc-name">Norway</div>
+        <div class="loc-city">Oslo</div>
+        <p class="loc-desc">Regional Commercial Director at HCLTech, managing a $33M strategic energy account. Driving AI transformation at CxO level. Norway's systems thinking sharpened a core conviction: the missing layer in every AI strategy is the human brain.</p>
+        <div class="loc-tags"><span>HCLTech</span><span>$33M ARR</span><span>$150M TCV</span><span>AI Transformation</span><span>Energy Sector</span></div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<!-- JOURNEY TIMELINE -->
+<section id="journey">
+  <div class="section-label">Life chapters</div>
+  <h2 class="section-title reveal">The Journey<br>So Far</h2>
+  <div class="pull-quote reveal">"Every country added a new lens. Every deal added a new data point. The pattern became clear: <em>it's never the strategy that fails — it's always the human layer.</em>"</div>
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">Roots</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span> South Africa — Home</div>
+        <h3 class="timeline-role">BCom I&amp;O Psychology — University of South Africa (UNISA)</h3>
+        <p class="timeline-desc">Grew up in South Africa and built my academic foundation at UNISA — studying the psychology of people, organisations, and behaviour. This early lens on human motivation and decision-making became the thread running through everything that followed. Africa doesn't leave you; it shapes how you read every room, every deal, every stakeholder.</p>
+        <div class="timeline-tags"><span class="tag">BCom I&amp;O Psychology · UNISA</span><span class="tag">CGMA Fellowship</span><span class="tag">CBT Certified</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">Wipro</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa · United Kingdom</div>
+        <h3 class="timeline-role">Wipro — Client Executive, BFSI Practice Lead</h3>
+        <p class="timeline-desc">Built and led a 120-person BFSI delivery and commercial team across South Africa and the UK. Applied Industrial &amp; Organisational Psychology principles to scale a high-performance client engine — learning early that the biggest blocker to transformation is never the technology, it's always the human layer. Every enterprise deal is a live case study in cognitive bias.</p>
+        <div class="timeline-tags"><span class="tag">BFSI · 120-person team</span><span class="tag">Client Executive</span><span class="tag">SA &amp; UK</span><span class="tag">T-Systems</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">Concentrix</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇸🇬</span> Singapore · Asia Pacific</div>
+        <h3 class="timeline-role">Concentrix — Client Executive, Digital &amp; Innovation</h3>
+        <p class="timeline-desc">Singapore accelerated everything. As a senior client executive in the digital innovation practice, I applied behavioural science frameworks — gamification, nudge theory, choice architecture — to product development for Telco and Airline clients across APAC. Asia taught me that context shapes cognition: behaviour looks different across cultures, and the sharpest deal strategy accounts for that.</p>
+        <div class="timeline-tags"><span class="tag">Gamification &amp; Nudge Design</span><span class="tag">Telco &amp; Airlines</span><span class="tag">Singapore · APAC</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">Monstar</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇨🇿</span> Prague, Czechia · Europe</div>
+        <h3 class="timeline-role">Monstarlab — Strategic Deal Maker &amp; Commercial Director, Europe</h3>
+        <p class="timeline-desc">Led commercial strategy and enterprise deal-making across Europe for a global digital consultancy. Secured a pioneering $5M contract by decoding the cognitive biases in complex B2B procurement decisions — and spearheaded $20M M&amp;A strategies that reshaped the firm's European positioning. Prague sharpened a different edge: moving fast in ambiguous markets where the deal structure is as important as the solution.</p>
+        <div class="timeline-tags"><span class="tag">$5M Strategic Deal</span><span class="tag">$20M M&amp;A Strategy</span><span class="tag">Europe · Czechia</span><span class="tag">Digital Transformation</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">Dubai</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇦🇪</span> Dubai, UAE · Gulf Region</div>
+        <h3 class="timeline-role">Client Executive — Insurance &amp; BFSI, Gulf</h3>
+        <p class="timeline-desc">Dubai operates at a frequency most people never experience — audacious scale, cross-cultural complexity, and the convergence of East and West. Drove complex insurance platform transformations (Guidewire, Sapiens, Oracle Health Insurance) at enterprise scale across the Gulf. Understanding how senior stakeholder decision-making differs in this region became a live laboratory in applied behavioural economics — every deal negotiated across cultural lines.</p>
+        <div class="timeline-tags"><span class="tag">Guidewire · Sapiens · Oracle HI</span><span class="tag">Gulf BFSI</span><span class="tag">C-Suite Deal Making</span><span class="tag">UAE</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">HCLTech</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇳🇴</span> Oslo, Norway · Current</div>
+        <h3 class="timeline-role">HCLTech — Regional Commercial Director &amp; Client Executive</h3>
+        <p class="timeline-desc">Currently managing a $33M ARR strategic energy account — part of a $150M TCV portfolio — for HCLTech in Norway. Operating at CxO level to drive AI and digital transformation strategy, while applying behavioural economics to unlock deal momentum in complex, multi-stakeholder environments. Norway's emphasis on sustainability and systems thinking has sharpened a core conviction: the next frontier in enterprise AI is the human brain.</p>
+        <div class="timeline-tags"><span class="tag">$33M ARR · $150M TCV</span><span class="tag">AI Transformation</span><span class="tag">CxO Engagement</span><span class="tag">Energy · Norway</span><span class="tag">Prosci Change Mgmt</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CV SUMMARY -->
+<section id="cv">
+  <div class="section-label">Professional profile</div>
+  <h2 class="section-title reveal">The CV,<br>Condensed</h2>
+  <div class="pull-quote reveal" style="background:#252540; color: #F7F7F7; border-left-color:#FF6B6B;">"$150M TCV. $33M ARR. 6 countries. <em>One consistent edge: understanding how humans actually decide.</em>"</div>
+  <div class="cv-grid reveal">
+    <div class="cv-cell">
+      <div class="cv-cell-label">Current Role</div>
+      <div class="cv-cell-title">Regional Commercial Director — HCLTech, Norway</div>
+      <div class="cv-cell-sub">Strategic client executive managing a $33M ARR energy account — part of a $150M TCV portfolio. Driving AI transformation at CxO level. Applying behavioural economics to close complex, multi-stakeholder enterprise deals.</div>
+    </div>
+    <div class="cv-cell">
+      <div class="cv-cell-label">Credentials</div>
+      <div class="cv-cell-title">CGMA · FMA · MSc · BCom</div>
+      <div class="cv-cell-sub">MSc Behavioural Economics &amp; Game Theory (James Lindt Institute) · BCom I&amp;O Psychology (UNISA) · PG Diploma Innovation &amp; Design Thinking · CGMA Fellowship · FMA · CBT Certified · Prosci Change Management</div>
+    </div>
+    <div class="cv-cell">
+      <div class="cv-cell-label">Career Span</div>
+      <div class="cv-cell-title">15+ Years · BFSI · Energy · Insurance · AI</div>
+      <div class="cv-cell-sub">HCLTech · Monstarlab · Concentrix · Wipro · T-Systems · EMEA &amp; APAC. Insurance platforms: Guidewire · Sapiens · Oracle Health Insurance. Portfolio: $150M TCV · $33M ARR current account.</div>
+    </div>
+    <div class="cv-cell">
+      <div class="cv-cell-label">The Research Horizon</div>
+      <div class="cv-cell-title">Neuroscience × AI × Enterprise</div>
+      <div class="cv-cell-sub">Pursuing an Industrial PhD bridging cognitive neuroscience, AI decision-making, and enterprise deal strategy. Target institutions: Netherlands and Germany. The research question that drives it all: why does human cognition remain the missing layer in every AI strategy?</div>
+    </div>
+    <div class="cv-cell">
+      <div class="cv-cell-label">Core Expertise</div>
+      <div class="cv-cell-title">What I Bring</div>
+      <ul class="cv-skills-list">
+        <li>Strategic Enterprise Deal Making</li>
+        <li>Client Executive · $5M–$33M Accounts</li>
+        <li>Behavioural Economics &amp; Nudge Strategy</li>
+        <li>AI &amp; Digital Transformation Advisory</li>
+        <li>CxO Stakeholder &amp; C-Suite Engagement</li>
+        <li>Insurance Platforms: Guidewire · Sapiens</li>
+        <li>Cross-cultural Commercial Leadership</li>
+        <li>Cognitive Bias in B2B Procurement</li>
+      </ul>
+    </div>
+    <div class="cv-cell">
+      <div class="cv-cell-label">Research Focus</div>
+      <div class="cv-cell-title">Neuroeconomics &amp; Enterprise AI</div>
+      <div class="cv-cell-sub">Cognitive biases in AI adoption &amp; deal-making · Decision neuroscience in digital transformation · Neurological drivers of organisational change resistance · Bridging neuroeconomics with enterprise strategy at scale.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES & THOUGHT LEADERSHIP -->
+<section id="articles">
+  <div class="section-label">Thought leadership</div>
+  <h2 class="section-title reveal">Writing That<br>Moves the Needle</h2>
+  <div class="pull-quote reveal" style="background:#252540; color: #F7F7F7; border-left-color:#FFE66D;">"70% of AI transformations fail. The missing variable <em>isn't the data. It's the brain.</em>"</div>
+  <p class="articles-intro reveal">At the intersection of cognitive neuroscience, AI transformation, and commercial strategy — for executives who want to understand what actually drives human decisions at scale.</p>
+
+  <div class="articles-featured reveal">
+    <div class="article-featured-card">
+      <div class="art-feat-meta">
+        <span class="art-topic">Neuroscience &amp; AI</span>
+        <span class="art-read">7 min read</span>
+      </div>
+      <h3 class="art-feat-title">The Neuroscience of AI Resistance — Why Your Transformation Programme Is Fighting the Brain</h3>
+      <p class="art-feat-excerpt">70% of digital transformation projects fail. This isn't a technology problem — it's a neuroscience problem. The organisations investing billions in AI are largely designing for the wrong variable: the technology. They are ignoring the brain.</p>
+      <div class="art-feat-footer">
+        <span class="art-date">March 2026</span>
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-read-btn">Read on LinkedIn →</a>
+      </div>
+    </div>
+    <div class="article-featured-card">
+      <div class="art-feat-meta">
+        <span class="art-topic">Behavioural Economics</span>
+        <span class="art-read">6 min read</span>
+      </div>
+      <h3 class="art-feat-title">Why Every Enterprise AI Strategy Has a Missing Layer — And It's Not the Data</h3>
+      <p class="art-feat-excerpt">Enterprises are spending record amounts on AI infrastructure. But the ROI numbers are sobering. The missing layer isn't better models or cleaner data — it's the cognitive architecture of the humans who have to use, trust, and act on AI outputs.</p>
+      <div class="art-feat-footer">
+        <span class="art-date">February 2026</span>
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-read-btn">Read on LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="articles-grid reveal">
+    <div class="article-card">
+      <div class="art-topic-tag">Decision Science</div>
+      <h4 class="art-title">The Chief Behavioural Officer — The C-Suite Role Nobody Is Talking About Yet</h4>
+      <p class="art-excerpt">Every major enterprise deploying AI will need someone who understands the cognitive and neurological drivers of how humans respond to AI systems.</p>
+      <div class="art-footer">
+        <span class="art-date-sm">Coming April 2026</span>
+        <span class="art-badge upcoming">Upcoming</span>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="art-topic-tag">Decision Science</div>
+      <h4 class="art-title">Decision Architecture in the Boardroom — What Neuroscience Says About How Leaders Actually Decide</h4>
+      <p class="art-excerpt">We teach leaders strategy frameworks and financial models. We almost never teach them how their own brain shapes every decision they make.</p>
+      <div class="art-footer">
+        <span class="art-date-sm">January 2026</span>
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link">Read →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="art-topic-tag">Behavioural Economics</div>
+      <h4 class="art-title">What Insurance Can Teach Every Industry About Behavioural Economics</h4>
+      <p class="art-excerpt">Insurance products are built on neurological contradictions. The organisations redesigning around how customers actually process risk are gaining measurable commercial advantage.</p>
+      <div class="art-footer">
+        <span class="art-date-sm">December 2025</span>
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link">Read →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="art-topic-tag">Change Management</div>
+      <h4 class="art-title">6 Countries. 15 Years. One Consistent Pattern in How Organisations Fail at Change</h4>
+      <p class="art-excerpt">From Johannesburg to Singapore to Oslo — the failure pattern in change management is identical everywhere. It is never the strategy. It is always the human layer.</p>
+      <div class="art-footer">
+        <span class="art-date-sm">November 2025</span>
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link">Read →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="articles-cta reveal">
+    <div class="articles-cta-inner">
+      <div class="cta-text-block">
+        <div class="cta-label">Stay in the conversation</div>
+        <h3 class="cta-heading">New thinking, every two weeks.<br>On the neuroscience of work.</h3>
+        <p class="cta-sub">Practical insights at the intersection of cognitive science, AI strategy, and commercial leadership — for executives who want to lead with evidence, not instinct alone.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="btn-primary">Follow on LinkedIn</a>
+        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="btn-outline">Share this work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKEDIN & UPDATES -->
+<section id="connect">
+  <div class="section-label">Stay connected</div>
+  <h2 class="section-title reveal">LinkedIn &amp;<br>Latest Updates</h2>
+  <div class="connect-inner reveal">
+    <div class="linkedin-card">
+      <div class="li-header">
+        <div class="li-avatar">JdP</div>
+        <div>
+          <div class="li-name">Jackie du Plooy</div>
+          <div class="li-role">CGMA · FMA · MSc Behavioural Economics | Client Executive · Strategic Deal Maker · Neuroscience × AI</div>
+        </div>
+      </div>
+      <div class="li-stats">
+        <div class="li-stat"><div class="n">500+</div><div class="l">Connections</div></div>
+        <div class="li-stat"><div class="n">6</div><div class="l">Countries</div></div>
+        <div class="li-stat"><div class="n">15+</div><div class="l">Yrs Exp</div></div>
+      </div>
+      <ul class="li-updates">
+        <li>Writing on the neuroscience of enterprise deal-making — how cognitive bias shapes every B2B procurement decision</li>
+        <li>Publishing on AI transformation strategy — why 70% of programmes fail at the human layer, not the technology layer</li>
+        <li>Building the case for the Chief Behavioural Officer — the most important C-suite role nobody has created yet</li>
+        <li>Sharing 15 years of client executive intelligence from BFSI, energy, and insurance across 4 continents</li>
+      </ul>
+      <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="li-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </div>
+
+    <div class="connect-right">
+      <div class="updates-title">What's New</div>
+      <ul class="update-feed">
+        <li>
+          <div class="update-date">APR<br>2026</div>
+          <div class="update-text"><strong>Published:</strong> "The neuroscience of why digital transformation projects fail — and what to do about it."</div>
+        </li>
+        <li>
+          <div class="update-date">MAR<br>2026</div>
+          <div class="update-text"><strong>New article:</strong> "15 years applying behavioural economics at enterprise scale — what I've actually learned."</div>
+        </li>
+        <li>
+          <div class="update-date">JAN<br>2026</div>
+          <div class="update-text"><strong>MIT edX:</strong> Completing Neuroscience for Business — adding formal credential to 15 years of applied practice.</div>
+        </li>
+        <li>
+          <div class="update-date">DEC<br>2025</div>
+          <div class="update-text"><strong>Reflection:</strong> Managing a $150M TCV portfolio and $33M ARR energy account in Norway crystallised my research focus — the human brain is still the missing layer in every AI strategy.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Jackie <span>dP.</span></div>
+    <p class="footer-tagline">"The best deal makers don't just understand<br>the market — they understand the<br>minds of the people in the room."</p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#map">Locations</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#cv">CV Summary</a></li>
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#connect">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Lived In</div>
+    <ul class="footer-links">
+      <li><a href="#">🇿🇦 South Africa</a></li>
+      <li><a href="#">🇬🇧 United Kingdom</a></li>
+      <li><a href="#">🇸🇬 Singapore</a></li>
+      <li><a href="#">🇨🇿 Czechia</a></li>
+      <li><a href="#">🇦🇪 Dubai, UAE</a></li>
+      <li><a href="#">🇳🇴 Norway</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 Jackie du Plooy · CGMA · FMA · MSc Behavioural Economics</span>
+  <span>Client Executive · Strategic Deal Maker · Neuroscience × AI</span>
+</div>
+
+<script>
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .timeline-item, .loc-block, .lang-block, .ind-card, .article-card, .article-featured-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+});
+
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+revealEls.forEach(el => io.observe(el));
+
+const progressObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.querySelectorAll('.lang-fill').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => bar.style.width = w, 150);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('#languages').forEach(el => progressObserver.observe(el));
+</script>
+</body>
+</html>
