@@ -380,7 +380,163 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     .stat-item { min-width: 30%; }
     .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     #contact { padding: 5rem 2rem; }
-    .lang-toggle { display: none; }
+    .lang-toggle { right: 0.5rem; }
+  }
+
+  /* LANGUAGE TOGGLE — fixed right pill */
+  .lang-toggle {
+    position: fixed;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0A1931;
+    border: 1.5px solid #00B4D8;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 42px;
+  }
+  .lang-toggle-btn {
+    padding: 0.75rem 0.6rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: rgba(249,248,245,0.35);
+    transition: color 0.15s, background 0.15s;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    display: block;
+  }
+  .lang-toggle-btn.active {
+    color: #F9F8F5;
+    background: rgba(0,180,216,0.2);
+  }
+  .lang-toggle-btn:hover { color: #00B4D8; }
+  .lang-divider {
+    width: 70%;
+    height: 1px;
+    background: rgba(0,180,216,0.3);
+  }
+  .lang-toggle-flag {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem 0.55rem;
+    text-align: center;
+    border-top: 1px solid rgba(0,180,216,0.2);
+    width: 100%;
+    cursor: pointer;
+  }
+
+
+  /* ═══ LANGUAGE TOGGLE ═══════════════════════════════════════════════════ */
+  /* Default: hide all DE, show all EN */
+  .de { display: none !important; }
+  
+  /* When DE active: hide EN, show DE */
+  body.lang-de .en { display: none !important; }
+  body.lang-de span.de { display: inline !important; }
+  body.lang-de div.de  { display: block  !important; }
+  body.lang-de p.de    { display: block  !important; }
+  body.lang-de a.de    { display: inline-block !important; }
+  body.lang-de li.de   { display: list-item !important; }
+  /* ═══════════════════════════════════════════════════════════════════════ */
+
+  /* ═══ ACHIEVEMENTS ═══════════════════════════════════════════════════════ */
+  #achievements { background: var(--ink); color: var(--paper); padding: 6rem 5rem; }
+  #achievements .section-label { color: var(--accent); }
+  #achievements .section-label::before { background: var(--accent); }
+  #achievements .section-title { color: var(--paper); }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(0,180,216,0.1);
+  }
+  .ach-card {
+    background: #0F2744;
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background 0.2s;
+    border-top: 3px solid transparent;
+  }
+  .ach-card:hover { background: #152d4a; border-top-color: var(--accent); }
+  .ach-card.ach-featured {
+    background: var(--ink);
+    border-top: 3px solid var(--accent);
+  }
+  .ach-card.ach-featured:hover { background: #0e2847; }
+
+  .ach-company {
+    font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .ach-value {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 2.8rem; line-height: 1;
+    letter-spacing: -0.02em; color: #F9F8F5;
+  }
+  .ach-card.ach-featured .ach-value {
+    color: var(--accent); font-size: 3.5rem;
+  }
+  .ach-label {
+    font-size: 0.78rem; font-weight: 500;
+    color: rgba(249,248,245,0.72); line-height: 1.35;
+  }
+  .ach-desc {
+    font-size: 0.78rem; line-height: 1.7;
+    color: rgba(249,248,245,0.42); flex: 1;
+  }
+  .ach-tags {
+    display: flex; flex-wrap: wrap; gap: 0.3rem;
+    margin-top: auto; padding-top: 0.75rem;
+    border-top: 1px solid rgba(0,180,216,0.1);
+  }
+  .ach-tags span {
+    font-size: 0.58rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.16rem 0.48rem;
+    border: 1px solid rgba(0,180,216,0.18);
+    color: var(--accent);
+  }
+
+  @media(max-width:900px) { .achievements-grid { grid-template-columns: 1fr 1fr; } }
+  @media(max-width:600px) { .achievements-grid { grid-template-columns: 1fr; } }
+  /* ════════════════════════════════════════════════════════════════════════ */
+
+  /* CREDENTIAL BADGES */
+  .hero-creds {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.25rem 0 2rem;
+    align-items: center;
+  }
+  .cred-badge {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border: 1px solid rgba(0,180,216,0.3);
+    color: var(--accent);
+    background: rgba(0,180,216,0.05);
+    white-space: nowrap;
+    line-height: 1.5;
   }
 
 </style>
@@ -394,7 +550,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
   <button class="lang-toggle-btn active" id="btnEN" onclick="setLang('en')">EN</button>
   <div class="lang-divider"></div>
   <button class="lang-toggle-btn" id="btnDE" onclick="setLang('de')">DE</button>
-  <div class="lang-toggle-flag">🇩🇪</div>
+  <div class="lang-toggle-flag" onclick="setLang(document.body.classList.contains('lang-de')?'en':'de')" style="cursor:pointer;">🇩🇪</div>
 </div>
 
 <nav>
@@ -412,20 +568,19 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 </nav>
 
 <section class="hero" id="home">
+  <!-- LEFT: Identity -->
   <div class="hero-left">
     <div class="hero-tag"><span class="en">Client Executive · Strategic Deal Maker · Behavioural Scientist</span><span class="de">Client Executive · Strategischer Dealmaker · Verhaltenswissenschaftlerin</span></div>
     <h1 class="hero-name">Jackie<br><span class="line2">du Plooy</span></h1>
     <p class="hero-title"><span class="en">Closing enterprise deals<br>with the science of<br><em class="hero-em">how decisions are made.</em></span><span class="de">Enterprise-Deals abschliessen<br>mit der Wissenschaft<br><em class="hero-em">menschlicher Entscheidungen.</em></span></p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">$150<span>M</span></div><div class="label"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></div></div>
-      <div class="hero-stat"><div class="num">$33<span>M</span></div><div class="label"><span class="en">ARR Aktuell</span><span class="de">ARR Aktuell</span></div></div>
-      <div class="hero-stat"><div class="num">15<span>+</span></div><div class="label"><span class="en">Yrs Experience</span><span class="de">Jahre Erfahrung</span></div></div>
-    </div>
+    <div class="hero-creds"><span class="cred-badge">CGMA</span><span class="cred-badge">FMA</span><span class="cred-badge">MSc Behavioural Economics</span><span class="cred-badge">BCom I&amp;O Psych</span></div>
     <div class="hero-ctas">
       <a href="#journey" class="btn-primary"><span class="en">My Journey</span><span class="de">Mein Werdegang</span></a>
-      <a href="#connect" class="btn-outline">LinkedIn</a>
+      <a href="#contact" class="btn-outline"><span class="en">Get in touch</span><span class="de">Kontakt</span></a>
     </div>
   </div>
+
+  <!-- RIGHT: Approach -->
   <div class="hero-right">
     <div class="hero-right-content">
       <div class="hero-impact-label"><span class="en">The approach that actually works</span><span class="de">Der Ansatz, der wirklich funktioniert</span></div>
@@ -435,33 +590,34 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
           <div class="approach-num">01</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Decode the human layer first</span><span class="de">Zuerst die menschliche Ebene entschlüsseln</span></div>
-            <div class="approach-desc"><span class="en">Before any AI strategy is designed, the human layer needs to be mapped. Cognitive biases, loss aversion, and resistance to novelty shape every procurement decision and change programme. Design around them or fail against them.</span><span class="de">Bevor eine KI-Strategie entwickelt wird, muss die menschliche Ebene kartiert werden. Kognitive Verzerrungen, Verlustaversion und Widerstand gegen Neues prägen jede Beschaffungsentscheidung und jedes Veränderungsprogramm. Um sie herum gestalten oder daran scheitern.</span></div>
+            <div class="approach-desc"><span class="en">Before any AI strategy is designed, the human layer needs to be mapped. Cognitive biases, loss aversion, and resistance to novelty shape every procurement decision and change programme. Design around them or fail against them.</span><span class="de">Bevor eine KI-Strategie entwickelt wird, muss die menschliche Ebene kartiert werden. Kognitive Verzerrungen, Verlustaversion und Widerstand gegen Neues prägen jede Beschaffungsentscheidung. Um sie herum gestalten oder daran scheitern.</span></div>
           </div>
         </div>
         <div class="approach-step">
           <div class="approach-num">02</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Close deals others cannot</span><span class="de">Abschlüsse erzielen, die anderen verwehrt bleiben</span></div>
-            <div class="approach-desc"><span class="en">$150M TCV across BFSI, Energy, and Insurance. The consistent edge was knowing what was really blocking the yes and building a deal structure that resolved it. Behavioural economics applied where it matters most: the boardroom.</span><span class="de">$150M TCV in BFSI, Energie und Versicherung. Der entscheidende Vorteil war zu wissen, was das Ja wirklich blockiert, und eine Dealstruktur zu schaffen, die das löst. Verhaltensökonomie dort eingesetzt, wo sie am meisten zählt: im Vorstandssaal.</span></div>
+            <div class="approach-desc"><span class="en">$150M TCV across BFSI, Energy, and Insurance. The consistent edge was knowing what was really blocking the yes and building a deal structure that resolved it. Behavioural economics applied where it matters most: the boardroom.</span><span class="de">$150M TCV in BFSI, Energie und Versicherung. Der entscheidende Vorteil war zu wissen, was das Ja wirklich blockiert, und eine Dealstruktur zu schaffen, die das löst.</span></div>
           </div>
         </div>
         <div class="approach-step">
           <div class="approach-num">03</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Build AI strategies that stick</span><span class="de">KI-Strategien entwickeln, die halten</span></div>
-            <div class="approach-desc"><span class="en">Seven in ten AI transformations fail at adoption, not implementation. More change management does not fix this. Designing the strategy around how the brain actually responds to uncertainty, novelty, and loss of control does.</span><span class="de">Sieben von zehn KI-Transformationen scheitern bei der Übernahme, nicht bei der Implementierung. Mehr Change-Management löst das nicht. Die Strategie so zu gestalten, wie das Gehirn tatsächlich auf Unsicherheit, Neues und Kontrollverlust reagiert, schon.</span></div>
+            <div class="approach-desc"><span class="en">Seven in ten AI transformations fail at adoption, not implementation. More change management does not fix this. Designing the strategy around how the brain actually responds to uncertainty, novelty, and loss of control does.</span><span class="de">Sieben von zehn KI-Transformationen scheitern bei der Übernahme. Mehr Change-Management löst das nicht. Die Strategie um das tatsächliche Gehirnverhalten herum zu gestalten schon.</span></div>
           </div>
         </div>
         <div class="approach-step">
           <div class="approach-num">04</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Bridge science and the boardroom</span><span class="de">Wissenschaft und Vorstand verbinden</span></div>
-            <div class="approach-desc"><span class="en">MSc Behavioural Economics. MIT Neuroscience for Business in progress. Twenty-five years operating at C-suite level across six countries. The intersection of formal research and live commercial practice is where the most useful work gets done.</span><span class="de">MSc Verhaltensökonomie. MIT Neuroscience for Business in Bearbeitung. Fünfundzwanzig Jahre auf C-Suite-Ebene in sechs Ländern. Die Schnittstelle zwischen formaler Forschung und gelebter Handelspraxis ist der Ort, wo die wertvollste Arbeit entsteht.</span></div>
+            <div class="approach-desc"><span class="en">MSc Behavioural Economics. MIT Neuroscience for Business in progress. Twenty-five years operating at C-suite level across six countries. The intersection of formal research and live commercial practice is where the most useful work gets done.</span><span class="de">MSc Verhaltensökonomie. MIT Neuroscience for Business in Bearbeitung. Fünfundzwanzig Jahre auf C-Suite-Ebene in sechs Ländern.</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="scroll-hint"><span class="en">scroll</span><span class="de">scrollen</span></div>
 </section>
 
@@ -478,6 +634,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <div class="logo-item">Concentrix</div>
     <div class="logo-sep"></div>
     <div class="logo-item">Siemens</div>
+    <div class="logo-sep"></div>
+    <div class="logo-item">T-Systems</div>
   </div>
 </div>
 
@@ -513,6 +671,48 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <span class="stat-l"><span class="en">Continents</span><span class="de">Kontinente</span></span>
   </div>
 </div>
+
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label"><span class="en">Career defining moments</span><span class="de">Prägende Karrieremomente</span></div>
+  <h2 class="section-title reveal"><span class="en">Proof Points<br>That Matter.</span><span class="de">Belege,<br>die zählen.</span></h2>
+  <div class="achievements-grid reveal">
+
+    <div class="ach-card ach-featured">
+      <div class="ach-company">Wipro &middot; Old Mutual</div>
+      <div class="ach-value">$136M</div>
+      <div class="ach-label"><span class="en">Largest single engagement secured</span><span class="de">Größtes gesichertes Einzelmandat</span></div>
+      <p class="ach-desc"><span class="en">The defining deal of the Wipro decade. A $136M engagement with Old Mutual — one of Africa's largest financial services groups. Built on a 120-person BFSI team and the commercial credibility to operate at the most senior level.</span><span class="de">Das prägende Mandat der Wipro-Dekade. $136M mit Old Mutual — einer der größten Finanzdienstleistungsgruppen Afrikas.</span></p>
+      <div class="ach-tags"><span>Cape Town · 2015 to 2019</span><span>BFSI</span><span>Wipro</span></div>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-company">HCLTech &middot; Guidewire</div>
+      <div class="ach-value">$15M</div>
+      <div class="ach-label"><span class="en">Insurance platform deal won from scratch</span><span class="de">Versicherungsplattform-Deal aus dem Stand</span></div>
+      <p class="ach-desc"><span class="en">Joined HCLTech SA in 2019 and secured a $15M Guidewire implementation from a standing start. New enterprise relationships, new market — closed on insurance platform depth and commercial precision.</span><span class="de">2019 zu HCLTech SA gestoßen und einen $15M Guidewire-Auftrag aus dem Stand gesichert. Neue Unternehmensbeziehungen, neuer Markt.</span></p>
+      <div class="ach-tags"><span>South Africa · 2019</span><span>Insurance</span><span>HCLTech</span></div>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-company">Monstarlab &middot; Europe</div>
+      <div class="ach-value">$20M</div>
+      <div class="ach-label"><span class="en">M&amp;A strategy developed and executed</span><span class="de">M&amp;A-Strategie entwickelt und umgesetzt</span></div>
+      <p class="ach-desc"><span class="en">As VP Operations and Commercial at Monstarlab, developed and executed $20M in M&amp;A strategy that repositioned the firm's European footprint — alongside securing a $5M strategic deal through applied behavioural economics.</span><span class="de">Als VP Operations and Commercial bei Monstarlab eine $20M M&amp;A-Strategie entwickelt und umgesetzt, die die europäische Aufstellung neu positionierte.</span></p>
+      <div class="ach-tags"><span>Prague · 2020 to 2024</span><span>M&amp;A</span><span>Monstarlab</span></div>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-company">HCLTech &middot; Equinor</div>
+      <div class="ach-value">$33M ARR</div>
+      <div class="ach-label"><span class="en">Strategic energy account · Current</span><span class="de">Strategisches Energiekonto · Aktuell</span></div>
+      <p class="ach-desc"><span class="en">Managing the $33M ARR Equinor engagement for HCLTech in Stavanger — AI and digital transformation at CxO level in one of the world's most strategically significant energy companies.</span><span class="de">Das $33M ARR Equinor-Mandat für HCLTech in Stavanger — KI- und digitale Transformation auf CxO-Ebene.</span></p>
+      <div class="ach-tags"><span>Stavanger · Nov 2024 to Present</span><span>Energy</span><span>HCLTech</span></div>
+    </div>
+
+  </div>
+</section>
 
 
 <section id="map">
@@ -556,11 +756,11 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <div class="loc-block">
       <div class="loc-flag">🇨🇿</div>
       <div class="loc-content">
-        <div class="loc-label">Monstarlab · 2020 to 2023</div>
+        <div class="loc-label">Monstarlab · 2020 to 2024</div>
         <div class="loc-name">Czechia</div>
         <div class="loc-city">Prague</div>
-        <p class="loc-desc">Commercial Director at Monstarlab, leading European deal strategy from Prague. A $5M strategic contract secured through understanding the psychology of B2B procurement. $20M in M&amp;A strategy developed and executed. Central Europe builds commercial trust slowly — the relationships that close deals here are built over months, not meetings.</p>
-        <div class="loc-tags"><span>Monstarlab</span><span>$5M Deal</span><span>$20M M&amp;A</span><span>2020 to 2023</span></div>
+        <p class="loc-desc">VP Operations and Commercial at Monstarlab, leading European deal strategy and operations from Prague. A $5M strategic contract secured through understanding the psychology of B2B procurement. $20M in M&amp;A strategy developed and executed. Central Europe builds commercial trust slowly — the relationships that close deals here are built over months, not meetings.</p>
+        <div class="loc-tags"><span>Monstarlab</span><span>VP Operations &amp; Commercial</span><span>$5M Deal</span><span>$20M M&amp;A</span><span>2020 to 2024</span></div>
       </div>
     </div>
 
@@ -626,7 +826,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="ind-foundation-title">Technology &amp; IT Services</div>
       <p class="ind-foundation-desc">The through-line across every role, every country, every deal. 15 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems — delivering commercial strategy, AI transformation, digital platform modernisation, and enterprise technology engagements at C-suite level across four continents.</p>
       <div class="ind-foundation-tags">
-        <span>HCLTech</span><span>Wipro</span><span>Monstarlab</span><span>Concentrix</span><span>Siemens Business Services</span>
+        <span>HCLTech</span><span>Wipro</span><span>Monstarlab</span><span>Concentrix</span><span>Siemens Business Services</span><span>T-Systems</span>
         <span>AI Transformation</span><span>Platform Modernisation</span><span>Enterprise IT Services</span>
       </div>
     </div>
@@ -684,7 +884,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <div><div class="ind-name">Neuroscience &amp; Decision Science</div><div class="ind-depth">Emerging Focus</div></div>
       </div>
       <p class="ind-desc">The research horizon — where 15 years of applied behavioural economics in enterprise meets formal academic study. Applying 25 years of enterprise commercial experience to the formal study of cognitive neuroscience and AI decision-making. Completing MIT Neuroscience for Business. The central question: how do the neurological realities of human decision-making reshape how we design, deploy, and govern AI in organisations?</p>
-      <div class="ind-tags"><span>Neuroeconomics</span><span>Decision Science</span><span>Industrial PhD</span><span>AI Governance</span></div>
+      <div class="ind-tags"><span>Neuroeconomics</span><span>Decision Science</span><span>MIT Neuroscience for Business</span><span>AI Governance</span></div>
     </div>
   </div>
 </section>
@@ -696,32 +896,32 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
   <div class="timeline">
 
     <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2000</div></div>
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2024</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2000 to 2009</div>
-        <h3 class="timeline-role">Siemens Business Services — Commercial Manager</h3>
-        <p class="timeline-desc">Nine years across South Africa and the UK at Siemens Business Services shaped the commercial foundation that everything since has been built on. Managing complex technology services contracts, engaging at senior stakeholder level, and learning the discipline of structured deal management in one of the world's most process-driven organisations. The move to the UK sharpened the pace and raised the standard.</p>
-        <div class="timeline-tags"><span class="tag">2000 to 2009</span><span class="tag">Siemens Business Services</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span></div>
+        <div class="timeline-location"><span class="flag">🇳🇴</span> Stavanger, Norway · November 2024 to Present</div>
+        <h3 class="timeline-role">HCLTech — Regional Commercial Director</h3>
+        <p class="timeline-desc">Managing a $33M ARR strategic energy account — the Equinor engagement — as part of a broader portfolio for HCLTech in Stavanger. Working at CxO level to drive AI and digital transformation in one of the world's most strategically significant energy markets. Norway's long-term orientation and systems thinking have reinforced a conviction that has been building across the entire career: the organisations that win with AI are not the ones with the best technology, but the ones that understand how their people will actually respond to it.</p>
+        <div class="timeline-tags"><span class="tag">Nov 2024 to Present</span><span class="tag">HCLTech</span><span class="tag">$33M ARR · Equinor</span><span class="tag">AI Transformation</span><span class="tag">Stavanger · Norway</span></div>
       </div>
     </div>
 
     <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2009</div></div>
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2021</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span> Cape Town, South Africa · 2009 to 2019</div>
-        <h3 class="timeline-role">Wipro — BFSI Practice Lead &amp; Client Executive</h3>
-        <p class="timeline-desc">A decade at Wipro in Cape Town, building and leading a 120-person BFSI delivery team. The defining commercial win of this period was a $136M engagement with Old Mutual — one of Africa's largest financial services groups. Every major transformation programme undertaken here confirmed the same pattern: the technology delivered, and the human layer determined whether it was ever actually used. That observation did not leave.</p>
-        <div class="timeline-tags"><span class="tag">2009 to 2019</span><span class="tag">Wipro</span><span class="tag">$136M Old Mutual</span><span class="tag">120-person BFSI team</span><span class="tag">Cape Town</span></div>
+        <div class="timeline-location"><span class="flag">🇦🇪</span> Dubai, UAE · 2021 to 2023</div>
+        <h3 class="timeline-role">Monstarlab — VP Engagement, Insurance</h3>
+        <p class="timeline-desc">Served as VP Engagement managing insurance platform client engagements across the Gulf, concurrent with the European operational role. Guidewire, Sapiens, and Oracle Health Insurance implementations at enterprise scale. Dubai operates on fundamentally different commercial logic: scale is expected, relationships are non-negotiable, and the ability to read the room across cultural and organisational lines is not a soft skill — it is the deciding factor in whether the deal moves or stalls.</p>
+        <div class="timeline-tags"><span class="tag">2021 to 2023</span><span class="tag">Monstarlab</span><span class="tag">VP Engagement</span><span class="tag">Guidewire · Sapiens · Oracle HI</span><span class="tag">Gulf BFSI</span></div>
       </div>
     </div>
 
     <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2019</div></div>
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2020</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span> South Africa · 2019</div>
-        <h3 class="timeline-role">HCLTech — Client Executive, Insurance</h3>
-        <p class="timeline-desc">Joined HCLTech in South Africa and secured a $15M Guidewire implementation engagement. A landmark deal in the insurance platform space that demonstrated both the depth of sector knowledge built over the Wipro years and the ability to open new enterprise relationships from scratch. The Guidewire ecosystem, the client, and the deal structure each demanded a different kind of commercial precision.</p>
-        <div class="timeline-tags"><span class="tag">2019</span><span class="tag">HCLTech</span><span class="tag">$15M Guidewire</span><span class="tag">Insurance</span><span class="tag">South Africa</span></div>
+        <div class="timeline-location"><span class="flag">🇨🇿</span> Prague, Czechia · 2020 to 2024</div>
+        <h3 class="timeline-role">Monstarlab — VP Operations &amp; Commercial, Europe</h3>
+        <p class="timeline-desc">Led commercial strategy, operations, and enterprise deal-making across Europe for Monstarlab. Secured a $5M strategic contract by understanding the cognitive patterns behind complex B2B procurement decisions. Developed and executed $20M in M&amp;A strategy that repositioned the firm's European footprint. Prague was a market that required patience — relationships are built slowly, trust is the currency, and the deal that closes is the one where both sides genuinely understand what the other needs.</p>
+        <div class="timeline-tags"><span class="tag">2020 to 2024</span><span class="tag">Monstarlab</span><span class="tag">VP Operations &amp; Commercial</span><span class="tag">$5M Strategic Deal</span><span class="tag">$20M M&amp;A</span></div>
       </div>
     </div>
 
@@ -736,32 +936,42 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     </div>
 
     <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2020</div></div>
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2019</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇨🇿</span> Prague, Czechia · 2020 to 2023</div>
-        <h3 class="timeline-role">Monstarlab — Commercial Director, Europe</h3>
-        <p class="timeline-desc">Led commercial strategy and enterprise deal-making across Europe for Monstarlab. Secured a $5M strategic contract by understanding the cognitive patterns behind complex B2B procurement decisions. Developed and executed $20M in M&amp;A strategy that repositioned the firm's European footprint. Prague was a market that required patience — relationships are built slowly, trust is the currency, and the deal that closes is the one where both sides genuinely understand what the other needs.</p>
-        <div class="timeline-tags"><span class="tag">2020 to 2023</span><span class="tag">Monstarlab</span><span class="tag">$5M Strategic Deal</span><span class="tag">$20M M&amp;A</span><span class="tag">Prague · Europe</span></div>
+        <div class="timeline-location"><span class="flag">🇿🇦</span> South Africa · 2019</div>
+        <h3 class="timeline-role">HCLTech — Client Executive, Insurance</h3>
+        <p class="timeline-desc">Joined HCLTech in South Africa and secured a $15M Guidewire implementation engagement. A landmark deal in the insurance platform space that demonstrated both the depth of sector knowledge built over the Wipro years and the ability to open new enterprise relationships from scratch. The Guidewire ecosystem, the client, and the deal structure each demanded a different kind of commercial precision.</p>
+        <div class="timeline-tags"><span class="tag">2019</span><span class="tag">HCLTech</span><span class="tag">$15M Guidewire</span><span class="tag">Insurance</span><span class="tag">South Africa</span></div>
       </div>
     </div>
 
     <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2021</div></div>
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2015</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇦🇪</span> Dubai, UAE · 2021 to 2022</div>
-        <h3 class="timeline-role">Monstarlab — Client Executive, Insurance</h3>
-        <p class="timeline-desc">Managed insurance platform client engagements across the Gulf, concurrent with the European commercial director role. Guidewire, Sapiens, and Oracle Health Insurance implementations at enterprise scale. Dubai operates on fundamentally different commercial logic: scale is expected, relationships are non-negotiable, and the ability to read the room across cultural and organisational lines is not a soft skill — it is the deciding factor in whether the deal moves or stalls.</p>
-        <div class="timeline-tags"><span class="tag">2021 to 2022</span><span class="tag">Guidewire · Sapiens · Oracle HI</span><span class="tag">Gulf BFSI</span><span class="tag">Dubai</span></div>
+        <div class="timeline-location"><span class="flag">🇿🇦</span> Cape Town, South Africa · 2015 to 2019</div>
+        <h3 class="timeline-role">Wipro — BFSI Practice Lead &amp; Client Executive</h3>
+        <p class="timeline-desc">A decade at Wipro in Cape Town, building and leading a 120-person BFSI delivery team. The defining commercial win of this period was a $136M engagement with Old Mutual — one of Africa's largest financial services groups. Every major transformation programme undertaken here confirmed the same pattern: the technology delivered, and the human layer determined whether it was ever actually used. That observation did not leave.</p>
+        <div class="timeline-tags"><span class="tag">2015 to 2019</span><span class="tag">Wipro</span><span class="tag">$136M Old Mutual</span><span class="tag">120-person BFSI team</span><span class="tag">Cape Town</span></div>
       </div>
     </div>
 
     <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2024</div></div>
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2009</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇳🇴</span> Stavanger, Norway · November 2024 to Present</div>
-        <h3 class="timeline-role">HCLTech — Regional Commercial Director</h3>
-        <p class="timeline-desc">Managing a $33M ARR strategic energy account — the Equinor engagement — as part of a broader portfolio for HCLTech in Stavanger. Working at CxO level to drive AI and digital transformation in one of the world's most strategically significant energy markets. Norway's long-term orientation and systems thinking have reinforced a conviction that has been building across the entire career: the organisations that win with AI are not the ones with the best technology, but the ones that understand how their people will actually respond to it.</p>
-        <div class="timeline-tags"><span class="tag">Nov 2024 to Present</span><span class="tag">HCLTech</span><span class="tag">$33M ARR · Equinor</span><span class="tag">AI Transformation</span><span class="tag">Stavanger · Norway</span></div>
+        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2009 to 2015</div>
+        <h3 class="timeline-role">T-Systems — Commercial Manager</h3>
+        <p class="timeline-desc">Following Siemens Business Services, continued building the commercial foundation at T-Systems across South Africa and the UK. Deeper exposure to large-scale managed services and infrastructure transformation engagements at enterprise level, working with major corporate and public sector clients. Sharpened the ability to navigate complex, multi-stakeholder commercial environments and position technology value at executive level.</p>
+        <div class="timeline-tags"><span class="tag">2009 to 2015</span><span class="tag">T-Systems</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span><span class="tag">Managed Services</span></div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2000</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2000 to 2009</div>
+        <h3 class="timeline-role">Siemens Business Services — Commercial Manager</h3>
+        <p class="timeline-desc">Nine years across South Africa and the UK at Siemens Business Services shaped the commercial foundation that everything since has been built on. Managing complex technology services contracts, engaging at senior stakeholder level, and learning the discipline of structured deal management in one of the world's most process-driven organisations. The move to the UK sharpened the pace and raised the standard.</p>
+        <div class="timeline-tags"><span class="tag">2000 to 2009</span><span class="tag">Siemens Business Services</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span></div>
       </div>
     </div>
 
@@ -1000,8 +1210,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <li><a href="#">🇿🇦 South Africa</a></li>
       <li><a href="#">🇬🇧 United Kingdom · 2000 to 2009</a></li>
       <li><a href="#">🇸🇬 Singapore · 2020</a></li>
-      <li><a href="#">🇨🇿 Czechia · 2020 to 2023</a></li>
-      <li><a href="#">🇦🇪 Dubai, UAE · 2021 to 2022</a></li>
+      <li><a href="#">🇨🇿 Czechia · 2020 to 2024</a></li>
+      <li><a href="#">🇦🇪 Dubai, UAE · 2021 to 2023</a></li>
       <li><a href="#">🇳🇴 Norway · Nov 2024 to Present</a></li>
     </ul>
   </div>
@@ -1037,4 +1247,14 @@ if (savedLang === 'de') setLang('de');
 
 </script>
 </body>
-</html>
+</html>    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2009</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2009 to 2015</div>
+        <h3 class="timeline-role">T-Systems — Commercial Manager</h3>
+        <p class="timeline-desc">Following Siemens Business Services, continued building the commercial foundation at T-Systems across South Africa and the UK. Deeper exposure to large-scale managed services and infrastructure transformation engagements at enterprise level, working with major corporate and public sector clients. Sharpened the ability to navigate complex, multi-stakeholder commercial environments and position technology value at the executive level.</p>
+        <div class="timeline-tags"><span class="tag">2009 to 2015</span><span class="tag">T-Systems</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span><span class="tag">Managed Services</span></div>
+      </div>
+    </div>
+
+
