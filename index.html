@@ -2,86 +2,133 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="Jackie du Plooy — Client Executive and Strategic Deal Maker. $136M Old Mutual. $15M Guidewire. $33M ARR Equinor. MSc Behavioural Economics. Siemens, Wipro, HCLTech. 6 countries, 25 years.">
-<meta name="keywords" content="Jackie du Plooy, Behavioural Economics, AI Transformation, Client Executive, BFSI, Insurance, HCLTech, Neuroeconomics, Deal Maker, Norway, Netherlands, Germany">
-<meta name="author" content="Jackie du Plooy">
-<meta property="og:title" content="Jackie du Plooy — Client Executive · Behavioural Scientist · AI Strategy">
-<meta property="og:description" content="Closing enterprise deals with the science of how humans actually decide. $150M TCV. 6 countries. MSc Behavioural Economics.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jackieduplooy.com">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jackie du Plooy — Behavioural Science meets AI Strategy">
-<meta name="twitter:description" content="Client Executive. Strategic Deal Maker. MSc Behavioural Economics. $150M TCV across BFSI, Energy and Insurance.">
-<link rel="canonical" href="https://jackieduplooy.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jackie du Plooy</title>
+<meta name="description" content="Jackie du Plooy — Client Executive and Strategic Deal Maker. $136M Old Mutual. $15M Guidewire. $33M ARR Equinor. MSc Behavioural Economics. 25 years enterprise across 6 countries.">
+<meta property="og:title" content="Jackie du Plooy — Client Executive · Behavioural Scientist · AI Strategy">
+<meta property="og:description" content="Closing enterprise deals with the science of how decisions are made. $150M TCV. 6 countries. MSc Behavioural Economics.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0A1931;--paper:#F9F8F5;--accent:#00B4D8;--mint:#80ED99;--muted:#3a5a6e;--surface:#EEF6F8;--border:rgba(10,25,49,0.1);--nav-h:64px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+body{font-family:"DM Sans",sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
 .cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:multiply}
 .cursor.big{width:36px;height:36px;background:var(--mint)}
+
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;z-index:100;background:var(--paper);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;color:var(--ink);text-decoration:none;cursor:none}
+.nav-logo{font-family:"Syne",sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;color:var(--ink);text-decoration:none;cursor:none}
 .nav-logo span{color:var(--accent)}
-.nav-logo:hover{animation:wiggle .4s ease}
-@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}75%{transform:rotate(3deg)}}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;cursor:none}
-.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--accent);transition:width .2s ease}
-.nav-links a:hover::after{width:100%}
-.nav-links a:hover{color:var(--ink)}
-.hero{min-height:100vh;padding-top:var(--nav-h);display:grid;grid-template-columns:5fr 6fr;align-items:stretch;position:relative}
-.hero-left{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:3.5rem 3rem 3rem 4rem;position:relative;z-index:2;overflow:hidden}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;cursor:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* LANG TOGGLE */
+.lang-toggle{position:fixed;right:1.25rem;top:50%;transform:translateY(-50%);z-index:9998;display:flex;flex-direction:column;align-items:center;background:#0A1931;border:1.5px solid #00B4D8;box-shadow:0 4px 20px rgba(0,0,0,.4);border-radius:4px;overflow:hidden;min-width:42px}
+.lang-btn{padding:.75rem .6rem;font-family:"Syne",sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;cursor:pointer;border:none;background:transparent;color:rgba(249,248,245,.35);transition:color .15s,background .15s;width:100%;text-align:center;line-height:1;display:block}
+.lang-btn.active{color:#F9F8F5;background:rgba(0,180,216,.2)}
+.lang-btn:hover{color:#00B4D8}
+.lang-div{width:70%;height:1px;background:rgba(0,180,216,.25);margin:0 auto}
+.lang-flag{font-size:.95rem;padding:.4rem .6rem .55rem;text-align:center;border-top:1px solid rgba(0,180,216,.2);width:100%;cursor:pointer}
+
+/* LANG VISIBILITY - SIMPLE AND CLEAN */
+.de{display:none}
+body.lang-de .en{display:none}
+body.lang-de .de{display:revert}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:var(--nav-h);display:grid;grid-template-columns:5fr 6fr;align-items:stretch;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:5rem 3rem 3rem 5rem;position:relative;z-index:2}
 .hero-tag{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;white-space:nowrap}
-.hero-tag::before{content:'';display:block;width:2rem;height:2px;background:var(--accent);flex-shrink:0}
-.hero-name{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(2.8rem,6vw,5rem);line-height:1;letter-spacing:-.01em;color:var(--ink);margin-bottom:.2rem}
+.hero-tag::before{content:"";display:block;width:2rem;height:2px;background:var(--accent);flex-shrink:0}
+.hero-name{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:.2rem}
 .hero-name .line2{color:var(--accent)}
-.hero-title{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.2rem;color:var(--muted);margin:1.25rem 0 2rem;line-height:1.5}
+.hero-title{font-family:"DM Serif Display",serif;font-style:italic;font-size:1.2rem;color:var(--muted);margin:1.25rem 0 1.5rem;line-height:1.5}
 .hero-em{color:var(--accent);font-style:italic;position:relative;display:inline-block}
-.hero-em::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 Q30 1 60 5 Q90 9 120 4 Q150 0 180 5 Q195 7 198 6' stroke='%2300B4D8' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-size:100% 100%;background-repeat:no-repeat;opacity:.7}
+.hero-em::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 Q30 1 60 5 Q90 9 120 4 Q150 0 180 5 Q195 7 198 6' stroke='%2300B4D8' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-size:100% 100%;background-repeat:no-repeat;opacity:.7}
+.hero-creds{display:flex;flex-direction:row;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem;align-items:center}
+.cred-badge{display:inline-block;font-family:"DM Sans",sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border:1px solid rgba(0,180,216,.3);color:var(--accent);background:rgba(0,180,216,.05);white-space:nowrap;line-height:1.5}
 .hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem}
-.hero-stat .num{font-family:'Syne',sans-serif;font-weight:700;font-size:2.2rem;color:var(--ink);line-height:1}
+.hero-stat .num{font-family:"Syne",sans-serif;font-weight:700;font-size:2.2rem;color:var(--ink);line-height:1}
 .hero-stat .num span{color:var(--accent)}
 .hero-stat .label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
 .hero-ctas{display:flex;gap:1rem;align-items:center}
-.btn-primary{background:var(--ink);color:var(--paper);padding:.8rem 1.75rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:none;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary{background:var(--ink);color:var(--paper);padding:.8rem 1.75rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:none;transition:background .2s,transform .15s;display:inline-block}
 .btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
 .btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:.8rem 1.75rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:none;transition:background .2s,color .2s,transform .15s}
 .btn-outline:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);animation:scrollbounce 2.5s ease-in-out infinite}
-.scroll-hint::after{content:'';display:block;width:1px;height:2rem;background:var(--muted)}
-@keyframes scrollbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-.hero-right{background:#0A1931;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-right-content{display:flex;flex-direction:column;justify-content:center;padding:2.5rem 3.5rem;height:100%;gap:1.25rem;width:100%;overflow:hidden}
+
+/* HERO RIGHT */
+.hero-right{background:#0A1931;display:flex;align-items:stretch;justify-content:center;overflow:hidden}
+.hero-right-content{display:flex;flex-direction:column;justify-content:flex-start;padding:5rem 3.5rem 3rem;height:100%;gap:1rem;width:100%;overflow:hidden}
 .hero-impact-label{font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.75rem}
-.hero-impact-label::before{content:'';display:block;width:1.5rem;height:1.5px;background:var(--accent);flex-shrink:0}
-.hero-impact-label::after{content:'';display:block;flex:1;height:1px;background:rgba(0,180,216,.15)}
-.hero-right-quote{font-family:'DM Serif Display',serif;font-style:italic;font-size:.95rem;color:rgba(249,248,245,.5);border-left:2px solid var(--mint);padding-left:.85rem;line-height:1.4}
+.hero-impact-label::before{content:"";display:block;width:1.5rem;height:1.5px;background:var(--accent);flex-shrink:0}
+.hero-impact-label::after{content:"";display:block;flex:1;height:1px;background:rgba(0,180,216,.15)}
+.hero-right-quote{font-family:"DM Serif Display",serif;font-style:italic;font-size:.95rem;color:rgba(249,248,245,.5);border-left:2px solid var(--mint);padding-left:.85rem;line-height:1.4}
 .hero-approach-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.05)}
 .approach-step{display:grid;grid-template-columns:2rem 1fr;gap:.65rem;padding:1.25rem;border-bottom:1px solid rgba(255,255,255,.05);border-right:1px solid rgba(255,255,255,.05);transition:background .2s;cursor:default}
 .approach-step:nth-child(even){border-right:none}
 .approach-step:nth-child(3),.approach-step:nth-child(4){border-bottom:none}
 .approach-step:hover{background:rgba(0,180,216,.06)}
-.approach-num{font-family:'Syne',sans-serif;font-weight:700;font-size:.65rem;color:var(--accent);opacity:.45;padding-top:.15rem;transition:opacity .2s}
+.approach-num{font-family:"Syne",sans-serif;font-weight:700;font-size:.65rem;color:var(--accent);opacity:.45;padding-top:.15rem;transition:opacity .2s}
 .approach-step:hover .approach-num{opacity:1}
-.approach-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:#F9F8F5;margin-bottom:.3rem;letter-spacing:.01em}
+.approach-title{font-family:"Syne",sans-serif;font-weight:700;font-size:.9rem;color:#F9F8F5;margin-bottom:.3rem;letter-spacing:.01em}
 .approach-step:hover .approach-title{color:var(--accent)}
 .approach-desc{font-size:.77rem;line-height:1.65;color:rgba(249,248,245,.58);transition:color .2s}
 .approach-step:hover .approach-desc{color:rgba(249,248,245,.85)}
+
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);animation:scrollbounce 2.5s ease-in-out infinite}
+.scroll-hint::after{content:"";display:block;width:1px;height:2rem;background:var(--muted)}
+@keyframes scrollbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* LOGOS STRIP */
+.logos-strip{background:var(--paper);padding:1.5rem 5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:3rem}
+.logos-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,25,49,.3);white-space:nowrap;flex-shrink:0}
+.logos-row{display:flex;align-items:center;gap:0;flex:1;overflow:hidden}
+.logo-item{font-family:"Syne",sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;color:rgba(10,25,49,.25);padding:0 2rem;transition:color .2s;white-space:nowrap;text-transform:uppercase}
+.logo-item:hover{color:var(--accent)}
+.logo-sep{width:1px;height:20px;background:rgba(10,25,49,.1);flex-shrink:0}
+
+/* STATS BAR */
+.stats-bar{background:var(--ink);padding:1.75rem 5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--accent)}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:1}
+.stat-n{font-family:"Syne",sans-serif;font-weight:700;font-size:1.7rem;color:#F9F8F5;line-height:1;letter-spacing:-.01em}
+.stat-l{font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,180,216,.65)}
+.stat-sep{width:1px;height:40px;flex-shrink:0;background:rgba(0,180,216,.15)}
+
+/* SECTION */
 section{padding:6rem 5rem}
 .section-label{font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
-.section-label::before{content:'';display:block;width:2rem;height:1px;background:var(--accent)}
-.section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:3rem}
-.pull-quote{font-family:'DM Serif Display',serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--ink);line-height:1.55;padding:1.5rem 2rem;margin:0 0 3rem;border-left:4px solid var(--accent);background:var(--surface);position:relative}
+.section-label::before{content:"";display:block;width:2rem;height:1px;background:var(--accent)}
+.section-title{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:2.5rem}
+.pull-quote{font-family:"DM Serif Display",serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--ink);line-height:1.55;padding:1.5rem 2rem;margin:0 0 3rem;border-left:4px solid var(--accent);background:var(--surface);position:relative}
 .pull-quote em{color:var(--accent);font-style:normal}
-.pull-quote::before{content:'"';font-family:'DM Serif Display',serif;font-size:5rem;line-height:1;color:var(--accent);opacity:.1;position:absolute;top:-.5rem;left:.75rem;pointer-events:none}
+.pull-quote::before{content:"\"";font-family:"DM Serif Display",serif;font-size:5rem;line-height:1;color:var(--accent);opacity:.1;position:absolute;top:-.5rem;left:.75rem;pointer-events:none}
+
+/* ACHIEVEMENTS */
+#achievements{background:var(--ink);color:var(--paper)}
+#achievements .section-label{color:var(--accent)}
+#achievements .section-label::before{background:var(--accent)}
+#achievements .section-title{color:var(--paper)}
+.achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(0,180,216,.1)}
+.ach-card{background:#0F2744;padding:2.25rem 2rem;display:flex;flex-direction:column;gap:.75rem;transition:background .2s;border-top:3px solid transparent}
+.ach-card:hover{background:#152d4a;border-top-color:var(--accent)}
+.ach-card.ach-featured{background:var(--ink);border-top:3px solid var(--accent)}
+.ach-card.ach-featured:hover{background:#0e2847}
+.ach-company{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.ach-value{font-family:"Syne",sans-serif;font-weight:700;font-size:2.8rem;line-height:1;letter-spacing:-.02em;color:#F9F8F5}
+.ach-card.ach-featured .ach-value{color:var(--accent);font-size:3.5rem}
+.ach-label{font-size:.78rem;font-weight:500;color:rgba(249,248,245,.72);line-height:1.35}
+.ach-desc{font-size:.78rem;line-height:1.7;color:rgba(249,248,245,.42);flex:1}
+.ach-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:auto;padding-top:.75rem;border-top:1px solid rgba(0,180,216,.1)}
+.ach-tags span{font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .48rem;border:1px solid rgba(0,180,216,.18);color:var(--accent)}
+
+/* LOCATIONS */
 #map{background:#EEF6FB}
 .locations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .loc-block{background:var(--paper);border:1px solid var(--border);padding:1.75rem;display:flex;gap:1rem;transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
-.loc-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .2s}
+.loc-block::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .2s}
 .loc-block:hover{transform:translateY(-3px);border-color:var(--accent)}
 .loc-block:hover::before{background:var(--accent)}
 .loc-block.loc-home::before{background:var(--mint);filter:brightness(.75)}
@@ -92,11 +139,13 @@ section{padding:6rem 5rem}
 .loc-content{flex:1}
 .loc-label{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.2rem}
 .loc-block.loc-home .loc-label{color:var(--mint);filter:brightness(.7)}
-.loc-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1}
+.loc-name{font-family:"Syne",sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1}
 .loc-city{font-size:.75rem;color:var(--muted);margin-bottom:.6rem;margin-top:.1rem}
 .loc-desc{font-size:.78rem;line-height:1.7;color:rgba(10,25,49,.6);margin-bottom:.7rem}
 .loc-tags{display:flex;flex-wrap:wrap;gap:.3rem}
 .loc-tags span{font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .48rem;border:1px solid var(--border);color:var(--muted)}
+
+/* LANGUAGES */
 #languages{background:#EDFBF2}
 .lang-blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .lang-block{background:rgba(255,255,255,.75);border:1px solid rgba(0,180,216,.15);padding:1.75rem;display:flex;flex-direction:column;gap:.5rem;border-bottom:3px solid transparent;transition:border-color .2s,transform .2s}
@@ -105,7 +154,7 @@ section{padding:6rem 5rem}
 .lang-block.lang-active{border-bottom-color:var(--accent)}
 .lang-block.lang-cultural{border-bottom-color:rgba(128,237,153,.5)}
 .lang-top{display:flex;justify-content:space-between;align-items:baseline}
-.lang-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;color:var(--ink);line-height:1;transition:color .2s}
+.lang-name{font-family:"Syne",sans-serif;font-weight:700;font-size:1.3rem;color:var(--ink);line-height:1;transition:color .2s}
 .lang-level{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);opacity:.6}
 .lang-level-progress{color:var(--accent);opacity:1}
 .lang-level-culture{opacity:.65}
@@ -114,19 +163,21 @@ section{padding:6rem 5rem}
 .lang-fill-progress{background:var(--accent)}
 .lang-fill-culture{background:rgba(128,237,153,.6)}
 .lang-note{font-size:.78rem;line-height:1.65;color:rgba(10,25,49,.58)}
+
+/* INDUSTRIES */
 #industries{background:var(--ink);color:var(--paper)}
 #industries .section-label{color:var(--accent)}
 #industries .section-label::before{background:var(--accent)}
 #industries .section-title{color:var(--paper)}
-.industries-intro{font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:rgba(249,248,245,.45);max-width:560px;line-height:1.7;margin-bottom:2.5rem}
+.industries-intro{font-family:"DM Serif Display",serif;font-style:italic;font-size:1rem;color:rgba(249,248,245,.45);max-width:560px;line-height:1.7;margin-bottom:2.5rem}
 .ind-foundation{background:#0F2744;padding:2.25rem 2.5rem;margin-bottom:2px;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center}
 .ind-foundation-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);filter:brightness(.75);writing-mode:vertical-rl;transform:rotate(180deg)}
-.ind-foundation-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;color:var(--paper);margin-bottom:.5rem}
+.ind-foundation-title{font-family:"Syne",sans-serif;font-weight:700;font-size:1.3rem;color:var(--paper);margin-bottom:.5rem}
 .ind-foundation-desc{font-size:.8rem;line-height:1.75;color:rgba(249,248,245,.48);margin-bottom:.85rem}
 .ind-foundation-tags{display:flex;flex-wrap:wrap;gap:.3rem}
 .ind-foundation-tags span{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.16rem .52rem;border:1px solid rgba(0,180,216,.22);color:var(--accent)}
 .ind-foundation-stat{text-align:right}
-.ind-stat-num{font-family:'Syne',sans-serif;font-weight:700;font-size:2.4rem;line-height:1;color:var(--paper)}
+.ind-stat-num{font-family:"Syne",sans-serif;font-weight:700;font-size:2.4rem;line-height:1;color:var(--paper)}
 .ind-stat-num span{color:var(--accent)}
 .ind-stat-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(249,248,245,.32)}
 .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(0,180,216,.1)}
@@ -137,32 +188,33 @@ section{padding:6rem 5rem}
 .ind-card-header{display:flex;align-items:flex-start;gap:.75rem}
 .ind-icon{width:38px;height:38px;flex-shrink:0;background:rgba(0,180,216,.1);display:flex;align-items:center;justify-content:center;color:var(--accent)}
 .ind-card.ind-card-emerging .ind-icon{background:rgba(128,237,153,.08);color:var(--mint);filter:brightness(.75)}
-.ind-name{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--paper);line-height:1.25}
+.ind-name{font-family:"DM Serif Display",serif;font-size:1rem;color:var(--paper);line-height:1.25}
 .ind-depth{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-top:.15rem}
 .ind-card.ind-card-emerging .ind-depth{color:var(--mint);filter:brightness(.75)}
 .ind-desc{font-size:.78rem;line-height:1.72;color:rgba(249,248,245,.5);flex:1}
 .ind-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:auto}
 .ind-tags span{font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .48rem;border:1px solid rgba(0,180,216,.18);color:var(--accent)}
-.ind-card:hover .ind-icon{animation:bounce .4s ease}
-@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}70%{transform:translateY(-2px)}}
+
+/* TIMELINE */
 #journey{background:var(--paper)}
 .timeline{position:relative}
-.timeline::before{content:'';position:absolute;left:2.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+.timeline::before{content:"";position:absolute;left:2.5rem;top:0;bottom:0;width:1px;background:var(--border)}
 .timeline-item{display:grid;grid-template-columns:5rem 1fr;gap:2rem;margin-bottom:2.5rem;position:relative}
 .timeline-dot{display:flex;flex-direction:column;align-items:center;padding-top:.35rem}
 .dot{width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);position:relative;z-index:1;flex-shrink:0;transition:background .2s,transform .2s}
 .timeline-item:hover .dot{background:var(--accent);transform:scale(1.3)}
-.year{font-family:'Syne',sans-serif;font-weight:700;font-size:.75rem;color:var(--muted);margin-top:.5rem;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.08em}
+.year{font-family:"Syne",sans-serif;font-weight:700;font-size:.75rem;color:var(--muted);margin-top:.5rem;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.08em}
 .timeline-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem 2rem;position:relative;transition:transform .2s,border-color .2s}
 .timeline-item:hover .timeline-card{transform:translateX(6px);border-color:var(--accent)}
-.timeline-card::before{content:'';position:absolute;left:-8px;top:1.1rem;width:13px;height:13px;background:var(--surface);border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg);transition:border-color .2s}
+.timeline-card::before{content:"";position:absolute;left:-8px;top:1.1rem;width:13px;height:13px;background:var(--surface);border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg);transition:border-color .2s}
 .timeline-item:hover .timeline-card::before{border-color:var(--accent)}
 .timeline-location{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
-.flag{font-size:1rem}
-.timeline-role{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:.65rem}
+.timeline-role{font-family:"DM Serif Display",serif;font-size:1.2rem;color:var(--ink);margin-bottom:.65rem}
 .timeline-desc{font-size:.82rem;line-height:1.8;color:rgba(10,25,49,.6);margin-bottom:1rem}
 .timeline-tags{display:flex;flex-wrap:wrap;gap:.35rem}
 .tag{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border:1px solid var(--border);color:var(--muted);font-weight:500}
+
+/* CV */
 #cv{background:var(--ink);color:var(--paper)}
 #cv .section-label{color:var(--mint);filter:brightness(.78)}
 #cv .section-label::before{background:var(--mint);filter:brightness(.78)}
@@ -171,24 +223,28 @@ section{padding:6rem 5rem}
 .cv-cell{background:var(--ink);padding:2.25rem 2rem;transition:background .2s}
 .cv-cell:hover{background:#0F2744}
 .cv-cell-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);filter:brightness(.78);margin-bottom:.6rem}
-.cv-cell-title{font-family:'DM Serif Display',serif;font-size:1.12rem;color:var(--paper);margin-bottom:.5rem;line-height:1.3}
+.cv-cell-title{font-family:"DM Serif Display",serif;font-size:1.12rem;color:var(--paper);margin-bottom:.5rem;line-height:1.3}
 .cv-cell-sub{font-size:.78rem;color:rgba(0,180,216,.7);line-height:1.65}
 .cv-skills-list{list-style:none;margin-top:.85rem}
-.cv-skills-list li{font-size:.78rem;color:rgba(249,248,245,.62);padding:.28rem 0;border-bottom:1px solid rgba(0,180,216,.1);display:flex;justify-content:space-between;align-items:center}
+.cv-skills-list li{font-size:.78rem;color:rgba(249,248,245,.62);padding:.28rem 0;border-bottom:1px solid rgba(0,180,216,.1)}
+#cv .pull-quote{background:#0F2744;color:#F9F8F5;border-left-color:#00B4D8}
+
+/* ARTICLES */
 #articles{background:var(--ink);color:var(--paper)}
 #articles .section-label{color:var(--mint);filter:brightness(.78)}
 #articles .section-label::before{background:var(--mint);filter:brightness(.78)}
 #articles .section-title{color:var(--paper)}
-.articles-intro{font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:rgba(249,248,245,.45);max-width:580px;line-height:1.7;margin-bottom:2.75rem}
+#articles .pull-quote{background:#0F2744;color:#F9F8F5;border-left-color:#80ED99}
+.articles-intro{font-family:"DM Serif Display",serif;font-style:italic;font-size:1rem;color:rgba(249,248,245,.45);max-width:580px;line-height:1.7;margin-bottom:2.75rem}
 .articles-featured{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;background:rgba(0,180,216,.1)}
 .article-featured-card{background:var(--ink);padding:2.5rem 2.25rem;display:flex;flex-direction:column;gap:.9rem;transition:background .2s;border-bottom:3px solid transparent;position:relative}
-.article-featured-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);transition:width .25s ease}
+.article-featured-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);transition:width .25s ease}
 .article-featured-card:hover{background:#0F2744;border-bottom-color:var(--accent)}
 .article-featured-card:hover::before{width:4px}
 .art-feat-meta{display:flex;align-items:center;gap:1rem}
 .art-topic{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
 .art-read{font-size:.7rem;color:rgba(249,248,245,.28)}
-.art-feat-title{font-family:'DM Serif Display',serif;font-size:1.22rem;color:var(--paper);line-height:1.35;flex:1}
+.art-feat-title{font-family:"DM Serif Display",serif;font-size:1.22rem;color:var(--paper);line-height:1.35;flex:1}
 .art-feat-excerpt{font-size:.8rem;color:rgba(249,248,245,.48);line-height:1.75}
 .art-feat-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.9rem;border-top:1px solid rgba(0,180,216,.1)}
 .art-date{font-size:.7rem;color:rgba(249,248,245,.25)}
@@ -198,7 +254,7 @@ section{padding:6rem 5rem}
 .article-card{background:var(--ink);padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.65rem;transition:background .2s;border-bottom:3px solid transparent}
 .article-card:hover{background:#0F2744;border-bottom-color:var(--accent)}
 .art-topic-tag{font-size:.62rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
-.art-title{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--paper);line-height:1.4;flex:1}
+.art-title{font-family:"DM Serif Display",serif;font-size:1rem;color:var(--paper);line-height:1.4;flex:1}
 .art-excerpt{font-size:.78rem;color:rgba(249,248,245,.38);line-height:1.7}
 .art-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.65rem;border-top:1px solid rgba(0,180,216,.08);margin-top:auto}
 .art-date-sm{font-size:.68rem;color:rgba(249,248,245,.22)}
@@ -207,40 +263,56 @@ section{padding:6rem 5rem}
 .articles-cta{border:1px solid rgba(0,180,216,.15)}
 .articles-cta-inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;padding:2.75rem 3rem}
 .cta-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.65rem}
-.cta-heading{font-family:'Syne',sans-serif;font-weight:700;font-size:1.75rem;color:var(--paper);line-height:1.1;margin-bottom:.65rem}
+.cta-heading{font-family:"Syne",sans-serif;font-weight:700;font-size:1.75rem;color:var(--paper);line-height:1.1;margin-bottom:.65rem}
 .cta-sub{font-size:.8rem;color:rgba(249,248,245,.4);line-height:1.7;max-width:480px}
 .cta-actions{display:flex;flex-direction:column;gap:.65rem;min-width:190px}
 #articles .btn-primary{background:var(--accent);color:var(--ink);text-align:center}
 #articles .btn-primary:hover{background:#0099ba}
 #articles .btn-outline{border-color:rgba(0,180,216,.4);color:var(--accent);text-align:center}
-#articles .btn-outline:hover{background:rgba(0,180,216,.08)}
+
+/* CONNECT */
 #connect{background:var(--surface)}
 .connect-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .linkedin-card{background:var(--paper);border:1px solid var(--border);padding:2.25rem;position:relative;overflow:hidden}
-.linkedin-card::after{content:'in';font-family:'Syne',sans-serif;font-weight:800;font-size:10rem;position:absolute;right:-1rem;bottom:-2.5rem;color:rgba(10,25,49,.04);line-height:1}
+.linkedin-card::after{content:"in";font-family:"Syne",sans-serif;font-weight:800;font-size:10rem;position:absolute;right:-1rem;bottom:-2.5rem;color:rgba(10,25,49,.04);line-height:1}
 .li-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-.li-avatar{width:52px;height:52px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--paper);flex-shrink:0}
-.li-name{font-family:'DM Serif Display',serif;font-size:1.15rem}
+.li-avatar{width:52px;height:52px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;color:var(--paper);flex-shrink:0}
+.li-name{font-family:"DM Serif Display",serif;font-size:1.15rem}
 .li-role{font-size:.75rem;color:var(--muted)}
 .li-stats{display:flex;gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
-.li-stat .n{font-family:'Syne',sans-serif;font-weight:700;font-size:1.8rem;color:var(--ink)}
+.li-stat .n{font-family:"Syne",sans-serif;font-weight:700;font-size:1.8rem;color:var(--ink)}
 .li-stat .l{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .li-updates{list-style:none}
 .li-updates li{padding:.75rem 0;border-bottom:1px solid rgba(10,25,49,.05);font-size:.8rem;color:var(--muted);display:flex;gap:.65rem;align-items:flex-start;line-height:1.55}
-.li-updates li::before{content:'';color:var(--accent);flex-shrink:0;margin-top:.1rem}
+.li-updates li::before{content:"";color:var(--accent);flex-shrink:0;margin-top:.1rem}
 .li-btn{margin-top:1.5rem;display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:white;padding:.7rem 1.5rem;font-size:.75rem;font-weight:500;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;cursor:none;transition:background .2s,transform .15s}
 .li-btn:hover{background:#0099ba;transform:translateY(-2px)}
-.updates-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.8rem;letter-spacing:-.01em;margin-bottom:1.25rem}
+.updates-title{font-family:"Syne",sans-serif;font-weight:700;font-size:1.8rem;letter-spacing:-.01em;margin-bottom:1.25rem}
 .update-feed{list-style:none}
 .update-feed li{padding:1.1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:3.5rem 1fr;gap:1rem;align-items:start;transition:transform .2s;cursor:none}
 .update-feed li:hover{transform:translateX(4px)}
-.update-date{font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--accent);line-height:1.2;text-align:right}
+.update-date{font-family:"Syne",sans-serif;font-weight:700;font-size:.85rem;color:var(--accent);line-height:1.2;text-align:right}
 .update-text{font-size:.82rem;line-height:1.6;color:var(--muted)}
 .update-text strong{color:var(--ink);font-weight:500}
+
+/* CONTACT */
+#contact{background:var(--ink);color:var(--paper);padding:6rem 5rem}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.contact-desc{font-size:.92rem;line-height:1.8;color:rgba(249,248,245,.55);margin-bottom:2rem;max-width:460px}
+.contact-links{display:flex;gap:1rem;flex-wrap:wrap}
+.contact-link-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--ink);padding:.8rem 1.75rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s}
+.contact-link-btn:hover{background:#0099ba;color:white;transform:translateY(-2px)}
+.contact-link-outline{background:transparent;color:rgba(249,248,245,.7);border:1.5px solid rgba(0,180,216,.35)}
+.contact-link-outline:hover{background:rgba(0,180,216,.1);color:var(--accent)}
+.contact-card{background:#0F2744;padding:2.25rem 2.5rem;border:1px solid rgba(0,180,216,.18);border-top:3px solid var(--accent)}
+.contact-card-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.contact-card-value{font-size:.88rem;color:rgba(249,248,245,.75);line-height:1.7;margin-bottom:.25rem}
+
+/* FOOTER */
 footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:2rem;letter-spacing:.02em;color:var(--paper)}
+.footer-logo{font-family:"Syne",sans-serif;font-weight:700;font-size:2rem;letter-spacing:.02em;color:var(--paper)}
 .footer-logo span{color:var(--accent)}
-.footer-tagline{font-family:'DM Serif Display',serif;font-style:italic;font-size:.95rem;color:rgba(0,180,216,.45);margin-top:.5rem;line-height:1.55}
+.footer-tagline{font-family:"DM Serif Display",serif;font-style:italic;font-size:.95rem;color:rgba(0,180,216,.45);margin-top:.5rem;line-height:1.55}
 .footer-col-title{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);filter:brightness(.72);margin-bottom:1.1rem}
 .footer-links{list-style:none}
 .footer-links li{margin-bottom:.5rem}
@@ -248,544 +320,267 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 .footer-links a:hover{color:var(--paper)}
 .footer-bottom{background:#03080f;padding:1.1rem 5rem;border-top:1px solid rgba(0,180,216,.1);display:flex;justify-content:space-between;align-items:center}
 .footer-bottom span{font-size:.72rem;color:rgba(249,248,245,.22);letter-spacing:.05em}
+
+/* ANIMATIONS */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.timeline-item.visible{animation:slideInLeft .5s ease both}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
+
+/* RESPONSIVE */
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-right{min-height:55vh}
+  .hero-right{min-height:60vh}
   .hero-approach-list{grid-template-columns:1fr}
   section{padding:5rem 2rem}
+  #contact{padding:5rem 2rem}
   nav{padding:0 1.5rem}
   .nav-links{display:none}
+  .logos-strip{padding:1.25rem 2rem;gap:1.5rem;flex-wrap:wrap}
+  .logos-row{flex-wrap:wrap;gap:.5rem}
+  .logo-sep{display:none}
+  .stats-bar{padding:1.5rem 2rem;flex-wrap:wrap;gap:1.5rem}
+  .stat-sep{display:none}
+  .stat-item{min-width:30%}
   .locations-grid{grid-template-columns:1fr 1fr}
   .lang-blocks{grid-template-columns:1fr 1fr}
   .ind-grid{grid-template-columns:1fr 1fr}
+  .achievements-grid{grid-template-columns:1fr 1fr}
   .cv-grid{grid-template-columns:1fr}
   .articles-featured{grid-template-columns:1fr}
   .articles-grid{grid-template-columns:1fr 1fr}
   .connect-inner{grid-template-columns:1fr}
   .articles-cta-inner{grid-template-columns:1fr}
   .ind-foundation{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr;gap:3rem}
   footer{grid-template-columns:1fr;padding:3rem 2rem}
   .footer-bottom{padding:1.1rem 2rem;flex-direction:column;gap:.4rem}
+  .lang-toggle{right:.5rem}
 }
 @media(max-width:600px){
-  .locations-grid,.lang-blocks,.ind-grid,.articles-grid{grid-template-columns:1fr}
+  .locations-grid,.lang-blocks,.ind-grid,.articles-grid,.achievements-grid{grid-template-columns:1fr}
 }
-
-  /* LOGOS STRIP */
-  .logos-strip {
-    background: #F9F8F5; padding: 1.5rem 5rem;
-    border-bottom: 1px solid rgba(10,25,49,0.08);
-    display: flex; align-items: center; gap: 3rem;
-  }
-  .logos-label {
-    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: rgba(10,25,49,0.3);
-    white-space: nowrap; flex-shrink: 0;
-  }
-  .logos-row {
-    display: flex; align-items: center; gap: 0; flex: 1;
-    overflow: hidden;
-  }
-  .logo-item {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: 0.9rem; letter-spacing: 0.04em;
-    color: rgba(10,25,49,0.25); padding: 0 2rem;
-    transition: color 0.2s; white-space: nowrap;
-    text-transform: uppercase;
-  }
-  .logo-item:hover { color: var(--accent); }
-  .logo-sep {
-    width: 1px; height: 20px;
-    background: rgba(10,25,49,0.1); flex-shrink: 0;
-  }
-
-  /* STATS BAR */
-  .stats-bar {
-    background: var(--ink);
-    padding: 1.75rem 5rem;
-    display: flex; align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid var(--accent);
-  }
-  .stat-item {
-    display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
-    flex: 1;
-  }
-  .stat-n {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: 1.7rem; color: #F9F8F5; line-height: 1;
-    letter-spacing: -0.01em;
-  }
-  .stat-l {
-    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: rgba(0,180,216,0.65);
-  }
-  .stat-sep {
-    width: 1px; height: 40px; flex-shrink: 0;
-    background: rgba(0,180,216,0.15);
-  }
-
-  /* CONTACT SECTION */
-  #contact { background: var(--ink); color: var(--paper); padding: 6rem 5rem; }
-  .contact-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: center;
-  }
-  .contact-desc {
-    font-size: 0.92rem; line-height: 1.8;
-    color: rgba(249,248,245,0.55); margin-bottom: 2rem;
-    max-width: 460px;
-  }
-  .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .contact-link-btn {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: var(--accent); color: var(--ink);
-    padding: 0.8rem 1.75rem; font-size: 0.78rem;
-    font-weight: 600; letter-spacing: 0.06em;
-    text-transform: uppercase; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .contact-link-btn:hover { background: #0099ba; color: white; transform: translateY(-2px); }
-  .contact-link-outline {
-    background: transparent; color: rgba(249,248,245,0.7);
-    border: 1.5px solid rgba(0,180,216,0.35);
-  }
-  .contact-link-outline:hover { background: rgba(0,180,216,0.1); color: var(--accent); }
-  .contact-card {
-    background: #0F2744; padding: 2.25rem 2.5rem;
-    border: 1px solid rgba(0,180,216,0.18);
-    border-top: 3px solid var(--accent);
-  }
-  .contact-card-label {
-    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-  .contact-card-value {
-    font-size: 0.88rem; color: rgba(249,248,245,0.75);
-    line-height: 1.7; margin-bottom: 0.25rem;
-  }
-
-  /* CONTACT nav link */
-  @media(max-width:900px) {
-    .logos-strip { padding: 1.25rem 2rem; gap: 1.5rem; flex-wrap: wrap; }
-    .logos-row { flex-wrap: wrap; gap: 0.5rem; }
-    .logo-sep { display: none; }
-    .stats-bar { padding: 1.5rem 2rem; flex-wrap: wrap; gap: 1.5rem; }
-    .stat-sep { display: none; }
-    .stat-item { min-width: 30%; }
-    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-    #contact { padding: 5rem 2rem; }
-    .lang-toggle { right: 0.5rem; }
-  }
-
-  /* LANGUAGE TOGGLE — fixed right pill */
-  .lang-toggle {
-    position: fixed;
-    right: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 9998;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #0A1931;
-    border: 1.5px solid #00B4D8;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    border-radius: 4px;
-    overflow: hidden;
-    min-width: 42px;
-  }
-  .lang-toggle-btn {
-    padding: 0.75rem 0.6rem;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    color: rgba(249,248,245,0.35);
-    transition: color 0.15s, background 0.15s;
-    width: 100%;
-    text-align: center;
-    line-height: 1;
-    display: block;
-  }
-  .lang-toggle-btn.active {
-    color: #F9F8F5;
-    background: rgba(0,180,216,0.2);
-  }
-  .lang-toggle-btn:hover { color: #00B4D8; }
-  .lang-divider {
-    width: 70%;
-    height: 1px;
-    background: rgba(0,180,216,0.3);
-  }
-  .lang-toggle-flag {
-    font-size: 1rem;
-    padding: 0.4rem 0.6rem 0.55rem;
-    text-align: center;
-    border-top: 1px solid rgba(0,180,216,0.2);
-    width: 100%;
-    cursor: pointer;
-  }
-
-
-  /* ═══ LANGUAGE TOGGLE ═══════════════════════════════════════════════════ */
-  /* Default: hide all DE, show all EN */
-  .de { display: none !important; }
-  
-  /* When DE active: hide EN, show DE */
-  body.lang-de .en { display: none !important; }
-  body.lang-de span.de { display: inline !important; }
-  body.lang-de div.de  { display: block  !important; }
-  body.lang-de p.de    { display: block  !important; }
-  body.lang-de a.de    { display: inline-block !important; }
-  body.lang-de li.de   { display: list-item !important; }
-  /* ═══════════════════════════════════════════════════════════════════════ */
-
-  /* ═══ ACHIEVEMENTS ═══════════════════════════════════════════════════════ */
-  #achievements { background: var(--ink); color: var(--paper); padding: 6rem 5rem; }
-  #achievements .section-label { color: var(--accent); }
-  #achievements .section-label::before { background: var(--accent); }
-  #achievements .section-title { color: var(--paper); }
-
-  .achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    background: rgba(0,180,216,0.1);
-  }
-  .ach-card {
-    background: #0F2744;
-    padding: 2.25rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: background 0.2s;
-    border-top: 3px solid transparent;
-  }
-  .ach-card:hover { background: #152d4a; border-top-color: var(--accent); }
-  .ach-card.ach-featured {
-    background: var(--ink);
-    border-top: 3px solid var(--accent);
-  }
-  .ach-card.ach-featured:hover { background: #0e2847; }
-
-  .ach-company {
-    font-size: 0.62rem; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--accent);
-  }
-  .ach-value {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: 2.8rem; line-height: 1;
-    letter-spacing: -0.02em; color: #F9F8F5;
-  }
-  .ach-card.ach-featured .ach-value {
-    color: var(--accent); font-size: 3.5rem;
-  }
-  .ach-label {
-    font-size: 0.78rem; font-weight: 500;
-    color: rgba(249,248,245,0.72); line-height: 1.35;
-  }
-  .ach-desc {
-    font-size: 0.78rem; line-height: 1.7;
-    color: rgba(249,248,245,0.42); flex: 1;
-  }
-  .ach-tags {
-    display: flex; flex-wrap: wrap; gap: 0.3rem;
-    margin-top: auto; padding-top: 0.75rem;
-    border-top: 1px solid rgba(0,180,216,0.1);
-  }
-  .ach-tags span {
-    font-size: 0.58rem; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.16rem 0.48rem;
-    border: 1px solid rgba(0,180,216,0.18);
-    color: var(--accent);
-  }
-
-  @media(max-width:900px) { .achievements-grid { grid-template-columns: 1fr 1fr; } }
-  @media(max-width:600px) { .achievements-grid { grid-template-columns: 1fr; } }
-  /* ════════════════════════════════════════════════════════════════════════ */
-
-  /* CREDENTIAL BADGES */
-  .hero-creds {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin: 1.25rem 0 2rem;
-    align-items: center;
-  }
-  .cred-badge {
-    display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
-    border: 1px solid rgba(0,180,216,0.3);
-    color: var(--accent);
-    background: rgba(0,180,216,0.05);
-    white-space: nowrap;
-    line-height: 1.5;
-  }
-
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
-
-
-<!-- LANGUAGE TOGGLE -->
-<div class="lang-toggle" id="langToggle" title="Switch language / Sprache wechseln">
-  <button class="lang-toggle-btn active" id="btnEN" onclick="setLang('en')">EN</button>
-  <div class="lang-divider"></div>
-  <button class="lang-toggle-btn" id="btnDE" onclick="setLang('de')">DE</button>
-  <div class="lang-toggle-flag" onclick="setLang(document.body.classList.contains('lang-de')?'en':'de')" style="cursor:pointer;">🇩🇪</div>
+<div class="lang-toggle" id="langToggle">
+  <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+  <div class="lang-div"></div>
+  <button class="lang-btn" id="btnDE" onclick="setLang('de')">DE</button>
+  <div class="lang-flag" onclick="setLang(document.body.classList.contains('lang-de')?'en':'de')">🇩🇪</div>
 </div>
 
 <nav>
   <a href="#home" class="nav-logo">Jackie <span>dP.</span></a>
   <ul class="nav-links">
+    <li><a href="#achievements">Results</a></li>
     <li><a href="#map">Locations</a></li>
-    <li><a href="#languages"><span class="en">Languages</span><span class="de">Sprachen</span></a></li>
-    <li><a href="#industries"><span class="en">Industries</span><span class="de">Branchen</span></a></li>
-    <li><a href="#journey"><span class="en">Journey</span><span class="de">Werdegang</span></a></li>
-    <li><a href="#cv"><span class="en">CV</span><span class="de">Lebenslauf</span></a></li>
-    <li><a href="#articles"><span class="en">Articles</span><span class="de">Artikel</span></a></li>
-    <li><a href="#connect"><span class="en">Connect</span><span class="de">Kontakt</span></a></li>
-    <li><a href="#contact"><span class="en">Contact</span><span class="de">Kontakt</span></a></li>
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#connect">Connect</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <section class="hero" id="home">
-  <!-- LEFT: Identity -->
   <div class="hero-left">
-    <div class="hero-tag"><span class="en">Client Executive · Strategic Deal Maker · Behavioural Scientist</span><span class="de">Client Executive · Strategischer Dealmaker · Verhaltenswissenschaftlerin</span></div>
+    <div class="hero-tag">
+      <span class="en">Client Executive · Strategic Deal Maker · Behavioural Scientist</span>
+      <span class="de">Client Executive · Strategischer Dealmaker · Verhaltenswissenschaftlerin</span>
+    </div>
     <h1 class="hero-name">Jackie<br><span class="line2">du Plooy</span></h1>
-    <p class="hero-title"><span class="en">Closing enterprise deals<br>with the science of<br><em class="hero-em">how decisions are made.</em></span><span class="de">Enterprise-Deals abschliessen<br>mit der Wissenschaft<br><em class="hero-em">menschlicher Entscheidungen.</em></span></p>
-    <div class="hero-creds"><span class="cred-badge">CGMA</span><span class="cred-badge">FMA</span><span class="cred-badge">MSc Behavioural Economics</span><span class="cred-badge">BCom I&amp;O Psych</span></div>
+    <p class="hero-title">
+      <span class="en">Closing enterprise deals<br>with the science of<br><em class="hero-em">how decisions are made.</em></span>
+      <span class="de">Enterprise-Deals abschliessen<br>mit der Wissenschaft<br><em class="hero-em">menschlicher Entscheidungen.</em></span>
+    </p>
+    <div class="hero-creds">
+      <span class="cred-badge">CGMA</span>
+      <span class="cred-badge">FMA</span>
+      <span class="cred-badge">MSc Behavioural Economics</span>
+      <span class="cred-badge">BCom I&amp;O Psych</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">$150<span>M</span></div><div class="label"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></div></div>
+      <div class="hero-stat"><div class="num">$33<span>M</span></div><div class="label"><span class="en">ARR Current</span><span class="de">ARR Aktuell</span></div></div>
+      <div class="hero-stat"><div class="num">25<span>+</span></div><div class="label"><span class="en">Yrs Experience</span><span class="de">Jahre Erfahrung</span></div></div>
+    </div>
     <div class="hero-ctas">
       <a href="#journey" class="btn-primary"><span class="en">My Journey</span><span class="de">Mein Werdegang</span></a>
       <a href="#contact" class="btn-outline"><span class="en">Get in touch</span><span class="de">Kontakt</span></a>
     </div>
   </div>
-
-  <!-- RIGHT: Approach -->
   <div class="hero-right">
     <div class="hero-right-content">
-      <div class="hero-impact-label"><span class="en">The approach that actually works</span><span class="de">Der Ansatz, der wirklich funktioniert</span></div>
-      <div class="hero-right-quote"><span class="en">"The brain is the missing layer in every AI strategy."</span><span class="de">"Das Gehirn ist die fehlende Schicht in jeder KI-Strategie."</span></div>
+      <div class="hero-impact-label">
+        <span class="en">The approach that actually works</span>
+        <span class="de">Der Ansatz, der wirklich funktioniert</span>
+      </div>
+      <div class="hero-right-quote">
+        <span class="en">"The brain is the missing layer in every AI strategy."</span>
+        <span class="de">"Das Gehirn ist die fehlende Schicht in jeder KI-Strategie."</span>
+      </div>
       <div class="hero-approach-list">
         <div class="approach-step">
           <div class="approach-num">01</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Decode the human layer first</span><span class="de">Zuerst die menschliche Ebene entschlüsseln</span></div>
-            <div class="approach-desc"><span class="en">Before any AI strategy is designed, the human layer needs to be mapped. Cognitive biases, loss aversion, and resistance to novelty shape every procurement decision and change programme. Design around them or fail against them.</span><span class="de">Bevor eine KI-Strategie entwickelt wird, muss die menschliche Ebene kartiert werden. Kognitive Verzerrungen, Verlustaversion und Widerstand gegen Neues prägen jede Beschaffungsentscheidung. Um sie herum gestalten oder daran scheitern.</span></div>
+            <div class="approach-desc"><span class="en">Before any AI strategy is designed, the human layer needs to be mapped. Cognitive biases, loss aversion, and resistance to novelty shape every procurement decision and change programme. Design around them or fail against them.</span><span class="de">Bevor eine KI-Strategie entwickelt wird, muss die menschliche Ebene kartiert werden. Kognitive Verzerrungen prägen jede Beschaffungsentscheidung.</span></div>
           </div>
         </div>
         <div class="approach-step">
           <div class="approach-num">02</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Close deals others cannot</span><span class="de">Abschlüsse erzielen, die anderen verwehrt bleiben</span></div>
-            <div class="approach-desc"><span class="en">$150M TCV across BFSI, Energy, and Insurance. The consistent edge was knowing what was really blocking the yes and building a deal structure that resolved it. Behavioural economics applied where it matters most: the boardroom.</span><span class="de">$150M TCV in BFSI, Energie und Versicherung. Der entscheidende Vorteil war zu wissen, was das Ja wirklich blockiert, und eine Dealstruktur zu schaffen, die das löst.</span></div>
+            <div class="approach-desc"><span class="en">$150M TCV across BFSI, Energy, and Insurance. The consistent edge was knowing what was really blocking the yes and building a deal structure that resolved it. Behavioural economics applied where it matters most: the boardroom.</span><span class="de">$150M TCV in BFSI, Energie und Versicherung. Der entscheidende Vorteil war zu wissen, was das Ja blockiert.</span></div>
           </div>
         </div>
         <div class="approach-step">
           <div class="approach-num">03</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Build AI strategies that stick</span><span class="de">KI-Strategien entwickeln, die halten</span></div>
-            <div class="approach-desc"><span class="en">Seven in ten AI transformations fail at adoption, not implementation. More change management does not fix this. Designing the strategy around how the brain actually responds to uncertainty, novelty, and loss of control does.</span><span class="de">Sieben von zehn KI-Transformationen scheitern bei der Übernahme. Mehr Change-Management löst das nicht. Die Strategie um das tatsächliche Gehirnverhalten herum zu gestalten schon.</span></div>
+            <div class="approach-desc"><span class="en">Seven in ten AI transformations fail at adoption, not implementation. More change management does not fix this. Designing the strategy around how the brain actually responds to uncertainty, novelty, and loss of control does.</span><span class="de">Sieben von zehn KI-Transformationen scheitern bei der Übernahme, nicht der Implementierung.</span></div>
           </div>
         </div>
         <div class="approach-step">
           <div class="approach-num">04</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Bridge science and the boardroom</span><span class="de">Wissenschaft und Vorstand verbinden</span></div>
-            <div class="approach-desc"><span class="en">MSc Behavioural Economics. MIT Neuroscience for Business in progress. Twenty-five years operating at C-suite level across six countries. The intersection of formal research and live commercial practice is where the most useful work gets done.</span><span class="de">MSc Verhaltensökonomie. MIT Neuroscience for Business in Bearbeitung. Fünfundzwanzig Jahre auf C-Suite-Ebene in sechs Ländern.</span></div>
+            <div class="approach-desc"><span class="en">MSc Behavioural Economics. MIT Neuroscience for Business in progress. Twenty-five years operating at C-suite level across six countries. Formal research and live commercial practice combined.</span><span class="de">MSc Verhaltensökonomie. MIT Neuroscience for Business in Bearbeitung. 25 Jahre auf C-Suite-Ebene.</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="scroll-hint"><span class="en">scroll</span><span class="de">scrollen</span></div>
 </section>
 
-<!-- SOCIAL PROOF: COMPANY LOGOS -->
 <div class="logos-strip">
   <div class="logos-label"><span class="en">Experience at</span><span class="de">Erfahrung bei</span></div>
   <div class="logos-row">
-    <div class="logo-item">HCLTech</div>
-    <div class="logo-sep"></div>
-    <div class="logo-item">Wipro</div>
-    <div class="logo-sep"></div>
-    <div class="logo-item">Monstarlab</div>
-    <div class="logo-sep"></div>
-    <div class="logo-item">Concentrix</div>
-    <div class="logo-sep"></div>
+    <div class="logo-item">HCLTech</div><div class="logo-sep"></div>
+    <div class="logo-item">Wipro</div><div class="logo-sep"></div>
+    <div class="logo-item">Monstarlab</div><div class="logo-sep"></div>
+    <div class="logo-item">Concentrix</div><div class="logo-sep"></div>
+    <div class="logo-item">T-Systems</div><div class="logo-sep"></div>
     <div class="logo-item">Siemens</div>
-    <div class="logo-sep"></div>
-    <div class="logo-item">T-Systems</div>
   </div>
 </div>
 
-<!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat-item">
-    <span class="stat-n">$150M</span>
-    <span class="stat-l"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></span>
-  </div>
+  <div class="stat-item"><span class="stat-n">$150M</span><span class="stat-l"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item">
-    <span class="stat-n">$33M</span>
-    <span class="stat-l"><span class="en">ARR Current Account</span><span class="de">ARR Aktuell</span></span>
-  </div>
+  <div class="stat-item"><span class="stat-n">$33M</span><span class="stat-l"><span class="en">ARR Current</span><span class="de">ARR Aktuell</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item">
-    <span class="stat-n">25+</span>
-    <span class="stat-l"><span class="en">Years Experience</span><span class="de">Jahre Erfahrung</span></span>
-  </div>
+  <div class="stat-item"><span class="stat-n">25+</span><span class="stat-l"><span class="en">Years Experience</span><span class="de">Jahre Erfahrung</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item">
-    <span class="stat-n">6</span>
-    <span class="stat-l"><span class="en">Countries</span><span class="de">Länder</span></span>
-  </div>
+  <div class="stat-item"><span class="stat-n">6</span><span class="stat-l"><span class="en">Countries</span><span class="de">Länder</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item">
-    <span class="stat-n">120</span>
-    <span class="stat-l"><span class="en">Team Led at Wipro</span><span class="de">Team bei Wipro</span></span>
-  </div>
+  <div class="stat-item"><span class="stat-n">120</span><span class="stat-l"><span class="en">Team Led · Wipro</span><span class="de">Team bei Wipro</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item">
-    <span class="stat-n">4</span>
-    <span class="stat-l"><span class="en">Continents</span><span class="de">Kontinente</span></span>
-  </div>
+  <div class="stat-item"><span class="stat-n">4</span><span class="stat-l"><span class="en">Continents</span><span class="de">Kontinente</span></span></div>
 </div>
 
-
-<!-- ACHIEVEMENTS -->
 <section id="achievements">
   <div class="section-label"><span class="en">Career defining moments</span><span class="de">Prägende Karrieremomente</span></div>
   <h2 class="section-title reveal"><span class="en">Proof Points<br>That Matter.</span><span class="de">Belege,<br>die zählen.</span></h2>
   <div class="achievements-grid reveal">
-
     <div class="ach-card ach-featured">
-      <div class="ach-company">Wipro &middot; Old Mutual</div>
+      <div class="ach-company">Wipro · Old Mutual</div>
       <div class="ach-value">$136M</div>
       <div class="ach-label"><span class="en">Largest single engagement secured</span><span class="de">Größtes gesichertes Einzelmandat</span></div>
       <p class="ach-desc"><span class="en">The defining deal of the Wipro decade. A $136M engagement with Old Mutual — one of Africa's largest financial services groups. Built on a 120-person BFSI team and the commercial credibility to operate at the most senior level.</span><span class="de">Das prägende Mandat der Wipro-Dekade. $136M mit Old Mutual — einer der größten Finanzdienstleistungsgruppen Afrikas.</span></p>
       <div class="ach-tags"><span>Cape Town · 2015 to 2019</span><span>BFSI</span><span>Wipro</span></div>
     </div>
-
     <div class="ach-card">
-      <div class="ach-company">HCLTech &middot; Guidewire</div>
+      <div class="ach-company">HCLTech · Guidewire</div>
       <div class="ach-value">$15M</div>
       <div class="ach-label"><span class="en">Insurance platform deal won from scratch</span><span class="de">Versicherungsplattform-Deal aus dem Stand</span></div>
-      <p class="ach-desc"><span class="en">Joined HCLTech SA in 2019 and secured a $15M Guidewire implementation from a standing start. New enterprise relationships, new market — closed on insurance platform depth and commercial precision.</span><span class="de">2019 zu HCLTech SA gestoßen und einen $15M Guidewire-Auftrag aus dem Stand gesichert. Neue Unternehmensbeziehungen, neuer Markt.</span></p>
+      <p class="ach-desc"><span class="en">Joined HCLTech SA in 2019 and secured a $15M Guidewire implementation from a standing start. New enterprise relationships, new market — closed on insurance platform depth and commercial precision.</span><span class="de">2019 zu HCLTech SA gestoßen und einen $15M Guidewire-Auftrag aus dem Stand gesichert.</span></p>
       <div class="ach-tags"><span>South Africa · 2019</span><span>Insurance</span><span>HCLTech</span></div>
     </div>
-
     <div class="ach-card">
-      <div class="ach-company">Monstarlab &middot; Europe</div>
+      <div class="ach-company">Monstarlab · Europe</div>
       <div class="ach-value">$20M</div>
       <div class="ach-label"><span class="en">M&amp;A strategy developed and executed</span><span class="de">M&amp;A-Strategie entwickelt und umgesetzt</span></div>
-      <p class="ach-desc"><span class="en">As VP Operations and Commercial at Monstarlab, developed and executed $20M in M&amp;A strategy that repositioned the firm's European footprint — alongside securing a $5M strategic deal through applied behavioural economics.</span><span class="de">Als VP Operations and Commercial bei Monstarlab eine $20M M&amp;A-Strategie entwickelt und umgesetzt, die die europäische Aufstellung neu positionierte.</span></p>
+      <p class="ach-desc"><span class="en">As VP Operations and Commercial at Monstarlab, developed and executed $20M in M&amp;A strategy that repositioned the firm's European footprint — alongside securing a $5M strategic deal through applied behavioural economics.</span><span class="de">Als VP Operations and Commercial bei Monstarlab eine $20M M&amp;A-Strategie entwickelt und umgesetzt.</span></p>
       <div class="ach-tags"><span>Prague · 2020 to 2024</span><span>M&amp;A</span><span>Monstarlab</span></div>
     </div>
-
     <div class="ach-card">
-      <div class="ach-company">HCLTech &middot; Equinor</div>
+      <div class="ach-company">HCLTech · Equinor</div>
       <div class="ach-value">$33M ARR</div>
       <div class="ach-label"><span class="en">Strategic energy account · Current</span><span class="de">Strategisches Energiekonto · Aktuell</span></div>
       <p class="ach-desc"><span class="en">Managing the $33M ARR Equinor engagement for HCLTech in Stavanger — AI and digital transformation at CxO level in one of the world's most strategically significant energy companies.</span><span class="de">Das $33M ARR Equinor-Mandat für HCLTech in Stavanger — KI- und digitale Transformation auf CxO-Ebene.</span></p>
       <div class="ach-tags"><span>Stavanger · Nov 2024 to Present</span><span>Energy</span><span>HCLTech</span></div>
     </div>
-
   </div>
 </section>
-
 
 <section id="map">
   <div class="section-label"><span class="en">Where I have lived and worked</span><span class="de">Wo ich gelebt und gearbeitet habe</span></div>
   <h2 class="section-title reveal"><span class="en">6 Countries.<br>4 Continents.</span><span class="de">6 Länder.<br>4 Kontinente.</span></h2>
   <div class="locations-grid reveal">
-
     <div class="loc-block loc-home">
       <div class="loc-flag">🇿🇦</div>
       <div class="loc-content">
-        <div class="loc-label">Home · Siemens 2000 to 2009 · Wipro 2009 to 2019</div>
+        <div class="loc-label"><span class="en">Home · Siemens 2000–2009 · Wipro 2015–2019</span><span class="de">Heimat · Siemens 2000–2009 · Wipro 2015–2019</span></div>
         <div class="loc-name">South Africa</div>
         <div class="loc-city">Cape Town</div>
-        <p class="loc-desc">Home country and the longest single chapter — nearly two decades of commercial work across Siemens Business Services and Wipro. BCom in Industrial and Organisational Psychology at UNISA, completed 2021. The $136M Old Mutual engagement and the 120-person BFSI team built at Wipro both have their roots here. South Africa does not leave you.</p>
-        <div class="loc-tags"><span>Siemens Business Services</span><span>Wipro</span><span>UNISA 2021</span><span>$136M Old Mutual</span></div>
+        <p class="loc-desc"><span class="en">Where it all began. BCom in Industrial and Organisational Psychology at UNISA, completed 2021. The $136M Old Mutual engagement and the 120-person BFSI team at Wipro both have their roots here.</span><span class="de">Wo alles begann. BCom I&O Psychologie an der UNISA, abgeschlossen 2021. Das $136M Old Mutual-Mandat und das 120-köpfige BFSI-Team bei Wipro.</span></p>
+        <div class="loc-tags"><span>Siemens Business Services</span><span>Wipro</span><span>UNISA 2021</span></div>
       </div>
     </div>
-
     <div class="loc-block">
       <div class="loc-flag">🇬🇧</div>
       <div class="loc-content">
         <div class="loc-label">Siemens Business Services · 2000 to 2009</div>
         <div class="loc-name">United Kingdom</div>
         <div class="loc-city">London</div>
-        <p class="loc-desc">Part of the Siemens Business Services chapter, working in London alongside the South Africa base. The UK raised the commercial standard — faster, more competitive, less forgiving. Senior stakeholder engagement in a market where credibility is earned quickly or not at all. The discipline built here informed every complex deal that came after.</p>
-        <div class="loc-tags"><span>Siemens Business Services</span><span>Commercial Management</span><span>2000 to 2009</span></div>
+        <p class="loc-desc"><span class="en">Part of the Siemens Business Services chapter, working in London alongside the South Africa base. The UK raised the commercial standard — faster, more competitive, less forgiving.</span><span class="de">Teil des Siemens Business Services-Kapitels, in London neben der südafrikanischen Basis. Das UK erhöhte den kommerziellen Maßstab.</span></p>
+        <div class="loc-tags"><span>Siemens Business Services</span><span>2000 to 2009</span></div>
       </div>
     </div>
-
     <div class="loc-block">
       <div class="loc-flag">🇸🇬</div>
       <div class="loc-content">
         <div class="loc-label">Concentrix · 2020</div>
         <div class="loc-name">Singapore</div>
         <div class="loc-city">Singapore</div>
-        <p class="loc-desc">Asia Pacific chapter at Concentrix, working with Telco and Airline clients. Applied gamification, nudge theory, and choice architecture to digital product development across APAC. Singapore confirmed something that could not be learned from a textbook: behaviour is not universal. The best commercial strategies are designed around how people in that specific context actually make decisions.</p>
-        <div class="loc-tags"><span>Concentrix</span><span>APAC</span><span>Nudge Design</span><span>2020</span></div>
+        <p class="loc-desc"><span class="en">Asia Pacific chapter at Concentrix. Applied gamification, nudge theory, and choice architecture to digital product development for Telco and Airline clients. Behaviour is not universal.</span><span class="de">Asien-Pazifik-Kapitel bei Concentrix. Gamification, Nudge-Theorie und Choice Architecture für Telko- und Airline-Kunden angewendet.</span></p>
+        <div class="loc-tags"><span>Concentrix</span><span>APAC</span><span>2020</span></div>
       </div>
     </div>
-
     <div class="loc-block">
       <div class="loc-flag">🇨🇿</div>
       <div class="loc-content">
-        <div class="loc-label">Monstarlab · 2020 to 2024</div>
+        <div class="loc-label">Monstarlab · 2024</div>
         <div class="loc-name">Czechia</div>
         <div class="loc-city">Prague</div>
-        <p class="loc-desc">VP Operations and Commercial at Monstarlab, leading European deal strategy and operations from Prague. A $5M strategic contract secured through understanding the psychology of B2B procurement. $20M in M&amp;A strategy developed and executed. Central Europe builds commercial trust slowly — the relationships that close deals here are built over months, not meetings.</p>
-        <div class="loc-tags"><span>Monstarlab</span><span>VP Operations &amp; Commercial</span><span>$5M Deal</span><span>$20M M&amp;A</span><span>2020 to 2024</span></div>
+        <p class="loc-desc"><span class="en">VP Operations and Commercial at Monstarlab, leading European deal strategy. $5M strategic contract. $20M M&amp;A strategy developed and executed. Prague sharpened the ability to build commercial momentum where trust is the currency.</span><span class="de">VP Operations and Commercial bei Monstarlab. $5M-Vertrag. $20M M&A-Strategie entwickelt und umgesetzt.</span></p>
+        <div class="loc-tags"><span>Monstarlab</span><span>VP Operations &amp; Commercial</span><span>2024</span></div>
       </div>
     </div>
-
     <div class="loc-block">
       <div class="loc-flag">🇦🇪</div>
       <div class="loc-content">
-        <div class="loc-label">Monstarlab Insurance · 2021 to 2022</div>
+        <div class="loc-label">Monstarlab · VP Engagement · 2021 to 2023</div>
         <div class="loc-name">United Arab Emirates</div>
         <div class="loc-city">Dubai</div>
-        <p class="loc-desc">Managed insurance platform engagements across the Gulf at Monstarlab, concurrent with the European director role. Guidewire, Sapiens, and Oracle Health Insurance at enterprise scale. Dubai operates on different commercial logic: scale is assumed, relationships are non-negotiable, and cultural fluency is the difference between a deal that progresses and one that stalls indefinitely.</p>
-        <div class="loc-tags"><span>Monstarlab</span><span>Guidewire</span><span>Sapiens</span><span>2021 to 2022</span></div>
+        <p class="loc-desc"><span class="en">VP Engagement at Monstarlab managing insurance platform engagements across the Gulf. Guidewire, Sapiens, and Oracle Health Insurance at enterprise scale. Dubai: scale is assumed, relationships are non-negotiable.</span><span class="de">VP Engagement bei Monstarlab für Versicherungsplattform-Engagements im Golf. Guidewire, Sapiens und Oracle Health Insurance im Enterprise-Maßstab.</span></p>
+        <div class="loc-tags"><span>Monstarlab</span><span>VP Engagement</span><span>Guidewire</span><span>2021 to 2023</span></div>
       </div>
     </div>
-
     <div class="loc-block loc-current">
       <div class="loc-flag">🇳🇴</div>
       <div class="loc-content">
         <div class="loc-label">HCLTech · November 2024 to Present</div>
         <div class="loc-name">Norway</div>
         <div class="loc-city">Stavanger</div>
-        <p class="loc-desc">Regional Commercial Director at HCLTech, managing a $33M ARR strategic energy account — the Equinor engagement — in Stavanger. Working at CxO level on AI and digital transformation in one of the world's most forward-thinking energy markets. Norway's long-term orientation has reinforced one conviction above all others: the organisations that win with AI are the ones that understand how their people will actually respond to it.</p>
+        <p class="loc-desc"><span class="en">Regional Commercial Director at HCLTech, managing a $33M ARR strategic energy account — the Equinor engagement — in Stavanger. Working at CxO level on AI and digital transformation.</span><span class="de">Regional Commercial Director bei HCLTech, Verwaltung des $33M ARR strategischen Energiekontos — das Equinor-Engagement — in Stavanger.</span></p>
         <div class="loc-tags"><span>HCLTech</span><span>$33M ARR</span><span>Equinor</span><span>Nov 2024 to Present</span></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -796,22 +591,22 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <div class="lang-block">
       <div class="lang-top"><div class="lang-name">English</div><div class="lang-level">Native</div></div>
       <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-      <div class="lang-note">Primary language across all commercial roles, negotiations, and written work. Used daily at board level across six countries and four continents over 15 years.</div>
+      <div class="lang-note"><span class="en">Primary language across all commercial roles, negotiations, and written work. Board level across six countries and four continents over 25 years.</span><span class="de">Primärsprache in allen kommerziellen Rollen, Verhandlungen und schriftlichen Arbeiten. Vorstandsebene in sechs Ländern.</span></div>
     </div>
     <div class="lang-block">
       <div class="lang-top"><div class="lang-name">Afrikaans</div><div class="lang-level">Native</div></div>
       <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-      <div class="lang-note">Home language. Its Germanic roots create a natural bridge to Dutch comprehension, which is a practical advantage when building relationships across the Netherlands and Benelux markets.</div>
+      <div class="lang-note"><span class="en">Home language. Germanic roots create a natural bridge to Dutch comprehension — a practical advantage in Netherlands and Benelux markets.</span><span class="de">Muttersprache. Germanische Wurzeln schaffen eine natürliche Brücke zum Niederländischen.</span></div>
     </div>
     <div class="lang-block lang-active">
       <div class="lang-top"><div class="lang-name">German</div><div class="lang-level lang-level-progress">In Progress · A2</div></div>
       <div class="lang-bar"><div class="lang-fill lang-fill-progress" style="width:28%"></div></div>
-      <div class="lang-note">Currently learning via Deutsche Welle Nicos Weg. Target B2 proficiency. A deliberate investment in being able to engage authentically in Germany's BFSI and enterprise AI market.</div>
+      <div class="lang-note"><span class="en">Currently learning at the Goethe Institut. Target B2 proficiency. A deliberate investment in Germany's BFSI and enterprise AI market.</span><span class="de">Derzeit am Goethe-Institut lernend. Ziel: B2. Eine bewusste Investition in Deutschlands BFSI- und KI-Markt.</span></div>
     </div>
     <div class="lang-block lang-cultural">
       <div class="lang-top"><div class="lang-name">Cultural fluency</div><div class="lang-level lang-level-culture">6 Countries · 4 Continents</div></div>
       <div class="lang-bar"><div class="lang-fill lang-fill-culture" style="width:90%"></div></div>
-      <div class="lang-note">Navigated high-stakes commercial engagements across Arabic, Czech, Norwegian, Malay, and Singlish business cultures. The ability to read a room across cultural lines is not a soft skill. In complex enterprise deals, it is often the deciding factor.</div>
+      <div class="lang-note"><span class="en">Navigated high-stakes commercial engagements across Arabic, Czech, Norwegian, Malay, and Singlish business cultures. In complex enterprise deals, it is often the deciding factor.</span><span class="de">Hochkarätige kommerzielle Engagements in arabischen, tschechischen, norwegischen, malaiischen und Singlish-Geschäftskulturen.</span></div>
     </div>
   </div>
 </section>
@@ -819,72 +614,71 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 <section id="industries">
   <div class="section-label"><span class="en">Sector expertise</span><span class="de">Branchenexpertise</span></div>
   <h2 class="section-title reveal"><span class="en">Industries &amp;<br>Domain Depth</span><span class="de">Branchen &amp;<br>Fachtiefe</span></h2>
-  <p class="industries-intro reveal"><span class="en">Technology is the constant thread across every engagement. 25 years. Six countries. The depth is in the industries it has served.</span><span class="de">Technologie ist der rote Faden durch jedes Engagement. 25 Jahre. Sechs Länder. Die Tiefe liegt in den Branchen, denen sie gedient hat.</span></p>
+  <p class="industries-intro reveal"><span class="en">Technology is the constant thread across every engagement. 25 years. Six countries. The depth is in the industries it has served.</span><span class="de">Technologie ist der rote Faden durch jedes Engagement. 25 Jahre. Sechs Länder.</span></p>
   <div class="ind-foundation reveal">
-    <div class="ind-foundation-label">Foundation</div>
+    <div class="ind-foundation-label"><span class="en">Foundation</span><span class="de">Fundament</span></div>
     <div>
-      <div class="ind-foundation-title">Technology &amp; IT Services</div>
-      <p class="ind-foundation-desc">The through-line across every role, every country, every deal. 15 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems — delivering commercial strategy, AI transformation, digital platform modernisation, and enterprise technology engagements at C-suite level across four continents.</p>
+      <div class="ind-foundation-title"><span class="en">Technology &amp; IT Services</span><span class="de">Technologie &amp; IT-Dienstleistungen</span></div>
+      <p class="ind-foundation-desc"><span class="en">The through-line across every role, every country, every deal. 25 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems, Siemens Business Services — delivering commercial strategy, AI transformation, and enterprise technology at C-suite level across four continents.</span><span class="de">Der rote Faden durch jede Rolle, jedes Land, jeden Deal. 25 Jahre in den weltweit führenden IT-Dienstleistungsunternehmen.</span></p>
       <div class="ind-foundation-tags">
-        <span>HCLTech</span><span>Wipro</span><span>Monstarlab</span><span>Concentrix</span><span>Siemens Business Services</span><span>T-Systems</span>
-        <span>AI Transformation</span><span>Platform Modernisation</span><span>Enterprise IT Services</span>
+        <span>HCLTech</span><span>Wipro</span><span>Monstarlab</span><span>Concentrix</span><span>T-Systems</span><span>Siemens Business Services</span><span>AI Transformation</span>
       </div>
     </div>
     <div class="ind-foundation-stat">
       <div class="ind-stat-num" style="font-size:2.2rem;">$150<span>M</span></div>
-      <div class="ind-stat-label" style="margin-bottom:.4rem;">TCV Managed</div>
+      <div class="ind-stat-label" style="margin-bottom:.4rem;"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></div>
       <div class="ind-stat-num" style="font-size:1.6rem;">$33<span>M</span></div>
-      <div class="ind-stat-label">ARR Current</div>
+      <div class="ind-stat-label"><span class="en">ARR Current</span><span class="de">ARR Aktuell</span></div>
     </div>
   </div>
   <div class="ind-grid reveal">
     <div class="ind-card">
       <div class="ind-card-header">
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-        <div><div class="ind-name">Banking &amp; Financial Services</div><div class="ind-depth">Deep Expertise</div></div>
+        <div><div class="ind-name"><span class="en">Banking &amp; Financial Services</span><span class="de">Banken &amp; Finanzdienstleistungen</span></div><div class="ind-depth"><span class="en">Deep Expertise</span><span class="de">Tiefe Expertise</span></div></div>
       </div>
-      <p class="ind-desc">Extensive client executive experience across retail banking, investment banking, and financial services transformation. Applied behavioural economics to complex B2B deal cycles — understanding how risk perception, cognitive bias, and loss aversion shape every procurement decision in this sector.</p>
-      <div class="ind-tags"><span>Retail Banking</span><span>Investment Banking</span><span>FinTech</span><span>Risk &amp; Compliance</span></div>
+      <p class="ind-desc"><span class="en">Extensive client executive experience across retail banking, investment banking, and financial services transformation. Applied behavioural economics to complex B2B deal cycles.</span><span class="de">Umfangreiche Erfahrung in Retail Banking, Investment Banking und Finanzdienstleistungstransformation.</span></p>
+      <div class="ind-tags"><span>Retail Banking</span><span>FinTech</span><span>Risk &amp; Compliance</span></div>
     </div>
     <div class="ind-card">
       <div class="ind-card-header">
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div><div class="ind-name">Insurance</div><div class="ind-depth">Deep Expertise</div></div>
+        <div><div class="ind-name"><span class="en">Insurance</span><span class="de">Versicherungen</span></div><div class="ind-depth"><span class="en">Deep Expertise</span><span class="de">Tiefe Expertise</span></div></div>
       </div>
-      <p class="ind-desc">Led insurance platform transformations across the Gulf, Europe, and beyond. Specialist knowledge of Guidewire, Sapiens, and Oracle Health Insurance. Insurance products are built on neurological contradictions, and the organisations redesigning around how customers actually process risk are gaining real commercial advantage.</p>
-      <div class="ind-tags"><span>Guidewire</span><span>Sapiens</span><span>Oracle Health Insurance</span><span>P&amp;C</span><span>InsurTech</span></div>
+      <p class="ind-desc"><span class="en">Led insurance platform transformations across the Gulf, Europe, and beyond. Specialist knowledge of Guidewire, Sapiens, and Oracle Health Insurance.</span><span class="de">Versicherungsplattform-Transformationen im Golf, Europa und darüber hinaus. Spezialkenntnisse in Guidewire, Sapiens und Oracle Health Insurance.</span></p>
+      <div class="ind-tags"><span>Guidewire</span><span>Sapiens</span><span>Oracle Health Insurance</span></div>
     </div>
     <div class="ind-card">
       <div class="ind-card-header">
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <div><div class="ind-name">Energy &amp; Utilities</div><div class="ind-depth">Current Focus</div></div>
+        <div><div class="ind-name"><span class="en">Energy &amp; Utilities</span><span class="de">Energie &amp; Versorgung</span></div><div class="ind-depth"><span class="en">Current Focus</span><span class="de">Aktueller Fokus</span></div></div>
       </div>
-      <p class="ind-desc">Currently managing a $33M ARR strategic energy account at HCLTech in Norway, within a $150M TCV portfolio. Driving AI-led transformation strategy for a sector undergoing fundamental restructuring around sustainability, decarbonisation, and digital infrastructure modernisation.</p>
-      <div class="ind-tags"><span>$33M ARR</span><span>$150M TCV</span><span>Energy Transition</span><span>AI in Energy</span><span>Nordics</span></div>
+      <p class="ind-desc"><span class="en">Currently managing the $33M ARR Equinor account at HCLTech in Stavanger. Driving AI-led transformation strategy for a sector undergoing fundamental restructuring around sustainability and decarbonisation.</span><span class="de">Derzeit Verwaltung des $33M ARR Equinor-Kontos bei HCLTech in Stavanger.</span></p>
+      <div class="ind-tags"><span>$33M ARR</span><span>Equinor</span><span>AI in Energy</span><span>Nordics</span></div>
     </div>
     <div class="ind-card">
       <div class="ind-card-header">
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 19.79 19.79 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <div><div class="ind-name">Telecommunications</div><div class="ind-depth">Sector Experience</div></div>
+        <div><div class="ind-name"><span class="en">Telecommunications</span><span class="de">Telekommunikation</span></div><div class="ind-depth"><span class="en">Sector Experience</span><span class="de">Branchenerfahrung</span></div></div>
       </div>
-      <p class="ind-desc">Applied gamification, nudge theory, and behavioural science to Telco product development and customer experience strategy at Concentrix in Singapore. Worked across APAC markets where consumer behaviour patterns differ significantly from Western markets, and where those differences determine product success.</p>
-      <div class="ind-tags"><span>Telco APAC</span><span>Gamification</span><span>CX Strategy</span><span>Behavioural Design</span></div>
+      <p class="ind-desc"><span class="en">Applied gamification, nudge theory, and behavioural science to Telco product development at Concentrix in Singapore across APAC markets.</span><span class="de">Gamification, Nudge-Theorie und Verhaltenswissenschaft für Telko-Produktentwicklung bei Concentrix in Singapur.</span></p>
+      <div class="ind-tags"><span>Telco APAC</span><span>Gamification</span><span>CX Strategy</span></div>
     </div>
     <div class="ind-card">
       <div class="ind-card-header">
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <div><div class="ind-name">HR &amp; People Technology</div><div class="ind-depth">Sector Experience</div></div>
+        <div><div class="ind-name"><span class="en">HR &amp; People Technology</span><span class="de">HR &amp; People Technology</span></div><div class="ind-depth"><span class="en">Sector Experience</span><span class="de">Branchenerfahrung</span></div></div>
       </div>
-      <p class="ind-desc">BCom in Industrial and Organisational Psychology and CBT Certification inform a deep understanding of people systems, workforce behaviour, and organisational design. Built and led a 120-person BFSI team at Wipro, Cape Town, applying I&amp;O Psychology principles to performance and culture at scale. $136M Old Mutual engagement. 2009 to 2019.</p>
-      <div class="ind-tags"><span>I&amp;O Psychology</span><span>Workforce Strategy</span><span>Change Management</span><span>Prosci Certified</span></div>
+      <p class="ind-desc"><span class="en">BCom in Industrial and Organisational Psychology and CBT Certification. Built and led a 120-person BFSI team at Wipro applying I&amp;O Psychology principles at scale.</span><span class="de">BCom in I&O-Psychologie und CBT-Zertifizierung. 120-köpfiges BFSI-Team bei Wipro aufgebaut.</span></p>
+      <div class="ind-tags"><span>I&amp;O Psychology</span><span>Change Management</span><span>Prosci</span></div>
     </div>
     <div class="ind-card ind-card-emerging">
       <div class="ind-card-header">
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24A2.5 2.5 0 0 0 14.5 2z"/></svg></div>
-        <div><div class="ind-name">Neuroscience &amp; Decision Science</div><div class="ind-depth">Emerging Focus</div></div>
+        <div><div class="ind-name"><span class="en">Neuroscience &amp; Decision Science</span><span class="de">Neurowissenschaft &amp; Entscheidungswissenschaft</span></div><div class="ind-depth"><span class="en">Emerging Focus</span><span class="de">Aufkommender Fokus</span></div></div>
       </div>
-      <p class="ind-desc">The research horizon — where 15 years of applied behavioural economics in enterprise meets formal academic study. Applying 25 years of enterprise commercial experience to the formal study of cognitive neuroscience and AI decision-making. Completing MIT Neuroscience for Business. The central question: how do the neurological realities of human decision-making reshape how we design, deploy, and govern AI in organisations?</p>
-      <div class="ind-tags"><span>Neuroeconomics</span><span>Decision Science</span><span>MIT Neuroscience for Business</span><span>AI Governance</span></div>
+      <p class="ind-desc"><span class="en">Applying 25 years of enterprise commercial experience at the intersection of cognitive neuroscience, AI decision-making, and enterprise strategy. Completing MIT Neuroscience for Business.</span><span class="de">25 Jahre Unternehmenserfahrung an der Schnittstelle von kognitiver Neurowissenschaft, KI-Entscheidungsfindung und Unternehmensstrategie.</span></p>
+      <div class="ind-tags"><span>Neuroeconomics</span><span>Decision Science</span><span>MIT Neuroscience for Business</span></div>
     </div>
   </div>
 </section>
@@ -892,188 +686,171 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 <section id="journey">
   <div class="section-label"><span class="en">Career chapters</span><span class="de">Karrierekapitel</span></div>
   <h2 class="section-title reveal"><span class="en">The Journey<br>So Far</span><span class="de">Der bisherige<br>Werdegang</span></h2>
-  <div class="pull-quote reveal"><span class="en">"Every country. Every deal. Every stakeholder. The pattern was the same: <em>the strategy was rarely the problem. The human layer always was.</em>"</span><span class="de">"Jedes Land. Jeder Deal. Jeder Stakeholder. Das Muster war dasselbe: <em>Die Strategie war selten das Problem. Die menschliche Ebene war es immer.</em>"</span></div>
+  <div class="pull-quote reveal">"<span class="en">Every country. Every deal. Every stakeholder. The pattern was the same: <em>the strategy was rarely the problem. The human layer always was.</em></span><span class="de">Jedes Land. Jeder Deal. Jeder Stakeholder. Das Muster war dasselbe: <em>Die Strategie war selten das Problem. Die menschliche Ebene war es immer.</em></span>"</div>
   <div class="timeline">
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2024</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇳🇴</span> Stavanger, Norway · November 2024 to Present</div>
-        <h3 class="timeline-role">HCLTech — Regional Commercial Director</h3>
-        <p class="timeline-desc">Managing a $33M ARR strategic energy account — the Equinor engagement — as part of a broader portfolio for HCLTech in Stavanger. Working at CxO level to drive AI and digital transformation in one of the world's most strategically significant energy markets. Norway's long-term orientation and systems thinking have reinforced a conviction that has been building across the entire career: the organisations that win with AI are not the ones with the best technology, but the ones that understand how their people will actually respond to it.</p>
-        <div class="timeline-tags"><span class="tag">Nov 2024 to Present</span><span class="tag">HCLTech</span><span class="tag">$33M ARR · Equinor</span><span class="tag">AI Transformation</span><span class="tag">Stavanger · Norway</span></div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2021</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇦🇪</span> Dubai, UAE · 2021 to 2023</div>
-        <h3 class="timeline-role">Monstarlab — VP Engagement, Insurance</h3>
-        <p class="timeline-desc">Served as VP Engagement managing insurance platform client engagements across the Gulf, concurrent with the European operational role. Guidewire, Sapiens, and Oracle Health Insurance implementations at enterprise scale. Dubai operates on fundamentally different commercial logic: scale is expected, relationships are non-negotiable, and the ability to read the room across cultural and organisational lines is not a soft skill — it is the deciding factor in whether the deal moves or stalls.</p>
-        <div class="timeline-tags"><span class="tag">2021 to 2023</span><span class="tag">Monstarlab</span><span class="tag">VP Engagement</span><span class="tag">Guidewire · Sapiens · Oracle HI</span><span class="tag">Gulf BFSI</span></div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2020</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇨🇿</span> Prague, Czechia · 2020 to 2024</div>
-        <h3 class="timeline-role">Monstarlab — VP Operations &amp; Commercial, Europe</h3>
-        <p class="timeline-desc">Led commercial strategy, operations, and enterprise deal-making across Europe for Monstarlab. Secured a $5M strategic contract by understanding the cognitive patterns behind complex B2B procurement decisions. Developed and executed $20M in M&amp;A strategy that repositioned the firm's European footprint. Prague was a market that required patience — relationships are built slowly, trust is the currency, and the deal that closes is the one where both sides genuinely understand what the other needs.</p>
-        <div class="timeline-tags"><span class="tag">2020 to 2024</span><span class="tag">Monstarlab</span><span class="tag">VP Operations &amp; Commercial</span><span class="tag">$5M Strategic Deal</span><span class="tag">$20M M&amp;A</span></div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2020</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇸🇬</span> Singapore · 2020</div>
-        <h3 class="timeline-role">Concentrix — Client Executive, Digital &amp; Innovation</h3>
-        <p class="timeline-desc">Singapore brought a different kind of commercial environment. Working across Telco and Airline clients in the Asia Pacific market, applied gamification, nudge theory, and choice architecture to digital product development. What became clear was that behaviour is not universal — context shapes cognition, and the most effective strategies are built around how people in that specific environment actually make decisions, not how they theoretically should.</p>
-        <div class="timeline-tags"><span class="tag">2020</span><span class="tag">Concentrix</span><span class="tag">Telco &amp; Airlines</span><span class="tag">Singapore · APAC</span><span class="tag">Gamification</span></div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2019</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span> South Africa · 2019</div>
-        <h3 class="timeline-role">HCLTech — Client Executive, Insurance</h3>
-        <p class="timeline-desc">Joined HCLTech in South Africa and secured a $15M Guidewire implementation engagement. A landmark deal in the insurance platform space that demonstrated both the depth of sector knowledge built over the Wipro years and the ability to open new enterprise relationships from scratch. The Guidewire ecosystem, the client, and the deal structure each demanded a different kind of commercial precision.</p>
-        <div class="timeline-tags"><span class="tag">2019</span><span class="tag">HCLTech</span><span class="tag">$15M Guidewire</span><span class="tag">Insurance</span><span class="tag">South Africa</span></div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2015</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span> Cape Town, South Africa · 2015 to 2019</div>
-        <h3 class="timeline-role">Wipro — BFSI Practice Lead &amp; Client Executive</h3>
-        <p class="timeline-desc">A decade at Wipro in Cape Town, building and leading a 120-person BFSI delivery team. The defining commercial win of this period was a $136M engagement with Old Mutual — one of Africa's largest financial services groups. Every major transformation programme undertaken here confirmed the same pattern: the technology delivered, and the human layer determined whether it was ever actually used. That observation did not leave.</p>
-        <div class="timeline-tags"><span class="tag">2015 to 2019</span><span class="tag">Wipro</span><span class="tag">$136M Old Mutual</span><span class="tag">120-person BFSI team</span><span class="tag">Cape Town</span></div>
-      </div>
-    </div>
-
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2009</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2009 to 2015</div>
-        <h3 class="timeline-role">T-Systems — Commercial Manager</h3>
-        <p class="timeline-desc">Following Siemens Business Services, continued building the commercial foundation at T-Systems across South Africa and the UK. Deeper exposure to large-scale managed services and infrastructure transformation engagements at enterprise level, working with major corporate and public sector clients. Sharpened the ability to navigate complex, multi-stakeholder commercial environments and position technology value at executive level.</p>
-        <div class="timeline-tags"><span class="tag">2009 to 2015</span><span class="tag">T-Systems</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span><span class="tag">Managed Services</span></div>
-      </div>
-    </div>
-
     <div class="timeline-item reveal">
       <div class="timeline-dot"><div class="dot"></div><div class="year">2000</div></div>
       <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2000 to 2009</div>
-        <h3 class="timeline-role">Siemens Business Services — Commercial Manager</h3>
-        <p class="timeline-desc">Nine years across South Africa and the UK at Siemens Business Services shaped the commercial foundation that everything since has been built on. Managing complex technology services contracts, engaging at senior stakeholder level, and learning the discipline of structured deal management in one of the world's most process-driven organisations. The move to the UK sharpened the pace and raised the standard.</p>
-        <div class="timeline-tags"><span class="tag">2000 to 2009</span><span class="tag">Siemens Business Services</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span></div>
+        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 <span class="en">South Africa &amp; United Kingdom · 2000 to 2009</span><span class="de">Südafrika &amp; Vereinigtes Königreich · 2000 bis 2009</span></div>
+        <h3 class="timeline-role">Siemens Business Services — <span class="en">Commercial Manager</span><span class="de">Commercial Manager</span></h3>
+        <p class="timeline-desc"><span class="en">Nine years across South Africa and the UK at Siemens Business Services shaped the commercial foundation. Managing complex technology services contracts, engaging at senior stakeholder level, and learning the discipline of structured deal management in one of the world's most process-driven organisations.</span><span class="de">Neun Jahre in Südafrika und dem UK bei Siemens Business Services formten das kommerzielle Fundament.</span></p>
+        <div class="timeline-tags"><span class="tag">2000 to 2009</span><span class="tag">Siemens Business Services</span><span class="tag">SA &amp; UK</span></div>
       </div>
     </div>
-
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2009</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 <span class="en">South Africa &amp; United Kingdom · 2009 to 2015</span><span class="de">Südafrika &amp; Vereinigtes Königreich · 2009 bis 2015</span></div>
+        <h3 class="timeline-role">T-Systems — <span class="en">Commercial Manager</span><span class="de">Commercial Manager</span></h3>
+        <p class="timeline-desc"><span class="en">Following Siemens Business Services, continued building the commercial foundation at T-Systems across South Africa and the UK. Deeper exposure to large-scale managed services and infrastructure transformation engagements at enterprise level, working with major corporate and public sector clients.</span><span class="de">Nach Siemens Business Services Fortsetzung der kommerziellen Arbeit bei T-Systems in Südafrika und dem UK.</span></p>
+        <div class="timeline-tags"><span class="tag">2009 to 2015</span><span class="tag">T-Systems</span><span class="tag">SA &amp; UK</span><span class="tag">Managed Services</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2015</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span> <span class="en">Cape Town, South Africa · 2015 to 2019</span><span class="de">Kapstadt, Südafrika · 2015 bis 2019</span></div>
+        <h3 class="timeline-role">Wipro — <span class="en">BFSI Practice Lead &amp; Client Executive</span><span class="de">BFSI Practice Lead &amp; Client Executive</span></h3>
+        <p class="timeline-desc"><span class="en">Based in Cape Town, built and led a 120-person BFSI delivery team. The defining commercial win: a $136M engagement with Old Mutual. Every failed transformation confirmed the same pattern: organisations designing for systems while ignoring the humans who had to use them.</span><span class="de">In Kapstadt ein 120-köpfiges BFSI-Team aufgebaut und geleitet. Der entscheidende kommerzielle Erfolg: ein $136M-Engagement mit Old Mutual.</span></p>
+        <div class="timeline-tags"><span class="tag">2015 to 2019</span><span class="tag">Wipro</span><span class="tag">$136M Old Mutual</span><span class="tag">120-person BFSI team</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2019</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇿🇦</span> <span class="en">South Africa · 2019</span><span class="de">Südafrika · 2019</span></div>
+        <h3 class="timeline-role">HCLTech — <span class="en">Client Executive, Insurance</span><span class="de">Client Executive, Versicherung</span></h3>
+        <p class="timeline-desc"><span class="en">Joined HCLTech SA and secured a $15M Guidewire implementation from a standing start. New enterprise relationships, new market — closed on the strength of insurance platform depth and commercial precision.</span><span class="de">Zu HCLTech SA gewechselt und einen $15M Guidewire-Auftrag aus dem Stand gesichert.</span></p>
+        <div class="timeline-tags"><span class="tag">2019</span><span class="tag">HCLTech</span><span class="tag">$15M Guidewire</span><span class="tag">Insurance</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2020</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇸🇬</span> <span class="en">Singapore · 2020</span><span class="de">Singapur · 2020</span></div>
+        <h3 class="timeline-role">Concentrix — <span class="en">Client Executive, Digital &amp; Innovation</span><span class="de">Client Executive, Digital &amp; Innovation</span></h3>
+        <p class="timeline-desc"><span class="en">Singapore sharpened a different kind of commercial thinking. Working across Telco and Airline clients in the APAC market, applied gamification, nudge theory, and choice architecture to digital product development. Behaviour is not universal — context shapes cognition.</span><span class="de">Singapur schärfte ein anderes kommerzielles Denken. Gamification, Nudge-Theorie und Choice Architecture für digitale Produktentwicklung.</span></p>
+        <div class="timeline-tags"><span class="tag">2020</span><span class="tag">Concentrix</span><span class="tag">Telco &amp; Airlines</span><span class="tag">Singapore · APAC</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2020</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇨🇿</span> <span class="en">Prague, Czechia · 2020 to 2024</span><span class="de">Prag, Tschechien · 2020 bis 2024</span></div>
+        <h3 class="timeline-role">Monstarlab — <span class="en">VP Operations &amp; Commercial, Europe</span><span class="de">VP Operations &amp; Commercial, Europa</span></h3>
+        <p class="timeline-desc"><span class="en">Led commercial strategy and enterprise deal-making across Europe. Secured a $5M contract by understanding the cognitive patterns behind complex B2B procurement decisions. Spearheaded $20M M&amp;A strategies that repositioned the firm's European footprint.</span><span class="de">Kommerzielle Strategie und Enterprise-Deal-Making in Europa. $5M-Vertrag gesichert. $20M M&A-Strategie entwickelt und umgesetzt.</span></p>
+        <div class="timeline-tags"><span class="tag">2020 to 2024</span><span class="tag">Monstarlab</span><span class="tag">$5M Strategic Deal</span><span class="tag">$20M M&amp;A</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2021</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇦🇪</span> <span class="en">Dubai, UAE · 2021 to 2023</span><span class="de">Dubai, VAE · 2021 bis 2023</span></div>
+        <h3 class="timeline-role">Monstarlab — <span class="en">VP Engagement, Insurance</span><span class="de">VP Engagement, Versicherung</span></h3>
+        <p class="timeline-desc"><span class="en">VP Engagement managing insurance platform engagements across the Gulf, concurrent with the European VP Operations role. Guidewire, Sapiens, and Oracle Health Insurance at enterprise scale. Dubai operates on different commercial logic: scale is expected, relationships are non-negotiable.</span><span class="de">VP Engagement für Versicherungsplattform-Engagements im Golf, parallel zur europäischen VP Operations-Rolle.</span></p>
+        <div class="timeline-tags"><span class="tag">2021 to 2023</span><span class="tag">Guidewire · Sapiens · Oracle HI</span><span class="tag">Gulf BFSI</span></div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"><div class="dot"></div><div class="year">2024</div></div>
+      <div class="timeline-card">
+        <div class="timeline-location"><span class="flag">🇳🇴</span> <span class="en">Stavanger, Norway · November 2024 to Present</span><span class="de">Stavanger, Norwegen · November 2024 bis heute</span></div>
+        <h3 class="timeline-role">HCLTech — <span class="en">Regional Commercial Director</span><span class="de">Regional Commercial Director</span></h3>
+        <p class="timeline-desc"><span class="en">Managing a $33M ARR strategic energy account — the Equinor engagement — for HCLTech in Stavanger. Working at CxO level to drive AI and digital transformation in one of the world's most sustainability-focused energy markets. The organisations that will win with AI are not the ones with the best models, but the ones that understand how their people will actually respond to them.</span><span class="de">Verwaltung des $33M ARR strategischen Energiekontos — das Equinor-Engagement — für HCLTech in Stavanger.</span></p>
+        <div class="timeline-tags"><span class="tag">Nov 2024 to Present</span><span class="tag">HCLTech</span><span class="tag">$33M ARR · Equinor</span><span class="tag">Energy · Norway</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="cv">
   <div class="section-label"><span class="en">Professional profile</span><span class="de">Berufliches Profil</span></div>
   <h2 class="section-title reveal"><span class="en">The CV,<br>Condensed</span><span class="de">Der Lebenslauf,<br>kompakt</span></h2>
-  <div class="pull-quote reveal" style="background:#0F2744;color:#F9F8F5;border-left-color:#00B4D8;"><span class="en">"$136M Old Mutual. $15M Guidewire. $33M ARR Equinor. <em>The edge was never the product. It was understanding how the person across the table actually decides.</em>"</span><span class="de">"$136M Old Mutual. $15M Guidewire. $33M ARR Equinor. <em>Der Vorteil war nie das Produkt. Es war das Verständnis, wie der Gegenüber tatsächlich entscheidet.</em>"</span></div>
+  <div class="pull-quote reveal">"<span class="en">$136M Old Mutual. $15M Guidewire. $33M ARR Equinor. <em>The edge was never the product. It was understanding how the person across the table actually decides.</em></span><span class="de">$136M Old Mutual. $15M Guidewire. $33M ARR Equinor. <em>Der Vorteil war nie das Produkt. Es war das Verständnis, wie der Gegenüber tatsächlich entscheidet.</em></span>"</div>
   <div class="cv-grid reveal">
     <div class="cv-cell">
-      <div class="cv-cell-label">Current Role</div>
-      <div class="cv-cell-title">Regional Commercial Director — HCLTech, Norway</div>
-      <div class="cv-cell-sub">Managing the $33M ARR Equinor energy account for HCLTech, Stavanger, as part of a broader enterprise portfolio. Driving AI and digital transformation at CxO level. Applying commercial and behavioural economics principles to complex, multi-stakeholder enterprise engagements. November 2024 to present.</div>
+      <div class="cv-cell-label"><span class="en">Current Role</span><span class="de">Aktuelle Rolle</span></div>
+      <div class="cv-cell-title"><span class="en">Regional Commercial Director — HCLTech, Stavanger</span><span class="de">Regional Commercial Director — HCLTech, Stavanger</span></div>
+      <div class="cv-cell-sub"><span class="en">Managing the $33M ARR Equinor energy account for HCLTech. Driving AI transformation at CxO level. Applying behavioural economics to close complex, multi-stakeholder enterprise deals. November 2024 to present.</span><span class="de">Verwaltung des $33M ARR Equinor-Energiekontos für HCLTech. KI-Transformation auf CxO-Ebene. November 2024 bis heute.</span></div>
     </div>
     <div class="cv-cell">
-      <div class="cv-cell-label">Credentials</div>
+      <div class="cv-cell-label"><span class="en">Credentials</span><span class="de">Qualifikationen</span></div>
       <div class="cv-cell-title">CGMA · FMA · MSc · BCom</div>
-      <div class="cv-cell-sub">MSc Behavioural Economics and Game Theory. BCom Industrial and Organisational Psychology, UNISA, 2021. PG Diploma Innovation and Design Thinking. CGMA Fellowship. FMA. CBT Certified. Prosci Change Management Certification.</div>
+      <div class="cv-cell-sub"><span class="en">MSc Behavioural Economics and Game Theory. BCom I&amp;O Psychology, UNISA, 2021. PG Diploma Innovation and Design Thinking. CGMA Fellowship. FMA. CBT Certified. Prosci Change Management.</span><span class="de">MSc Verhaltensökonomie und Spieltheorie. BCom I&O Psychologie, UNISA, 2021. PG Diplom Innovation und Design Thinking. CGMA-Stipendium. FMA. CBT-Zertifiziert. Prosci Change Management.</span></div>
     </div>
     <div class="cv-cell">
-      <div class="cv-cell-label">Career Span</div>
-      <div class="cv-cell-title">2000 to Present</div>
-      <div class="cv-cell-sub">HCLTech (Stavanger, 2024–present) · Monstarlab (Prague and Dubai, 2020–2023) · Concentrix (Singapore, 2020) · HCLTech SA (2019) · Wipro (Cape Town, 2009–2019) · Siemens Business Services (SA and UK, 2000–2009). Insurance platforms: Guidewire, Sapiens, Oracle Health Insurance.</div>
+      <div class="cv-cell-label"><span class="en">Career Span</span><span class="de">Karrierezeitraum</span></div>
+      <div class="cv-cell-title"><span class="en">2000 to Present</span><span class="de">2000 bis heute</span></div>
+      <div class="cv-cell-sub"><span class="en">HCLTech (Stavanger) · Monstarlab (Prague and Dubai) · Concentrix (Singapore) · HCLTech SA · Wipro (Cape Town) · T-Systems (SA &amp; UK) · Siemens Business Services (SA &amp; UK). Insurance platforms: Guidewire, Sapiens, Oracle Health Insurance.</span><span class="de">HCLTech (Stavanger) · Monstarlab (Prag und Dubai) · Concentrix (Singapur) · Wipro (Kapstadt) · T-Systems · Siemens Business Services.</span></div>
     </div>
     <div class="cv-cell">
-      <div class="cv-cell-label">Research Direction</div>
-      <div class="cv-cell-title">Behavioural Science × AI × Enterprise</div>
-      <div class="cv-cell-sub">Applying 25 years of commercial experience at the intersection of cognitive neuroscience, behavioural economics, and AI transformation strategy. Completing MIT Neuroscience for Business. Research interest: why human cognition remains the missing layer in every AI strategy — and what organisations can do about it.</div>
+      <div class="cv-cell-label"><span class="en">Research Direction</span><span class="de">Forschungsrichtung</span></div>
+      <div class="cv-cell-title"><span class="en">Behavioural Science × AI × Enterprise</span><span class="de">Verhaltenswissenschaft × KI × Unternehmen</span></div>
+      <div class="cv-cell-sub"><span class="en">Applying 25 years of commercial experience at the intersection of cognitive neuroscience, AI decision-making, and enterprise strategy. Completing MIT Neuroscience for Business. The driving question: why does human cognition remain the missing layer in every AI strategy?</span><span class="de">25 Jahre Erfahrung an der Schnittstelle von kognitiver Neurowissenschaft, KI-Entscheidungsfindung und Unternehmensstrategie. MIT Neuroscience for Business in Bearbeitung.</span></div>
     </div>
     <div class="cv-cell">
-      <div class="cv-cell-label">Core Expertise</div>
-      <div class="cv-cell-title">What I Bring</div>
+      <div class="cv-cell-label"><span class="en">Core Expertise</span><span class="de">Kernkompetenz</span></div>
+      <div class="cv-cell-title"><span class="en">What I Bring</span><span class="de">Was ich mitbringe</span></div>
       <ul class="cv-skills-list">
-        <li>Strategic enterprise deal-making ($5M to $33M)</li>
-        <li>AI and digital transformation advisory</li>
-        <li>Behavioural economics in commercial strategy</li>
-        <li>CxO and C-suite stakeholder engagement</li>
-        <li>Insurance platforms: Guidewire, Sapiens, Oracle HI</li>
-        <li>Energy sector transformation (Nordics)</li>
-        <li>Cross-cultural leadership · 6 countries · 4 continents</li>
-        <li>Cognitive bias applied to B2B deal cycles</li>
+        <li><span class="en">Strategic enterprise deal-making ($5M to $136M)</span><span class="de">Strategisches Enterprise-Deal-Making ($5M bis $136M)</span></li>
+        <li><span class="en">AI and digital transformation advisory</span><span class="de">KI- und digitale Transformationsberatung</span></li>
+        <li><span class="en">Behavioural economics in commercial strategy</span><span class="de">Verhaltensökonomie in der Handelsstrategie</span></li>
+        <li><span class="en">CxO and C-suite stakeholder engagement</span><span class="de">CxO- und C-Suite-Stakeholder-Engagement</span></li>
+        <li><span class="en">Insurance platforms: Guidewire, Sapiens, Oracle HI</span><span class="de">Versicherungsplattformen: Guidewire, Sapiens, Oracle HI</span></li>
+        <li><span class="en">Cross-cultural leadership · 6 countries · 4 continents</span><span class="de">Interkulturelle Führung · 6 Länder · 4 Kontinente</span></li>
       </ul>
     </div>
     <div class="cv-cell">
-      <div class="cv-cell-label">Research Focus</div>
-      <div class="cv-cell-title">Behavioural Economics in Enterprise</div>
-      <div class="cv-cell-sub">Cognitive biases in AI adoption and B2B deal-making. Decision science applied to digital transformation. The neurological drivers of organisational change resistance. 25 years of evidence that the human layer — not the technology — determines commercial outcomes.</div>
+      <div class="cv-cell-label"><span class="en">Research Focus</span><span class="de">Forschungsschwerpunkt</span></div>
+      <div class="cv-cell-title"><span class="en">Neuroeconomics &amp; Enterprise AI</span><span class="de">Neuroökonomie &amp; Enterprise KI</span></div>
+      <div class="cv-cell-sub"><span class="en">Cognitive biases in AI adoption and deal-making. Decision neuroscience in digital transformation. Neurological drivers of organisational change resistance. 25 years of evidence that the human layer determines commercial outcomes.</span><span class="de">Kognitive Verzerrungen bei der KI-Übernahme. Entscheidungsneurowissenschaft in der digitalen Transformation. 25 Jahre Belege, dass die menschliche Ebene kommerzielle Ergebnisse bestimmt.</span></div>
     </div>
   </div>
 </section>
 
 <section id="articles">
   <div class="section-label"><span class="en">Thought leadership</span><span class="de">Thought Leadership</span></div>
-  <h2 class="section-title reveal"><span class="en">Writing That<br>Moves the Needle</span><span class="de">Texte, die<br>etwas bewirken</span></h2>
-  <div class="pull-quote reveal" style="background:#0F2744;color:#F9F8F5;border-left-color:#80ED99;"><span class="en">"Seven in ten AI transformations fail at adoption, not implementation. <em>The missing variable is not the data. It is the brain.</em>"</span><span class="de">"Sieben von zehn KI-Transformationen scheitern bei der Übernahme, nicht der Implementierung. <em>Die fehlende Variable sind nicht die Daten. Es ist das Gehirn.</em>"</span></div>
-  <p class="articles-intro reveal"><span class="en">At the intersection of cognitive neuroscience, AI transformation, and commercial strategy — for executives who want to understand what actually drives human decisions at scale.</span><span class="de">An der Schnittstelle von kognitiver Neurowissenschaft, KI-Transformation und Handelsstrategie — für Führungskräfte, die verstehen wollen, was menschliche Entscheidungen im großen Maßstab wirklich antreibt.</span></p>
+  <h2 class="section-title reveal"><span class="en">Writing That<br>Moves the Needle</span><span class="de">Texte, die<br>etwas bewegen</span></h2>
+  <div class="pull-quote reveal">"<span class="en">Seven in ten AI transformations fail at adoption, not implementation. <em>The missing variable is not the data. It is the brain.</em></span><span class="de">Sieben von zehn KI-Transformationen scheitern bei der Übernahme, nicht der Implementierung. <em>Die fehlende Variable sind nicht die Daten. Es ist das Gehirn.</em></span>"</div>
+  <p class="articles-intro reveal"><span class="en">At the intersection of cognitive neuroscience, AI transformation, and commercial strategy — for executives who want to understand what actually drives human decisions at scale.</span><span class="de">An der Schnittstelle von kognitiver Neurowissenschaft, KI-Transformation und Handelsstrategie.</span></p>
   <div class="articles-featured reveal">
     <div class="article-featured-card">
-      <div class="art-feat-meta"><span class="art-topic">Neuroscience &amp; AI</span><span class="art-read">7 min read</span></div>
-      <h3 class="art-feat-title">The Neuroscience of AI Resistance — Why Your Transformation Programme Is Fighting the Brain</h3>
-      <p class="art-feat-excerpt">70% of digital transformation projects fail. This is not a technology problem. It is a neuroscience problem. The organisations investing billions in AI are designing for the wrong variable: the technology. They are ignoring the brain.</p>
-      <div class="art-feat-footer">
-        <span class="art-date">March 2026</span>
-        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-read-btn">Read on LinkedIn</a>
-      </div>
+      <div class="art-feat-meta"><span class="art-topic"><span class="en">Neuroscience &amp; AI</span><span class="de">Neurowissenschaft &amp; KI</span></span><span class="art-read">7 min read</span></div>
+      <h3 class="art-feat-title"><span class="en">The Neuroscience of AI Resistance — Why Your Transformation Programme Is Fighting the Brain</span><span class="de">Die Neurowissenschaft des KI-Widerstands — Warum Ihr Transformationsprogramm gegen das Gehirn kämpft</span></h3>
+      <p class="art-feat-excerpt"><span class="en">70% of digital transformation projects fail. This is not a technology problem. It is a neuroscience problem. The organisations investing billions in AI are designing for the wrong variable.</span><span class="de">70% der digitalen Transformationsprojekte scheitern. Das ist kein Technologieproblem. Es ist ein Neurowissenschaftsproblem.</span></p>
+      <div class="art-feat-footer"><span class="art-date"><span class="en">March 2026</span><span class="de">März 2026</span></span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-read-btn"><span class="en">Read on LinkedIn</span><span class="de">Auf LinkedIn lesen</span></a></div>
     </div>
     <div class="article-featured-card">
-      <div class="art-feat-meta"><span class="art-topic">Behavioural Economics</span><span class="art-read">6 min read</span></div>
-      <h3 class="art-feat-title">Why Every Enterprise AI Strategy Has a Missing Layer — And It Is Not the Data</h3>
-      <p class="art-feat-excerpt">Enterprises are spending record amounts on AI infrastructure. But the ROI numbers are sobering. The missing layer is not better models or cleaner data. It is the cognitive architecture of the humans who have to use, trust, and act on AI outputs.</p>
-      <div class="art-feat-footer">
-        <span class="art-date">February 2026</span>
-        <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-read-btn">Read on LinkedIn</a>
-      </div>
+      <div class="art-feat-meta"><span class="art-topic"><span class="en">Behavioural Economics</span><span class="de">Verhaltensökonomie</span></span><span class="art-read">6 min read</span></div>
+      <h3 class="art-feat-title"><span class="en">Why Every Enterprise AI Strategy Has a Missing Layer — And It Is Not the Data</span><span class="de">Warum jeder Enterprise-KI-Strategie eine fehlende Ebene fehlt — und es sind nicht die Daten</span></h3>
+      <p class="art-feat-excerpt"><span class="en">Enterprises are spending record amounts on AI infrastructure. The missing layer is not better models or cleaner data. It is the cognitive architecture of the humans who have to use, trust, and act on AI outputs.</span><span class="de">Unternehmen geben Rekordsummen für KI-Infrastruktur aus. Die fehlende Schicht ist nicht bessere Modelle oder sauberere Daten.</span></p>
+      <div class="art-feat-footer"><span class="art-date"><span class="en">February 2026</span><span class="de">Februar 2026</span></span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-read-btn"><span class="en">Read on LinkedIn</span><span class="de">Auf LinkedIn lesen</span></a></div>
     </div>
   </div>
   <div class="articles-grid reveal">
     <div class="article-card">
-      <div class="art-topic-tag">Decision Science</div>
-      <h4 class="art-title">The Chief Behavioural Officer — The C-Suite Role Nobody Is Talking About Yet</h4>
-      <p class="art-excerpt">Every major enterprise deploying AI will need someone who understands the cognitive and neurological drivers of how humans respond to AI systems. Most organisations are still looking for that person.</p>
-      <div class="art-footer"><span class="art-date-sm">Coming April 2026</span><span class="art-badge upcoming">Upcoming</span></div>
+      <div class="art-topic-tag"><span class="en">Decision Science</span><span class="de">Entscheidungswissenschaft</span></div>
+      <h4 class="art-title"><span class="en">The Chief Behavioural Officer — The C-Suite Role Nobody Is Talking About Yet</span><span class="de">Der Chief Behavioural Officer — Die C-Suite-Rolle, über die noch niemand spricht</span></h4>
+      <p class="art-excerpt"><span class="en">Every major enterprise deploying AI will need someone who understands the cognitive and neurological drivers of how humans respond to AI systems.</span><span class="de">Jedes große Unternehmen, das KI einsetzt, wird jemanden brauchen, der die kognitiven Treiber versteht.</span></p>
+      <div class="art-footer"><span class="art-date-sm"><span class="en">Coming April 2026</span><span class="de">Kommt April 2026</span></span><span class="art-badge upcoming"><span class="en">Upcoming</span><span class="de">Demnächst</span></span></div>
     </div>
     <div class="article-card">
-      <div class="art-topic-tag">Decision Science</div>
-      <h4 class="art-title">Decision Architecture in the Boardroom — What Neuroscience Says About How Leaders Actually Decide</h4>
-      <p class="art-excerpt">We teach leaders strategy frameworks and financial models. We almost never teach them how their own brain shapes every decision they make. Fifteen years in the room with senior executives has shown me the gap.</p>
-      <div class="art-footer"><span class="art-date-sm">January 2026</span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link">Read</a></div>
+      <div class="art-topic-tag"><span class="en">Decision Science</span><span class="de">Entscheidungswissenschaft</span></div>
+      <h4 class="art-title"><span class="en">Decision Architecture in the Boardroom — What Neuroscience Says About How Leaders Actually Decide</span><span class="de">Entscheidungsarchitektur im Vorstandssaal — Was die Neurowissenschaft über Führungsentscheidungen sagt</span></h4>
+      <p class="art-excerpt"><span class="en">We teach leaders strategy frameworks and financial models. We almost never teach them how their own brain shapes every decision they make.</span><span class="de">Wir lehren Führungskräfte Strategierahmen und Finanzmodelle. Wir lehren sie fast nie, wie ihr eigenes Gehirn jede Entscheidung beeinflusst.</span></p>
+      <div class="art-footer"><span class="art-date-sm"><span class="en">January 2026</span><span class="de">Januar 2026</span></span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link"><span class="en">Read</span><span class="de">Lesen</span></a></div>
     </div>
     <div class="article-card">
-      <div class="art-topic-tag">Behavioural Economics</div>
-      <h4 class="art-title">What Insurance Can Teach Every Industry About Behavioural Economics</h4>
-      <p class="art-excerpt">Insurance products are built on neurological contradictions. The organisations redesigning around how customers actually process risk, rather than how they theoretically should, are gaining measurable commercial advantage.</p>
-      <div class="art-footer"><span class="art-date-sm">December 2025</span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link">Read</a></div>
+      <div class="art-topic-tag"><span class="en">Behavioural Economics</span><span class="de">Verhaltensökonomie</span></div>
+      <h4 class="art-title"><span class="en">What Insurance Can Teach Every Industry About Behavioural Economics</span><span class="de">Was die Versicherungsbranche jeder Industrie über Verhaltensökonomie lehren kann</span></h4>
+      <p class="art-excerpt"><span class="en">Insurance products are built on neurological contradictions. The organisations redesigning around how customers actually process risk are gaining measurable commercial advantage.</span><span class="de">Versicherungsprodukte sind auf neurologischen Widersprüchen aufgebaut.</span></p>
+      <div class="art-footer"><span class="art-date-sm"><span class="en">December 2025</span><span class="de">Dezember 2025</span></span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link"><span class="en">Read</span><span class="de">Lesen</span></a></div>
     </div>
     <div class="article-card">
-      <div class="art-topic-tag">Change Management</div>
-      <h4 class="art-title">6 Countries. 15 Years. One Consistent Pattern in How Organisations Fail at Change</h4>
-      <p class="art-excerpt">From Johannesburg to Singapore to Oslo, the failure pattern in change management is identical everywhere. It is never the strategy. It is always the human layer.</p>
-      <div class="art-footer"><span class="art-date-sm">November 2025</span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link">Read</a></div>
+      <div class="art-topic-tag"><span class="en">Change Management</span><span class="de">Change Management</span></div>
+      <h4 class="art-title"><span class="en">6 Countries. 15 Years. One Consistent Pattern in How Organisations Fail at Change</span><span class="de">6 Länder. 15 Jahre. Ein konsistentes Muster, wie Organisationen beim Wandel scheitern</span></h4>
+      <p class="art-excerpt"><span class="en">From Johannesburg to Singapore to Oslo, the failure pattern in change management is identical everywhere. It is never the strategy. It is always the human layer.</span><span class="de">Von Johannesburg bis Singapur bis Oslo ist das Scheiternsmuster im Change Management überall identisch.</span></p>
+      <div class="art-footer"><span class="art-date-sm"><span class="en">November 2025</span><span class="de">November 2025</span></span><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="art-link"><span class="en">Read</span><span class="de">Lesen</span></a></div>
     </div>
   </div>
   <div class="articles-cta reveal">
@@ -1081,7 +858,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="cta-text-block">
         <div class="cta-label"><span class="en">Stay in the conversation</span><span class="de">Im Gespräch bleiben</span></div>
         <h3 class="cta-heading"><span class="en">New thinking, every two weeks.</span><span class="de">Neue Erkenntnisse, alle zwei Wochen.</span></h3>
-        <p class="cta-sub"><span class="en">Practical insights at the intersection of cognitive science, AI strategy, and commercial leadership — for executives who want to lead with evidence, not assumption.</span><span class="de">Praxisnahe Erkenntnisse an der Schnittstelle von Kognitionswissenschaft, KI-Strategie und Unternehmensführung — für Führungskräfte, die evidenzbasiert führen wollen.</span></p>
+        <p class="cta-sub"><span class="en">Practical insights at the intersection of cognitive science, AI strategy, and commercial leadership — for executives who want to lead with evidence, not assumption.</span><span class="de">Praxisnahe Erkenntnisse an der Schnittstelle von Kognitionswissenschaft, KI-Strategie und Unternehmensführung.</span></p>
       </div>
       <div class="cta-actions">
         <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="btn-primary"><span class="en">Follow on LinkedIn</span><span class="de">LinkedIn folgen</span></a>
@@ -1104,59 +881,39 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         </div>
       </div>
       <div class="li-stats">
-        <div class="li-stat"><div class="n">500+</div><div class="l">Connections</div></div>
-        <div class="li-stat"><div class="n">6</div><div class="l">Countries</div></div>
-        <div class="li-stat"><div class="n">15+</div><div class="l">Yrs Exp</div></div>
+        <div class="li-stat"><div class="n">500+</div><div class="l"><span class="en">Connections</span><span class="de">Verbindungen</span></div></div>
+        <div class="li-stat"><div class="n">6</div><div class="l"><span class="en">Countries</span><span class="de">Länder</span></div></div>
+        <div class="li-stat"><div class="n">25+</div><div class="l"><span class="en">Yrs Exp</span><span class="de">Jahre Erfahrung</span></div></div>
       </div>
       <ul class="li-updates">
-        <li>Writing on the neuroscience of enterprise deal-making and how cognitive bias shapes B2B procurement decisions</li>
-        <li>Publishing on AI transformation strategy and why most programmes fail at the human layer, not the technology layer</li>
-        <li>Building the case for the Chief Behavioural Officer — the most important C-suite role organisations have not created yet</li>
-        <li>Sharing 15 years of client executive experience from BFSI, energy, and insurance across four continents</li>
+        <li><span class="en">Writing on the neuroscience of enterprise deal-making and how cognitive bias shapes B2B procurement decisions</span><span class="de">Schreiben über die Neurowissenschaft des Enterprise-Deal-Makings</span></li>
+        <li><span class="en">Publishing on AI transformation strategy and why most programmes fail at the human layer</span><span class="de">Veröffentlichungen zur KI-Transformationsstrategie</span></li>
+        <li><span class="en">Building the case for the Chief Behavioural Officer — the most important C-suite role organisations have not created yet</span><span class="de">Aufbau des Plädoyers für den Chief Behavioural Officer</span></li>
+        <li><span class="en">Sharing 25 years of client executive experience from BFSI, energy, and insurance across four continents</span><span class="de">25 Jahre Client-Executive-Erfahrung in BFSI, Energie und Versicherung</span></li>
       </ul>
       <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="li-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        Connect on LinkedIn
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span class="en">Connect on LinkedIn</span><span class="de">Auf LinkedIn verbinden</span>
       </a>
     </div>
     <div class="connect-right">
       <div class="updates-title"><span class="en">Latest</span><span class="de">Aktuelles</span></div>
       <ul class="update-feed">
-        <li>
-          <div class="update-date">APR<br>2026</div>
-          <div class="update-text"><strong>Published:</strong> The neuroscience of why digital transformation projects fail, and what to do about it.</div>
-        </li>
-        <li>
-          <div class="update-date">MAR<br>2026</div>
-          <div class="update-text"><strong>New article:</strong> 15 years applying behavioural economics at enterprise scale — what I have actually learned.</div>
-        </li>
-        <li>
-          <div class="update-date">JAN<br>2026</div>
-          <div class="update-text"><strong>MIT edX:</strong> Completing Neuroscience for Business — adding formal credential to 15 years of applied practice.</div>
-        </li>
-        <li>
-          <div class="update-date">NOV<br>2024</div>
-          <div class="update-text"><strong>HCLTech, Norway:</strong> Joined as Regional Commercial Director, managing a $33M ARR strategic energy account.</div>
-        </li>
+        <li><div class="update-date">APR<br>2026</div><div class="update-text"><strong><span class="en">Published:</span><span class="de">Veröffentlicht:</span></strong> <span class="en">The neuroscience of why digital transformation projects fail, and what to do about it.</span><span class="de">Die Neurowissenschaft, warum digitale Transformationsprojekte scheitern.</span></div></li>
+        <li><div class="update-date">MAR<br>2026</div><div class="update-text"><strong><span class="en">New article:</span><span class="de">Neuer Artikel:</span></strong> <span class="en">25 years applying behavioural economics at enterprise scale — what I have actually learned.</span><span class="de">25 Jahre Anwendung von Verhaltensökonomie im Unternehmensmaßstab.</span></div></li>
+        <li><div class="update-date">JAN<br>2026</div><div class="update-text"><strong>MIT edX:</strong> <span class="en">Completing Neuroscience for Business — adding formal credential to 25 years of applied practice.</span><span class="de">Neuroscience for Business abschließen — formale Qualifikation zu 25 Jahren Praxis hinzufügen.</span></div></li>
+        <li><div class="update-date">NOV<br>2024</div><div class="update-text"><strong>HCLTech, Stavanger:</strong> <span class="en">Joined as Regional Commercial Director, managing the $33M ARR Equinor energy account.</span><span class="de">Als Regional Commercial Director eingetreten, Verwaltung des $33M ARR Equinor-Energiekontos.</span></div></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner reveal">
     <div class="contact-left">
-      <div class="section-label" style="color:#00B4D8;">
-        <span class="en">Work with me</span>
-        <span class="de">Zusammenarbeiten</span>
-      </div>
-      <h2 class="section-title" style="color:#F9F8F5;">
-        <span class="en">Let's Have a<br>Real Conversation.</span>
-        <span class="de">Sprechen wir<br>Klartext.</span>
-      </h2>
-      <p class="contact-desc" class="en">Whether you are building an AI strategy, navigating a complex deal, or looking for an executive who understands both the commercial and cognitive dimensions of transformation — get in touch.</p>
-      <p class="contact-desc" class="de">Ob Sie eine KI-Strategie entwickeln, einen komplexen Deal navigieren oder eine Führungskraft suchen, die sowohl die kommerziellen als auch kognitiven Dimensionen der Transformation versteht — melden Sie sich.</p>
+      <div class="section-label" style="color:#00B4D8"><span class="en">Work with me</span><span class="de">Zusammenarbeiten</span></div>
+      <h2 class="section-title" style="color:#F9F8F5"><span class="en">Let's Have a<br>Real Conversation.</span><span class="de">Sprechen wir<br>Klartext.</span></h2>
+      <p class="contact-desc"><span class="en">Whether you are building an AI strategy, navigating a complex deal, or looking for an executive who understands both the commercial and cognitive dimensions of transformation — get in touch.</span><span class="de">Ob Sie eine KI-Strategie entwickeln, einen komplexen Deal navigieren oder eine Führungskraft suchen — melden Sie sich.</span></p>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="contact-link-btn">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1164,8 +921,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         </a>
         <a href="mailto:jaqueline.duplooy@gmail.com" class="contact-link-btn contact-link-outline">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-          <span class="en">Email me</span>
-          <span class="de">E-Mail</span>
+          <span class="en">Email me</span><span class="de">E-Mail</span>
         </a>
       </div>
     </div>
@@ -1173,10 +929,10 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="contact-card">
         <div class="contact-card-label"><span class="en">Based in</span><span class="de">Standort</span></div>
         <div class="contact-card-value">Stavanger, Norway</div>
-        <div class="contact-card-label" style="margin-top:1.25rem;"><span class="en">Open to</span><span class="de">Offen für</span></div>
+        <div class="contact-card-label" style="margin-top:1.25rem;"><span class="en">Available for</span><span class="de">Verfügbar für</span></div>
         <div class="contact-card-value">
-          <span class="en">Executive roles in NL &amp; DE<br>Advisory &amp; consulting engagements<br>Speaking &amp; keynotes</span>
-          <span class="de">Führungspositionen in NL &amp; DE<br>Beratungsmandate<br>Vorträge &amp; Keynotes</span>
+          <span class="en">Advisory &amp; consulting engagements<br>Speaking &amp; keynotes<br>Collaborative research</span>
+          <span class="de">Beratungsmandate<br>Vorträge &amp; Keynotes<br>Kollaborative Forschung</span>
         </div>
         <div class="contact-card-label" style="margin-top:1.25rem;">LinkedIn</div>
         <div class="contact-card-value"><a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" style="color:#00B4D8;text-decoration:none;">linkedin.com/in/jackieduplooy</a></div>
@@ -1193,12 +949,13 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
   <div>
     <div class="footer-col-title"><span class="en">Navigate</span><span class="de">Navigation</span></div>
     <ul class="footer-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#map">Locations</a></li>
+      <li><a href="#home"><span class="en">Home</span><span class="de">Start</span></a></li>
+      <li><a href="#achievements"><span class="en">Results</span><span class="de">Ergebnisse</span></a></li>
+      <li><a href="#map"><span class="en">Locations</span><span class="de">Standorte</span></a></li>
       <li><a href="#languages"><span class="en">Languages</span><span class="de">Sprachen</span></a></li>
       <li><a href="#industries"><span class="en">Industries</span><span class="de">Branchen</span></a></li>
       <li><a href="#journey"><span class="en">Journey</span><span class="de">Werdegang</span></a></li>
-      <li><a href="#cv"><span class="en">CV</span><span class="de">Lebenslauf</span></a></li>
+      <li><a href="#cv">CV</a></li>
       <li><a href="#articles"><span class="en">Articles</span><span class="de">Artikel</span></a></li>
       <li><a href="#connect">LinkedIn</a></li>
       <li><a href="#contact"><span class="en">Contact</span><span class="de">Kontakt</span></a></li>
@@ -1210,7 +967,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <li><a href="#">🇿🇦 South Africa</a></li>
       <li><a href="#">🇬🇧 United Kingdom · 2000 to 2009</a></li>
       <li><a href="#">🇸🇬 Singapore · 2020</a></li>
-      <li><a href="#">🇨🇿 Czechia · 2020 to 2024</a></li>
+      <li><a href="#">🇨🇿 Czechia · 2024</a></li>
       <li><a href="#">🇦🇪 Dubai, UAE · 2021 to 2023</a></li>
       <li><a href="#">🇳🇴 Norway · Nov 2024 to Present</a></li>
     </ul>
@@ -1222,39 +979,24 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 </div>
 
 <script>
-const cursor=document.getElementById('cursor');
-document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
-document.querySelectorAll('a,button,.timeline-item,.loc-block,.lang-block,.ind-card,.article-card,.article-featured-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cursor.classList.add('big'));
-  el.addEventListener('mouseleave',()=>cursor.classList.remove('big'));
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px"});
+document.querySelectorAll("a,button,.timeline-item,.loc-block,.lang-block,.ind-card,.article-card,.article-featured-card,.ach-card").forEach(el=>{
+  el.addEventListener("mouseenter",()=>cursor.classList.add("big"));
+  el.addEventListener("mouseleave",()=>cursor.classList.remove("big"));
 });
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-const po=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.querySelectorAll('.lang-fill').forEach(bar=>{const w=bar.style.width;bar.style.width='0%';setTimeout(()=>bar.style.width=w,150)})}})},{threshold:.3});
-document.querySelectorAll('#languages').forEach(el=>po.observe(el));
-
-// Language toggle
-function setLang(lang) {
-  document.body.classList.remove('lang-en', 'lang-de');
-  document.body.classList.add('lang-' + lang);
-  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
-  document.getElementById('btnDE').classList.toggle('active', lang === 'de');
-  localStorage.setItem('preferredLang', lang);
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")})},{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+const po=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.querySelectorAll(".lang-fill").forEach(bar=>{const w=bar.style.width;bar.style.width="0%";setTimeout(()=>bar.style.width=w,150)})}})},{threshold:.3});
+document.querySelectorAll("#languages").forEach(el=>po.observe(el));
+function setLang(lang){
+  document.body.classList.remove("lang-en","lang-de");
+  document.body.classList.add("lang-"+lang);
+  document.getElementById("btnEN").classList.toggle("active",lang==="en");
+  document.getElementById("btnDE").classList.toggle("active",lang==="de");
+  try{localStorage.setItem("preferredLang",lang)}catch(e){}
 }
-// Restore preference
-const savedLang = localStorage.getItem('preferredLang');
-if (savedLang === 'de') setLang('de');
-
+try{const s=localStorage.getItem("preferredLang");if(s==="de")setLang("de")}catch(e){}
 </script>
 </body>
-</html>    <div class="timeline-item reveal">
-      <div class="timeline-dot"><div class="dot"></div><div class="year">2009</div></div>
-      <div class="timeline-card">
-        <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 South Africa &amp; United Kingdom · 2009 to 2015</div>
-        <h3 class="timeline-role">T-Systems — Commercial Manager</h3>
-        <p class="timeline-desc">Following Siemens Business Services, continued building the commercial foundation at T-Systems across South Africa and the UK. Deeper exposure to large-scale managed services and infrastructure transformation engagements at enterprise level, working with major corporate and public sector clients. Sharpened the ability to navigate complex, multi-stakeholder commercial environments and position technology value at the executive level.</p>
-        <div class="timeline-tags"><span class="tag">2009 to 2015</span><span class="tag">T-Systems</span><span class="tag">Commercial Management</span><span class="tag">SA &amp; UK</span><span class="tag">Managed Services</span></div>
-      </div>
-    </div>
-
-
+</html>
