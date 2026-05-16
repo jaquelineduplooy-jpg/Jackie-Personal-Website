@@ -326,20 +326,40 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
+/* ── TABLET (≤900px) ─────────────────────────────────────────────── */
 @media(max-width:900px){
+  /* Hero */
   .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-right{min-height:60vh}
+  .hero-left{padding:4rem 1.5rem 2.5rem 1.5rem}
+  .hero-right{min-height:auto}
   .hero-approach-list{grid-template-columns:1fr}
-  section{padding:5rem 2rem}
-  #contact{padding:5rem 2rem}
-  nav{padding:0 1.5rem}
+  .hero-stats{gap:1.5rem}
+  .hero-stat .num{font-size:1.8rem}
+  .hero-creds{gap:.3rem}
+  .cred-badge{font-size:.55rem;padding:.2rem .5rem}
+
+  /* Nav */
+  nav{padding:0 1.25rem}
   .nav-links{display:none}
-  .logos-strip{padding:1.25rem 2rem;gap:1.5rem;flex-wrap:wrap}
-  .logos-row{flex-wrap:wrap;gap:.5rem}
+  .nav-logo{font-size:1rem}
+
+  /* Sections */
+  section{padding:4rem 1.5rem}
+  #contact{padding:4rem 1.5rem}
+  .section-title{margin-bottom:2rem}
+
+  /* Logo / Stats */
+  .logos-strip{padding:1rem 1.5rem;gap:1rem;flex-wrap:wrap}
+  .logos-row{flex-wrap:wrap;gap:.3rem}
   .logo-sep{display:none}
-  .stats-bar{padding:1.5rem 2rem;flex-wrap:wrap;gap:1.5rem}
+  .logo-item{padding:0 .75rem;font-size:.75rem}
+  .stats-bar{padding:1.25rem 1.5rem;flex-wrap:wrap;gap:1rem}
   .stat-sep{display:none}
-  .stat-item{min-width:30%}
+  .stat-item{min-width:28%;flex:1}
+  .stat-n{font-size:1.3rem}
+  .stat-l{font-size:.55rem}
+
+  /* Grids */
   .locations-grid{grid-template-columns:1fr 1fr}
   .lang-blocks{grid-template-columns:1fr 1fr}
   .ind-grid{grid-template-columns:1fr 1fr}
@@ -347,16 +367,77 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
   .cv-grid{grid-template-columns:1fr}
   .articles-featured{grid-template-columns:1fr}
   .articles-grid{grid-template-columns:1fr 1fr}
-  .connect-inner{grid-template-columns:1fr}
+  .connect-inner{grid-template-columns:1fr !important}
   .articles-cta-inner{grid-template-columns:1fr}
   .ind-foundation{grid-template-columns:1fr}
-  .contact-inner{grid-template-columns:1fr;gap:3rem}
-  footer{grid-template-columns:1fr;padding:3rem 2rem}
-  .footer-bottom{padding:1.1rem 2rem;flex-direction:column;gap:.4rem}
-  .lang-toggle{right:.5rem}
+  .contact-inner{grid-template-columns:1fr;gap:2.5rem}
+
+  /* Connect photo */
+  .connect-photo-col{flex-direction:row;align-items:center;gap:1.25rem;justify-content:flex-start}
+  .connect-photo-img{max-width:80px}
+  .connect-photo-name{font-size:.8rem}
+
+  /* Footer */
+  footer{grid-template-columns:1fr;padding:2.5rem 1.5rem}
+  .footer-bottom{padding:1rem 1.5rem;flex-direction:column;gap:.4rem;text-align:center}
+
+  /* Lang toggle */
+  .lang-toggle{right:.4rem;top:auto;bottom:1.5rem;transform:none;flex-direction:row;border-radius:20px;min-width:auto}
+  .lang-btn{padding:.55rem .7rem;writing-mode:horizontal-tb}
+  .lang-div{width:1px;height:20px;margin:0}
+  .lang-flag{border-top:none;border-left:1px solid rgba(0,180,216,.2);padding:.55rem .5rem}
+
+  /* Timeline */
+  .timeline::before{left:1.5rem}
+  .timeline-item{grid-template-columns:3.5rem 1fr;gap:1rem}
+  .timeline-card{padding:1.25rem 1.25rem}
 }
+
+/* ── MOBILE (≤600px) ─────────────────────────────────────────────── */
 @media(max-width:600px){
+  /* Hero */
+  .hero-left{padding:3.5rem 1.25rem 2rem 1.25rem}
+  .hero-name{font-size:clamp(2.2rem,9vw,3rem)}
+  .hero-title{font-size:1rem}
+  .hero-stats{gap:1rem;flex-wrap:wrap}
+  .hero-stat .num{font-size:1.6rem}
+  .hero-ctas{flex-direction:column;gap:.75rem;width:100%}
+  .btn-primary,.btn-outline{width:100%;text-align:center;padding:.9rem 1rem}
+
+  /* Stats bar */
+  .stat-item{min-width:45%}
+
+  /* All grids → single column */
   .locations-grid,.lang-blocks,.ind-grid,.articles-grid,.achievements-grid{grid-template-columns:1fr}
+
+  /* Sections */
+  section{padding:3.5rem 1.25rem}
+  #contact{padding:3.5rem 1.25rem}
+
+  /* Cards */
+  .loc-block{flex-direction:column;gap:.75rem}
+  .loc-flag{font-size:2rem}
+  .ach-value{font-size:2.2rem}
+  .ach-card.ach-featured .ach-value{font-size:2.8rem}
+
+  /* Articles */
+  .articles-cta-inner{padding:1.75rem 1.25rem}
+  .cta-heading{font-size:1.35rem}
+
+  /* CV */
+  .cv-cell{padding:1.5rem 1.25rem}
+
+  /* Footer */
+  footer{padding:2rem 1.25rem;gap:2rem}
+  .footer-bottom{padding:.85rem 1.25rem;font-size:.65rem}
+  .footer-logo{font-size:1.5rem}
+
+  /* Industries foundation */
+  .ind-foundation{padding:1.5rem 1.25rem}
+  .ind-foundation-label{display:none}
+
+  /* Scroll hint — hide on mobile */
+  .scroll-hint{display:none}
 }
 
   /* CONNECT PHOTO */
@@ -431,8 +512,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <span class="cred-badge">BCom I&amp;O Psych</span>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">$300<span>M+</span></div><div class="label"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></div></div>
-      <div class="hero-stat"><div class="num">$33<span>M</span></div><div class="label"><span class="en">ARR Current</span><span class="de">ARR Aktuell</span></div></div>
+      <div class="hero-stat"><div class="num" id="hero-counter">$300<span>M+</span></div><div class="label"><span class="en">Infra Outsourcing TCV</span><span class="de">Infra Outsourcing TCV</span></div></div>
+      <div class="hero-stat"><div class="num">$33<span>M</span></div><div class="label"><span class="en">ARR · Equinor</span><span class="de">ARR · Equinor</span></div></div>
       <div class="hero-stat"><div class="num">25<span>+</span></div><div class="label"><span class="en">Yrs Experience</span><span class="de">Jahre Erfahrung</span></div></div>
     </div>
     <div class="hero-ctas">
@@ -498,9 +579,9 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 </div>
 
 <div class="stats-bar">
-  <div class="stat-item"><span class="stat-n">$300M+</span><span class="stat-l"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></span></div>
+  <div class="stat-item"><span class="stat-n">$300M+</span><span class="stat-l"><span class="en">Infra Outsourcing TCV</span><span class="de">Infra Outsourcing TCV</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item"><span class="stat-n">$33M</span><span class="stat-l"><span class="en">ARR Current</span><span class="de">ARR Aktuell</span></span></div>
+  <div class="stat-item"><span class="stat-n">$33M</span><span class="stat-l"><span class="en">ARR · Equinor · HCLTech</span><span class="de">ARR · Equinor · HCLTech</span></span></div>
   <div class="stat-sep"></div>
   <div class="stat-item"><span class="stat-n">25+</span><span class="stat-l"><span class="en">Years Experience</span><span class="de">Jahre Erfahrung</span></span></div>
   <div class="stat-sep"></div>
@@ -548,7 +629,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 
 <section id="map">
   <div class="section-label"><span class="en">Where I have lived and worked</span><span class="de">Wo ich gelebt und gearbeitet habe</span></div>
-  <h2 class="section-title reveal"><span class="en">6 Countries.<br>4 Continents.</span><span class="de">6 Länder.<br>4 Kontinente.</span></h2>
+  <h2 class="section-title reveal"><span class="en">6 Countries.<br>3 Continents.</span><span class="de">6 Länder.<br>3 Kontinente.</span></h2>
   <div class="locations-grid reveal">
     <div class="loc-block loc-home">
       <div class="loc-flag">🇿🇦</div>
@@ -620,7 +701,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <div class="lang-block">
       <div class="lang-top"><div class="lang-name">English</div><div class="lang-level">Native</div></div>
       <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-      <div class="lang-note"><span class="en">Primary language across all commercial roles, negotiations, and written work. Board level across six countries and four continents over 25 years.</span><span class="de">Primärsprache in allen kommerziellen Rollen, Verhandlungen und schriftlichen Arbeiten. Vorstandsebene in sechs Ländern.</span></div>
+      <div class="lang-note"><span class="en">Primary language across all commercial roles, negotiations, and written work. Board level across six countries and three continents over 25 years.</span><span class="de">Primärsprache in allen kommerziellen Rollen, Verhandlungen und schriftlichen Arbeiten. Vorstandsebene in sechs Ländern.</span></div>
     </div>
     <div class="lang-block">
       <div class="lang-top"><div class="lang-name">Afrikaans</div><div class="lang-level">Native</div></div>
@@ -633,7 +714,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="lang-note"><span class="en">Currently learning at the Goethe Institut. Target B2 proficiency. A deliberate investment in Germany's BFSI and enterprise AI market.</span><span class="de">Derzeit am Goethe-Institut lernend. Ziel: B2. Eine bewusste Investition in Deutschlands BFSI- und KI-Markt.</span></div>
     </div>
     <div class="lang-block lang-cultural">
-      <div class="lang-top"><div class="lang-name">Cultural fluency</div><div class="lang-level lang-level-culture">6 Countries · 4 Continents</div></div>
+      <div class="lang-top"><div class="lang-name">Cultural fluency</div><div class="lang-level lang-level-culture">6 Countries · 3 Continents</div></div>
       <div class="lang-bar"><div class="lang-fill lang-fill-culture" style="width:90%"></div></div>
       <div class="lang-note"><span class="en">Navigated high-stakes commercial engagements across Arabic, Czech, Norwegian, Malay, and Singlish business cultures. In complex enterprise deals, it is often the deciding factor.</span><span class="de">Hochkarätige kommerzielle Engagements in arabischen, tschechischen, norwegischen, malaiischen und Singlish-Geschäftskulturen.</span></div>
     </div>
@@ -648,7 +729,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <div class="ind-foundation-label"><span class="en">Foundation</span><span class="de">Fundament</span></div>
     <div>
       <div class="ind-foundation-title"><span class="en">Technology &amp; IT Services</span><span class="de">Technologie &amp; IT-Dienstleistungen</span></div>
-      <p class="ind-foundation-desc"><span class="en">The through-line across every role, every country, every deal. 25 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems, Siemens Business Services — delivering IT Outsourcing, infrastructure managed services, AI transformation, and enterprise technology strategy at C-suite level across four continents.</span><span class="de">Der rote Faden durch jede Rolle, jedes Land, jeden Deal. 25 Jahre in den weltweit führenden IT-Dienstleistungsunternehmen.</span></p>
+      <p class="ind-foundation-desc"><span class="en">The through-line across every role, every country, every deal. 25 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems, Siemens Business Services — delivering IT Outsourcing, infrastructure managed services, AI transformation, and enterprise technology strategy at C-suite level across three continents.</span><span class="de">Der rote Faden durch jede Rolle, jedes Land, jeden Deal. 25 Jahre in den weltweit führenden IT-Dienstleistungsunternehmen.</span></p>
       <div class="ind-foundation-tags">
         <span>HCLTech</span><span>Wipro</span><span>Monstarlab</span><span>Concentrix</span><span>T-Systems</span><span>Siemens Business Services</span><span>IT Outsourcing</span><span>Infrastructure</span><span>AI Transformation</span>
       </div>
@@ -826,7 +907,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <li><span class="en">Behavioural economics in commercial strategy</span><span class="de">Verhaltensökonomie in der Handelsstrategie</span></li>
         <li><span class="en">CxO and C-suite stakeholder engagement</span><span class="de">CxO- und C-Suite-Stakeholder-Engagement</span></li>
         <li><span class="en">Insurance platforms: Guidewire, Sapiens, Oracle HI</span><span class="de">Versicherungsplattformen: Guidewire, Sapiens, Oracle HI</span></li>
-        <li><span class="en">Cross-cultural leadership · 6 countries · 4 continents</span><span class="de">Interkulturelle Führung · 6 Länder · 4 Kontinente</span></li>
+        <li><span class="en">Cross-cultural leadership · 6 countries · 3 continents</span><span class="de">Interkulturelle Führung · 6 Länder · 4 Kontinente</span></li>
       </ul>
     </div>
     <div class="cv-cell">
@@ -923,7 +1004,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <li><span class="en">Writing on the neuroscience of enterprise deal-making and how cognitive bias shapes B2B procurement decisions</span><span class="de">Schreiben über die Neurowissenschaft des Enterprise-Deal-Makings</span></li>
         <li><span class="en">Publishing on AI transformation strategy and why most programmes fail at the human layer</span><span class="de">Veröffentlichungen zur KI-Transformationsstrategie</span></li>
         <li><span class="en">Building the case for the Chief Behavioural Officer — the most important C-suite role organisations have not created yet</span><span class="de">Aufbau des Plädoyers für den Chief Behavioural Officer</span></li>
-        <li><span class="en">Sharing 25 years of client executive experience from BFSI, energy, and insurance across four continents</span><span class="de">25 Jahre Client-Executive-Erfahrung in BFSI, Energie und Versicherung</span></li>
+        <li><span class="en">Sharing 25 years of client executive experience from BFSI, energy, and insurance across three continents</span><span class="de">25 Jahre Client-Executive-Erfahrung in BFSI, Energie und Versicherung</span></li>
       </ul>
       <a href="https://www.linkedin.com/in/jackieduplooy" target="_blank" class="li-btn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -1031,6 +1112,28 @@ function setLang(lang){
   try{localStorage.setItem("preferredLang",lang)}catch(e){}
 }
 try{const s=localStorage.getItem("preferredLang");if(s==="de")setLang("de")}catch(e){}
+
+// ── $300M+ ROLLING COUNTER (hero only) ───────────────────────────────────────
+(function(){
+  const el = document.getElementById('hero-counter');
+  if (!el) return;
+  const target = 300;
+  const duration = 2000;
+  const steps = 80;
+  let step = 0;
+  function easeOut(t){ return 1 - Math.pow(1-t, 3); }
+  // Small delay so page has rendered
+  setTimeout(function(){
+    const timer = setInterval(function(){
+      step++;
+      const val = Math.round(easeOut(step/steps) * target);
+      el.innerHTML = '$' + val + '<span>M+</span>';
+      if(step >= steps){ el.innerHTML = '$300<span>M+</span>'; clearInterval(timer); }
+    }, duration/steps);
+  }, 400);
+})();
+// ─────────────────────────────────────────────────────────────────────────────
+
 </script>
 </body>
 </html>
