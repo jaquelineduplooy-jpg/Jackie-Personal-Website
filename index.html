@@ -4,9 +4,491 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jackie du Plooy</title>
-<meta name="description" content="Jackie du Plooy — Client Executive and Strategic Deal Maker. $136M Old Mutual. $15M Guidewire. $33M ARR Equinor. MSc Behavioural Economics. 25 years enterprise across 6 countries.">
+<meta name="description" content="Jackie du Plooy — Client Executive and Strategic Deal Maker. $136M Major Financial Services Group. $15M Guidewire. $33M ARR energy account. MSc Behavioural Economics. 25 years enterprise across 6 countries.">
 <meta property="og:title" content="Jackie du Plooy — Client Executive · Behavioural Scientist · AI Strategy">
-<meta property="og:description" content="Closing enterprise deals with the science of how decisions are made. $150M TCV. 6 countries. MSc Behavioural Economics.">
+<meta property="og:description" content="Closing enterprise deals with the science of how decisions are made. $300M+ TCV. 6 countries. MSc Behavioural Economics.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A1931;--paper:#F9F8F5;--accent:#00B4D8;--mint:#80ED99;--muted:#3a5a6e;--surface:#EEF6F8;--border:rgba(10,25,49,0.1);--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+.cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:multiply}
+.cursor.big{width:36px;height:36px;background:var(--mint)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;z-index:100;background:var(--paper);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:"Syne",sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.04em;color:var(--ink);text-decoration:none;cursor:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;cursor:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+
+/* LANG TOGGLE */
+.lang-toggle{position:fixed;right:1.25rem;top:50%;transform:translateY(-50%);z-index:9998;display:flex;flex-direction:column;align-items:center;background:#0A1931;border:1.5px solid #00B4D8;box-shadow:0 4px 20px rgba(0,0,0,.4);border-radius:4px;overflow:hidden;min-width:42px}
+.lang-btn{padding:.75rem .6rem;font-family:"Syne",sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;cursor:pointer;border:none;background:transparent;color:rgba(249,248,245,.35);transition:color .15s,background .15s;width:100%;text-align:center;line-height:1;display:block}
+.lang-btn.active{color:#F9F8F5;background:rgba(0,180,216,.2)}
+.lang-btn:hover{color:#00B4D8}
+.lang-div{width:70%;height:1px;background:rgba(0,180,216,.25);margin:0 auto}
+.lang-flag{font-size:.95rem;padding:.4rem .6rem .55rem;text-align:center;border-top:1px solid rgba(0,180,216,.2);width:100%;cursor:pointer}
+
+/* LANG VISIBILITY - SIMPLE AND CLEAN */
+.de{display:none}
+body.lang-de .en{display:none}
+body.lang-de .de{display:revert}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:var(--nav-h);display:grid;grid-template-columns:5fr 6fr;align-items:stretch;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:5rem 3rem 3rem 5rem;position:relative;z-index:2}
+.hero-tag{font-size:.6rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;white-space:nowrap}
+.hero-tag::before{content:"";display:block;width:2rem;height:2px;background:var(--accent);flex-shrink:0}
+.hero-name{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:.2rem}
+.hero-name .line2{color:var(--accent)}
+.hero-title{font-family:"DM Serif Display",serif;font-style:italic;font-size:1.2rem;color:var(--muted);margin:1.25rem 0 1.5rem;line-height:1.5}
+.hero-em{color:var(--accent);font-style:italic;position:relative;display:inline-block}
+.hero-em::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 6 Q30 1 60 5 Q90 9 120 4 Q150 0 180 5 Q195 7 198 6' stroke='%2300B4D8' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-size:100% 100%;background-repeat:no-repeat;opacity:.7}
+.hero-creds{display:flex;flex-direction:row;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem;align-items:center}
+.cred-badge{display:inline-block;font-family:"DM Sans",sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border:1px solid rgba(0,180,216,.3);color:var(--accent);background:rgba(0,180,216,.05);white-space:nowrap;line-height:1.5}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem}
+.hero-stat .num{font-family:"Syne",sans-serif;font-weight:700;font-size:2.2rem;color:var(--ink);line-height:1}
+.hero-stat .num span{color:var(--accent)}
+.hero-stat .label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.hero-ctas{display:flex;gap:1rem;align-items:center}
+.btn-primary{background:var(--ink);color:var(--paper);padding:.8rem 1.75rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:none;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:.8rem 1.75rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:none;transition:background .2s,color .2s,transform .15s}
+.btn-outline:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+/* HERO RIGHT */
+.hero-right{background:#0A1931;display:flex;align-items:stretch;justify-content:center;overflow:hidden}
+.hero-right-content{display:flex;flex-direction:column;justify-content:flex-start;padding:5rem 3.5rem 3rem;height:100%;gap:1rem;width:100%;overflow:hidden}
+.hero-impact-label{font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.75rem}
+.hero-impact-label::before{content:"";display:block;width:1.5rem;height:1.5px;background:var(--accent);flex-shrink:0}
+.hero-impact-label::after{content:"";display:block;flex:1;height:1px;background:rgba(0,180,216,.15)}
+.hero-right-quote{font-family:"DM Serif Display",serif;font-style:italic;font-size:.95rem;color:rgba(249,248,245,.5);border-left:2px solid var(--mint);padding-left:.85rem;line-height:1.4}
+.hero-approach-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.05)}
+.approach-step{display:grid;grid-template-columns:2rem 1fr;gap:.65rem;padding:1.25rem;border-bottom:1px solid rgba(255,255,255,.05);border-right:1px solid rgba(255,255,255,.05);transition:background .2s;cursor:default}
+.approach-step:nth-child(even){border-right:none}
+.approach-step:nth-child(3),.approach-step:nth-child(4){border-bottom:none}
+.approach-step:hover{background:rgba(0,180,216,.06)}
+.approach-num{font-family:"Syne",sans-serif;font-weight:700;font-size:.65rem;color:var(--accent);opacity:.45;padding-top:.15rem;transition:opacity .2s}
+.approach-step:hover .approach-num{opacity:1}
+.approach-title{font-family:"Syne",sans-serif;font-weight:700;font-size:.9rem;color:#F9F8F5;margin-bottom:.3rem;letter-spacing:.01em}
+.approach-step:hover .approach-title{color:var(--accent)}
+.approach-desc{font-size:.77rem;line-height:1.65;color:rgba(249,248,245,.58);transition:color .2s}
+.approach-step:hover .approach-desc{color:rgba(249,248,245,.85)}
+
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);animation:scrollbounce 2.5s ease-in-out infinite}
+.scroll-hint::after{content:"";display:block;width:1px;height:2rem;background:var(--muted)}
+@keyframes scrollbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* LOGOS STRIP */
+.logos-strip{background:var(--paper);padding:1.5rem 5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:3rem}
+.logos-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,25,49,.3);white-space:nowrap;flex-shrink:0}
+.logos-row{display:flex;align-items:center;gap:0;flex:1;overflow:hidden}
+.logo-item{font-family:"Syne",sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;color:rgba(10,25,49,.25);padding:0 2rem;transition:color .2s;white-space:nowrap;text-transform:uppercase}
+.logo-item:hover{color:var(--accent)}
+.logo-sep{width:1px;height:20px;background:rgba(10,25,49,.1);flex-shrink:0}
+
+/* STATS BAR */
+.stats-bar{background:var(--ink);padding:1.75rem 5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--accent)}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:1}
+.stat-n{font-family:"Syne",sans-serif;font-weight:700;font-size:1.7rem;color:#F9F8F5;line-height:1;letter-spacing:-.01em}
+.stat-l{font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,180,216,.65)}
+.stat-sep{width:1px;height:40px;flex-shrink:0;background:rgba(0,180,216,.15)}
+
+/* SECTION */
+section{padding:6rem 5rem}
+.section-label{font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.section-label::before{content:"";display:block;width:2rem;height:1px;background:var(--accent)}
+.section-title{font-family:"Syne",sans-serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:2.5rem}
+.pull-quote{font-family:"DM Serif Display",serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,1.8vw,1.3rem);color:var(--ink);line-height:1.55;padding:1.5rem 2rem;margin:0 0 3rem;border-left:4px solid var(--accent);background:var(--surface);position:relative}
+.pull-quote em{color:var(--accent);font-style:normal}
+.pull-quote::before{content:"\"";font-family:"DM Serif Display",serif;font-size:5rem;line-height:1;color:var(--accent);opacity:.1;position:absolute;top:-.5rem;left:.75rem;pointer-events:none}
+
+/* ACHIEVEMENTS */
+#achievements{background:var(--ink);color:var(--paper)}
+#achievements .section-label{color:var(--accent)}
+#achievements .section-label::before{background:var(--accent)}
+#achievements .section-title{color:var(--paper)}
+.achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(0,180,216,.1)}
+.ach-card{background:#0F2744;padding:2.25rem 2rem;display:flex;flex-direction:column;gap:.75rem;transition:background .2s;border-top:3px solid transparent}
+.ach-card:hover{background:#152d4a;border-top-color:var(--accent)}
+.ach-card.ach-featured{background:var(--ink);border-top:3px solid var(--accent)}
+.ach-card.ach-featured:hover{background:#0e2847}
+.ach-company{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.ach-value{font-family:"Syne",sans-serif;font-weight:700;font-size:2.8rem;line-height:1;letter-spacing:-.02em;color:#F9F8F5}
+.ach-card.ach-featured .ach-value{color:var(--accent);font-size:3.5rem}
+.ach-label{font-size:.78rem;font-weight:500;color:rgba(249,248,245,.72);line-height:1.35}
+.ach-desc{font-size:.78rem;line-height:1.7;color:rgba(249,248,245,.42);flex:1}
+.ach-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:auto;padding-top:.75rem;border-top:1px solid rgba(0,180,216,.1)}
+.ach-tags span{font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .48rem;border:1px solid rgba(0,180,216,.18);color:var(--accent)}
+
+/* LOCATIONS */
+#map{background:#EEF6FB}
+.locations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.loc-block{background:var(--paper);border:1px solid var(--border);padding:1.75rem;display:flex;gap:1rem;transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
+.loc-block::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .2s}
+.loc-block:hover{transform:translateY(-3px);border-color:var(--accent)}
+.loc-block:hover::before{background:var(--accent)}
+.loc-block.loc-home::before{background:var(--mint);filter:brightness(.75)}
+.loc-block.loc-home{border-color:rgba(128,237,153,.2)}
+.loc-block.loc-current::before{background:var(--accent)}
+.loc-block.loc-current{border-color:rgba(0,180,216,.22)}
+.loc-flag{font-size:1.8rem;line-height:1;flex-shrink:0;padding-top:.1rem}
+.loc-content{flex:1}
+.loc-label{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.2rem}
+.loc-block.loc-home .loc-label{color:var(--mint);filter:brightness(.7)}
+.loc-name{font-family:"Syne",sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1}
+.loc-city{font-size:.75rem;color:var(--muted);margin-bottom:.6rem;margin-top:.1rem}
+.loc-desc{font-size:.78rem;line-height:1.7;color:rgba(10,25,49,.6);margin-bottom:.7rem}
+.loc-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.loc-tags span{font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .48rem;border:1px solid var(--border);color:var(--muted)}
+
+/* LANGUAGES */
+#languages{background:#EDFBF2}
+.lang-blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.lang-block{background:rgba(255,255,255,.75);border:1px solid rgba(0,180,216,.15);padding:1.75rem;display:flex;flex-direction:column;gap:.5rem;border-bottom:3px solid transparent;transition:border-color .2s,transform .2s}
+.lang-block:hover{border-bottom-color:var(--accent);transform:translateY(-2px)}
+.lang-block:hover .lang-name{color:var(--accent)}
+.lang-block.lang-active{border-bottom-color:var(--accent)}
+.lang-block.lang-cultural{border-bottom-color:rgba(128,237,153,.5)}
+.lang-top{display:flex;justify-content:space-between;align-items:baseline}
+.lang-name{font-family:"Syne",sans-serif;font-weight:700;font-size:1.3rem;color:var(--ink);line-height:1;transition:color .2s}
+.lang-level{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);opacity:.6}
+.lang-level-progress{color:var(--accent);opacity:1}
+.lang-level-culture{opacity:.65}
+.lang-bar{height:3px;background:rgba(10,25,49,.1);position:relative;margin:.25rem 0}
+.lang-fill{position:absolute;left:0;top:0;height:100%;background:var(--ink);transition:width 1.2s ease}
+.lang-fill-progress{background:var(--accent)}
+.lang-fill-culture{background:rgba(128,237,153,.6)}
+.lang-note{font-size:.78rem;line-height:1.65;color:rgba(10,25,49,.58)}
+
+/* INDUSTRIES */
+#industries{background:var(--ink);color:var(--paper)}
+#industries .section-label{color:var(--accent)}
+#industries .section-label::before{background:var(--accent)}
+#industries .section-title{color:var(--paper)}
+.industries-intro{font-family:"DM Serif Display",serif;font-style:italic;font-size:1rem;color:rgba(249,248,245,.45);max-width:560px;line-height:1.7;margin-bottom:2.5rem}
+.ind-foundation{background:#0F2744;padding:2.25rem 2.5rem;margin-bottom:2px;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center}
+.ind-foundation-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);filter:brightness(.75);writing-mode:vertical-rl;transform:rotate(180deg)}
+.ind-foundation-title{font-family:"Syne",sans-serif;font-weight:700;font-size:1.3rem;color:var(--paper);margin-bottom:.5rem}
+.ind-foundation-desc{font-size:.8rem;line-height:1.75;color:rgba(249,248,245,.48);margin-bottom:.85rem}
+.ind-foundation-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.ind-foundation-tags span{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.16rem .52rem;border:1px solid rgba(0,180,216,.22);color:var(--accent)}
+.ind-foundation-stat{text-align:right}
+.ind-stat-num{font-family:"Syne",sans-serif;font-weight:700;font-size:2.4rem;line-height:1;color:var(--paper)}
+.ind-stat-num span{color:var(--accent)}
+.ind-stat-label{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(249,248,245,.32)}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(0,180,216,.1)}
+.ind-card{background:#0F2744;padding:1.85rem;display:flex;flex-direction:column;gap:.75rem;transition:background .2s;border-bottom:3px solid transparent}
+.ind-card:hover{background:#152d4a;border-bottom-color:var(--accent)}
+.ind-card.ind-card-emerging{background:#091e32}
+.ind-card.ind-card-emerging:hover{background:#0d2438;border-bottom-color:var(--mint)}
+.ind-card-header{display:flex;align-items:flex-start;gap:.75rem}
+.ind-icon{width:38px;height:38px;flex-shrink:0;background:rgba(0,180,216,.1);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.ind-card.ind-card-emerging .ind-icon{background:rgba(128,237,153,.08);color:var(--mint);filter:brightness(.75)}
+.ind-name{font-family:"DM Serif Display",serif;font-size:1rem;color:var(--paper);line-height:1.25}
+.ind-depth{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-top:.15rem}
+.ind-card.ind-card-emerging .ind-depth{color:var(--mint);filter:brightness(.75)}
+.ind-desc{font-size:.78rem;line-height:1.72;color:rgba(249,248,245,.5);flex:1}
+.ind-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:auto}
+.ind-tags span{font-size:.58rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.16rem .48rem;border:1px solid rgba(0,180,216,.18);color:var(--accent)}
+
+/* TIMELINE */
+#journey{background:var(--paper)}
+.timeline{position:relative}
+.timeline::before{content:"";position:absolute;left:2.5rem;top:0;bottom:0;width:1px;background:var(--border)}
+.timeline-item{display:grid;grid-template-columns:5rem 1fr;gap:2rem;margin-bottom:2.5rem;position:relative}
+.timeline-dot{display:flex;flex-direction:column;align-items:center;padding-top:.35rem}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);position:relative;z-index:1;flex-shrink:0;transition:background .2s,transform .2s}
+.timeline-item:hover .dot{background:var(--accent);transform:scale(1.3)}
+.year{font-family:"Syne",sans-serif;font-weight:700;font-size:.75rem;color:var(--muted);margin-top:.5rem;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:.08em}
+.timeline-card{background:var(--surface);border:1px solid var(--border);padding:1.75rem 2rem;position:relative;transition:transform .2s,border-color .2s}
+.timeline-item:hover .timeline-card{transform:translateX(6px);border-color:var(--accent)}
+.timeline-card::before{content:"";position:absolute;left:-8px;top:1.1rem;width:13px;height:13px;background:var(--surface);border-left:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg);transition:border-color .2s}
+.timeline-item:hover .timeline-card::before{border-color:var(--accent)}
+.timeline-location{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.timeline-role{font-family:"DM Serif Display",serif;font-size:1.2rem;color:var(--ink);margin-bottom:.65rem}
+.timeline-desc{font-size:.82rem;line-height:1.8;color:rgba(10,25,49,.6);margin-bottom:1rem}
+.timeline-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.tag{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border:1px solid var(--border);color:var(--muted);font-weight:500}
+
+/* CV */
+#cv{background:var(--ink);color:var(--paper)}
+#cv .section-label{color:var(--mint);filter:brightness(.78)}
+#cv .section-label::before{background:var(--mint);filter:brightness(.78)}
+#cv .section-title{color:var(--paper)}
+.cv-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:rgba(0,180,216,.1)}
+.cv-cell{background:var(--ink);padding:2.25rem 2rem;transition:background .2s}
+.cv-cell:hover{background:#0F2744}
+.cv-cell-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);filter:brightness(.78);margin-bottom:.6rem}
+.cv-cell-title{font-family:"DM Serif Display",serif;font-size:1.12rem;color:var(--paper);margin-bottom:.5rem;line-height:1.3}
+.cv-cell-sub{font-size:.78rem;color:rgba(0,180,216,.7);line-height:1.65}
+.cv-skills-list{list-style:none;margin-top:.85rem}
+.cv-skills-list li{font-size:.78rem;color:rgba(249,248,245,.62);padding:.28rem 0;border-bottom:1px solid rgba(0,180,216,.1)}
+#cv .pull-quote{background:#0F2744;color:#F9F8F5;border-left-color:#00B4D8}
+
+/* ARTICLES */
+#articles{background:var(--ink);color:var(--paper)}
+#articles .section-label{color:var(--mint);filter:brightness(.78)}
+#articles .section-label::before{background:var(--mint);filter:brightness(.78)}
+#articles .section-title{color:var(--paper)}
+#articles .pull-quote{background:#0F2744;color:#F9F8F5;border-left-color:#80ED99}
+.articles-intro{font-family:"DM Serif Display",serif;font-style:italic;font-size:1rem;color:rgba(249,248,245,.45);max-width:580px;line-height:1.7;margin-bottom:2.75rem}
+.articles-featured{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;background:rgba(0,180,216,.1)}
+.article-featured-card{background:var(--ink);padding:2.5rem 2.25rem;display:flex;flex-direction:column;gap:.9rem;transition:background .2s;border-bottom:3px solid transparent;position:relative}
+.article-featured-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);transition:width .25s ease}
+.article-featured-card:hover{background:#0F2744;border-bottom-color:var(--accent)}
+.article-featured-card:hover::before{width:4px}
+.art-feat-meta{display:flex;align-items:center;gap:1rem}
+.art-topic{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.art-read{font-size:.7rem;color:rgba(249,248,245,.28)}
+.art-feat-title{font-family:"DM Serif Display",serif;font-size:1.22rem;color:var(--paper);line-height:1.35;flex:1}
+.art-feat-excerpt{font-size:.8rem;color:rgba(249,248,245,.48);line-height:1.75}
+.art-feat-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.9rem;border-top:1px solid rgba(0,180,216,.1)}
+.art-date{font-size:.7rem;color:rgba(249,248,245,.25)}
+.art-read-btn{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:color .2s}
+.art-read-btn:hover{color:var(--mint)}
+.articles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(0,180,216,.1);margin-bottom:3.5rem}
+.article-card{background:var(--ink);padding:1.75rem 1.5rem;display:flex;flex-direction:column;gap:.65rem;transition:background .2s;border-bottom:3px solid transparent}
+.article-card:hover{background:#0F2744;border-bottom-color:var(--accent)}
+.art-topic-tag{font-size:.62rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.art-title{font-family:"DM Serif Display",serif;font-size:1rem;color:var(--paper);line-height:1.4;flex:1}
+.art-excerpt{font-size:.78rem;color:rgba(249,248,245,.38);line-height:1.7}
+.art-footer{display:flex;align-items:center;justify-content:space-between;padding-top:.65rem;border-top:1px solid rgba(0,180,216,.08);margin-top:auto}
+.art-date-sm{font-size:.68rem;color:rgba(249,248,245,.22)}
+.art-link{font-size:.72rem;font-weight:500;color:var(--accent);text-decoration:none}
+.art-badge.upcoming{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.18rem .55rem;background:rgba(0,180,216,.1);color:var(--accent);border:1px solid rgba(0,180,216,.2)}
+.articles-cta{border:1px solid rgba(0,180,216,.15)}
+.articles-cta-inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;padding:2.75rem 3rem}
+.cta-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.65rem}
+.cta-heading{font-family:"Syne",sans-serif;font-weight:700;font-size:1.75rem;color:var(--paper);line-height:1.1;margin-bottom:.65rem}
+.cta-sub{font-size:.8rem;color:rgba(249,248,245,.4);line-height:1.7;max-width:480px}
+.cta-actions{display:flex;flex-direction:column;gap:.65rem;min-width:190px}
+#articles .btn-primary{background:var(--accent);color:var(--ink);text-align:center}
+#articles .btn-primary:hover{background:#0099ba}
+#articles .btn-outline{border-color:rgba(0,180,216,.4);color:var(--accent);text-align:center}
+
+/* CONNECT */
+#connect{background:var(--surface)}
+.connect-inner{display:grid;grid-template-columns:200px 1fr 1fr;gap:2.5rem;align-items:start}
+.linkedin-card{background:var(--paper);border:1px solid var(--border);padding:2.25rem;position:relative;overflow:hidden}
+.linkedin-card::after{content:"in";font-family:"Syne",sans-serif;font-weight:800;font-size:10rem;position:absolute;right:-1rem;bottom:-2.5rem;color:rgba(10,25,49,.04);line-height:1}
+.li-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.li-avatar{width:52px;height:52px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;color:var(--paper);flex-shrink:0}
+.li-name{font-family:"DM Serif Display",serif;font-size:1.15rem}
+.li-role{font-size:.75rem;color:var(--muted)}
+.li-stats{display:flex;gap:2rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.li-stat .n{font-family:"Syne",sans-serif;font-weight:700;font-size:1.8rem;color:var(--ink)}
+.li-stat .l{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.li-updates{list-style:none}
+.li-updates li{padding:.75rem 0;border-bottom:1px solid rgba(10,25,49,.05);font-size:.8rem;color:var(--muted);display:flex;gap:.65rem;align-items:flex-start;line-height:1.55}
+.li-updates li::before{content:"";color:var(--accent);flex-shrink:0;margin-top:.1rem}
+.li-btn{margin-top:1.5rem;display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:white;padding:.7rem 1.5rem;font-size:.75rem;font-weight:500;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;cursor:none;transition:background .2s,transform .15s}
+.li-btn:hover{background:#0099ba;transform:translateY(-2px)}
+.updates-title{font-family:"Syne",sans-serif;font-weight:700;font-size:1.8rem;letter-spacing:-.01em;margin-bottom:1.25rem}
+.update-feed{list-style:none}
+.update-feed li{padding:1.1rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:3.5rem 1fr;gap:1rem;align-items:start;transition:transform .2s;cursor:none}
+.update-feed li:hover{transform:translateX(4px)}
+.update-date{font-family:"Syne",sans-serif;font-weight:700;font-size:.85rem;color:var(--accent);line-height:1.2;text-align:right}
+.update-text{font-size:.82rem;line-height:1.6;color:var(--muted)}
+.update-text strong{color:var(--ink);font-weight:500}
+
+/* CONTACT */
+#contact{background:var(--ink);color:var(--paper);padding:6rem 5rem}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.contact-desc{font-size:.92rem;line-height:1.8;color:rgba(249,248,245,.55);margin-bottom:2rem;max-width:460px}
+.contact-links{display:flex;gap:1rem;flex-wrap:wrap}
+.contact-link-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--ink);padding:.8rem 1.75rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s}
+.contact-link-btn:hover{background:#0099ba;color:white;transform:translateY(-2px)}
+.contact-link-outline{background:transparent;color:rgba(249,248,245,.7);border:1.5px solid rgba(0,180,216,.35)}
+.contact-link-outline:hover{background:rgba(0,180,216,.1);color:var(--accent)}
+.contact-card{background:#0F2744;padding:2.25rem 2.5rem;border:1px solid rgba(0,180,216,.18);border-top:3px solid var(--accent)}
+.contact-card-label{font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.contact-card-value{font-size:.88rem;color:rgba(249,248,245,.75);line-height:1.7;margin-bottom:.25rem}
+
+/* FOOTER */
+footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem}
+.footer-logo{font-family:"Syne",sans-serif;font-weight:700;font-size:2rem;letter-spacing:.02em;color:var(--paper)}
+.footer-logo span{color:var(--accent)}
+.footer-tagline{font-family:"DM Serif Display",serif;font-style:italic;font-size:.95rem;color:rgba(0,180,216,.45);margin-top:.5rem;line-height:1.55}
+.footer-col-title{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mint);filter:brightness(.72);margin-bottom:1.1rem}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:.5rem}
+.footer-links a{font-size:.82rem;color:rgba(249,248,245,.42);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--paper)}
+.footer-bottom{background:#03080f;padding:1.1rem 5rem;border-top:1px solid rgba(0,180,216,.1);display:flex;justify-content:space-between;align-items:center}
+.footer-bottom span{font-size:.72rem;color:rgba(249,248,245,.22);letter-spacing:.05em}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MOBILE FIRST — base styles are mobile, scale up for larger screens
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── BASE MOBILE OVERRIDES (all screens ≤ 600px) ── */
+.hero { grid-template-columns: 1fr; min-height: auto; }
+.hero-left { padding: 5rem 1.25rem 2rem 1.25rem; }
+.hero-name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
+.hero-title { font-size: 1rem; }
+.hero-stats { gap: 1rem; flex-wrap: wrap; }
+.hero-stat .num { font-size: 1.8rem; }
+.hero-creds { gap: .3rem; }
+.cred-badge { font-size: .55rem; padding: .2rem .48rem; }
+.hero-ctas { flex-direction: column; gap: .75rem; width: 100%; }
+.btn-primary, .btn-outline { width: 100%; text-align: center; padding: .85rem 1rem; }
+.hero-right { min-height: auto; }
+.hero-approach-list { grid-template-columns: 1fr; }
+.hero-right-content { padding: 2.5rem 1.25rem; }
+
+nav { padding: 0 1.25rem; }
+.nav-links { display: none; }
+
+section { padding: 3.5rem 1.25rem; }
+#contact { padding: 3.5rem 1.25rem; }
+.section-title { font-size: 1.75rem; margin-bottom: 2rem; }
+.pull-quote { font-size: .95rem; padding: 1.25rem 1.5rem; }
+
+.logos-strip { padding: 1rem 1.25rem; gap: .75rem; flex-wrap: wrap; }
+.logos-row { flex-wrap: wrap; gap: .25rem; }
+.logo-sep { display: none; }
+.logo-item { padding: 0 .6rem; font-size: .7rem; }
+
+.stats-bar { padding: 1.25rem 1.25rem; flex-wrap: wrap; gap: .75rem; }
+.stat-sep { display: none; }
+.stat-item { min-width: 45%; flex: 1; }
+.stat-n { font-size: 1.4rem; }
+.stat-l { font-size: .55rem; }
+
+.locations-grid { grid-template-columns: 1fr; gap: 1rem; }
+.loc-block { flex-direction: column; gap: .6rem; }
+
+.lang-blocks { grid-template-columns: 1fr; gap: 1rem; }
+
+.ind-grid { grid-template-columns: 1fr; }
+.ind-foundation { grid-template-columns: 1fr; padding: 1.5rem 1.25rem; }
+.ind-foundation-label { display: none; }
+.ind-foundation-stat { text-align: left; margin-top: .75rem; }
+
+.achievements-grid { grid-template-columns: 1fr; }
+.ach-card { padding: 1.75rem 1.5rem; }
+.ach-value { font-size: 2.4rem; }
+.ach-card.ach-featured .ach-value { font-size: 3rem; }
+
+.timeline::before { left: 1.25rem; }
+.timeline-item { grid-template-columns: 3rem 1fr; gap: .75rem; }
+.timeline-card { padding: 1.25rem 1rem; }
+.timeline-card::before { display: none; }
+
+.cv-grid { grid-template-columns: 1fr; }
+.cv-cell { padding: 1.5rem 1.25rem; }
+
+.articles-featured { grid-template-columns: 1fr; }
+.articles-grid { grid-template-columns: 1fr; }
+.article-featured-card { padding: 1.75rem 1.25rem; }
+.articles-cta-inner { grid-template-columns: 1fr; padding: 1.75rem 1.25rem; gap: 1.5rem; }
+.cta-heading { font-size: 1.35rem; }
+
+.connect-inner { grid-template-columns: 1fr !important; gap: 2rem; }
+.connect-photo-col { flex-direction: row; align-items: center; gap: 1.25rem; }
+.connect-photo-img { max-width: 80px; }
+.connect-photo-name { font-size: .8rem; }
+
+.contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+footer { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; gap: 1.75rem; }
+.footer-logo { font-size: 1.5rem; }
+.footer-bottom { padding: .9rem 1.25rem; flex-direction: column; gap: .35rem; text-align: center; }
+
+.scroll-hint { display: none; }
+
+.lang-toggle {
+  right: .5rem; top: auto; bottom: 1.5rem;
+  transform: none;
+  flex-direction: row; border-radius: 20px; min-width: auto;
+}
+.lang-btn { padding: .55rem .75rem; }
+.lang-div { width: 1px; height: 20px; margin: 0; }
+.lang-flag { border-top: none; border-left: 1px solid rgba(0,180,216,.2); padding: .55rem .5rem; }
+
+/* ── TABLET (≥600px) ── */
+@media(min-width: 600px) {
+  section { padding: 4.5rem 2.5rem; }
+  #contact { padding: 4.5rem 2.5rem; }
+  .hero-left { padding: 5rem 2.5rem 2.5rem 2.5rem; }
+  .hero-right-content { padding: 3rem 2.5rem; }
+  .hero-ctas { flex-direction: row; width: auto; }
+  .btn-primary, .btn-outline { width: auto; }
+  .locations-grid { grid-template-columns: 1fr 1fr; }
+  .lang-blocks { grid-template-columns: 1fr 1fr; }
+  .achievements-grid { grid-template-columns: 1fr 1fr; }
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+  .ind-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item { min-width: 28%; }
+  .lang-toggle { right: 1.25rem; top: 50%; bottom: auto; transform: translateY(-50%); flex-direction: column; border-radius: 4px; }
+  .lang-btn { padding: .75rem .6rem; }
+  .lang-div { width: 70%; height: 1px; margin: 0 auto; }
+  .lang-flag { border-top: 1px solid rgba(0,180,216,.2); border-left: none; padding: .4rem .6rem .55rem; }
+  .scroll-hint { display: flex; }
+  .loc-block { flex-direction: row; }
+  footer { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: row; text-align: left; }
+}
+
+/* ── DESKTOP (≥900px) ── */
+@media(min-width: 900px) {
+  .hero { grid-template-columns: 5fr 6fr; min-height: 100vh; }
+  .hero-left { padding: 5rem 3rem 3rem 5rem; }
+  .hero-right-content { padding: 5rem 3.5rem 3rem; }
+  .hero-approach-list { grid-template-columns: 1fr 1fr; }
+  .hero-ctas { flex-direction: row; }
+  nav { padding: 0 3rem; }
+  .nav-links { display: flex; }
+  section { padding: 6rem 5rem; }
+  #contact { padding: 6rem 5rem; }
+  .logos-strip { padding: 1.5rem 5rem; gap: 3rem; }
+  .logos-row { flex-wrap: nowrap; }
+  .logo-sep { display: block; }
+  .logo-item { padding: 0 2rem; font-size: .9rem; }
+  .stats-bar { padding: 1.75rem 5rem; flex-wrap: nowrap; }
+  .stat-sep { display: block; }
+  .stat-n { font-size: 1.7rem; }
+  .stat-l { font-size: .6rem; }
+  .locations-grid { grid-template-columns: repeat(3, 1fr); }
+  .lang-blocks { grid-template-columns: repeat(4, 1fr); }
+  .achievements-grid { grid-template-columns: repeat(4, 1fr); }
+  .articles-featured { grid-template-columns: 1fr 1fr; }
+  .articles-grid { grid-template-columns: repeat(4, 1fr); }
+  .articles-cta-inner { grid-template-columns: 1fr auto; }
+  .ind-grid { grid-template-columns: repeat(3, 1fr); }
+  .ind-foundation { grid-template-columns: auto 1fr auto; padding: 2.25rem 2.5rem; }
+  .ind-foundation-label { display: block; }
+  .ind-foundation-stat { text-align: right; }
+  .cv-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .connect-inner { grid-template-columns: 200px 1fr 1fr !important; gap: 2.5rem; }
+  .connect-photo-col { flex-direction: column; align-items: center; }
+  .connect-photo-img { max-width: 180px; }
+  .connect-photo-name { font-size: .9rem; }
+  .contact-inner { grid-template-columns: 1fr 1fr; gap: 5rem; }
+  footer { grid-template-columns: 1fr 1fr 1fr; padding: 4rem 5rem 3rem; gap: 3rem; }
+  .footer-bottom { padding: 1.1rem 5rem; }
+  .scroll-hint { display: flex; }
+  .timeline-card::before { display: block; }
+}
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackie du Plooy</title>
+<meta name="description" content="Jackie du Plooy — Client Executive and Strategic Deal Maker. $136M Major Financial Services Group. $15M Guidewire. $33M ARR energy account. MSc Behavioural Economics. 25 years enterprise across 6 countries.">
+<meta property="og:title" content="Jackie du Plooy — Client Executive · Behavioural Scientist · AI Strategy">
+<meta property="og:description" content="Closing enterprise deals with the science of how decisions are made. $300M+ TCV. 6 countries. MSc Behavioural Economics.">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0A1931;--paper:#F9F8F5;--accent:#00B4D8;--mint:#80ED99;--muted:#3a5a6e;--surface:#EEF6F8;--border:rgba(10,25,49,0.1);--nav-h:64px}
@@ -468,6 +950,29 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     .connect-photo-img { max-width: 100px; }
   }
 
+
+  /* DEAL NAVIGATOR BLOCK */
+  .hero-deal-navigator {
+    border-top: 1px solid rgba(0,180,216,0.15);
+    padding-top: 1rem;
+    margin-top: .25rem;
+  }
+  .hdn-label {
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .45rem;
+  }
+  .hdn-text {
+    font-size: .78rem;
+    line-height: 1.7;
+    color: rgba(249,248,245,.48);
+  }
+  .hdn-text strong { color: rgba(249,248,245,.7); }
+
 </style>
 </head>
 <body>
@@ -497,8 +1002,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 <section class="hero" id="home">
   <div class="hero-left">
     <div class="hero-tag">
-      <span class="en">Client Executive · Strategic Deal Maker · Behavioural Scientist</span>
-      <span class="de">Client Executive · Strategischer Dealmaker · Verhaltenswissenschaftlerin</span>
+      <span class="en">Client Executive · Deal Navigator · Behavioural Scientist</span>
+      <span class="de">Client Executive · Deal Navigator · Verhaltenswissenschaftlerin</span>
     </div>
     <h1 class="hero-name">Jackie<br><span class="line2">du Plooy</span></h1>
     <p class="hero-title">
@@ -513,7 +1018,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num" id="hero-counter">$300<span>M+</span></div><div class="label"><span class="en">Infra Outsourcing TCV</span><span class="de">Infra Outsourcing TCV</span></div></div>
-      <div class="hero-stat"><div class="num">$33<span>M</span></div><div class="label"><span class="en">ARR · Equinor</span><span class="de">ARR · Equinor</span></div></div>
+      <div class="hero-stat"><div class="num">$33<span>M</span></div><div class="label"><span class="en">ARR</span><span class="de">ARR</span></div></div>
       <div class="hero-stat"><div class="num">25<span>+</span></div><div class="label"><span class="en">Yrs Experience</span><span class="de">Jahre Erfahrung</span></div></div>
     </div>
     <div class="hero-ctas">
@@ -531,6 +1036,10 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <span class="en">"The brain is the missing layer in every AI strategy."</span>
         <span class="de">"Das Gehirn ist die fehlende Schicht in jeder KI-Strategie."</span>
       </div>
+      <div class="hero-deal-navigator">
+        <div class="hdn-label"><span class="en">The Deal Navigator</span><span class="de">Der Deal Navigator</span></div>
+        <div class="hdn-text"><span class="en">Not just a client executive. A Deal Navigator — someone who reads the cognitive and commercial landscape of a deal, maps the human variables others miss, and finds the path to yes when others cannot. $300M+ in closed enterprise value across IT Outsourcing, infrastructure, insurance, energy, and AI transformation.</span><span class="de">Nicht nur ein Client Executive. Ein Deal Navigator — jemand, der die kognitive und kommerzielle Landschaft eines Deals liest, die menschlichen Variablen kartiert, die andere übersehen, und den Weg zum Ja findet, wenn andere scheitern.</span></div>
+      </div>
       <div class="hero-approach-list">
         <div class="approach-step">
           <div class="approach-num">01</div>
@@ -543,7 +1052,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
           <div class="approach-num">02</div>
           <div class="approach-body">
             <div class="approach-title"><span class="en">Close deals others cannot</span><span class="de">Abschlüsse erzielen, die anderen verwehrt bleiben</span></div>
-            <div class="approach-desc"><span class="en">$300M+ TCV across BFSI, Energy, and Insurance. The consistent edge was knowing what was really blocking the yes and building a deal structure that resolved it. Behavioural economics applied where it matters most: the boardroom.</span><span class="de">$150M TCV in BFSI, Energie und Versicherung. Der entscheidende Vorteil war zu wissen, was das Ja blockiert.</span></div>
+            <div class="approach-desc"><span class="en">$300M+ TCV across BFSI, Energy, and Insurance. The consistent edge was knowing what was really blocking the yes and building a deal structure that resolved it. Behavioural economics applied where it matters most: the boardroom.</span><span class="de">$300M+ TCV in BFSI, Energie und Versicherung. Der entscheidende Vorteil war zu wissen, was das Ja blockiert.</span></div>
           </div>
         </div>
         <div class="approach-step">
@@ -581,13 +1090,13 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 <div class="stats-bar">
   <div class="stat-item"><span class="stat-n">$300M+</span><span class="stat-l"><span class="en">Infra Outsourcing TCV</span><span class="de">Infra Outsourcing TCV</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item"><span class="stat-n">$33M</span><span class="stat-l"><span class="en">ARR · Equinor · HCLTech</span><span class="de">ARR · Equinor · HCLTech</span></span></div>
+  <div class="stat-item"><span class="stat-n">$33M</span><span class="stat-l"><span class="en">ARR</span><span class="de">ARR</span></span></div>
   <div class="stat-sep"></div>
   <div class="stat-item"><span class="stat-n">25+</span><span class="stat-l"><span class="en">Years Experience</span><span class="de">Jahre Erfahrung</span></span></div>
   <div class="stat-sep"></div>
   <div class="stat-item"><span class="stat-n">6</span><span class="stat-l"><span class="en">Countries</span><span class="de">Länder</span></span></div>
   <div class="stat-sep"></div>
-  <div class="stat-item"><span class="stat-n">120</span><span class="stat-l"><span class="en">Team Led · Wipro</span><span class="de">Team bei Wipro</span></span></div>
+  <div class="stat-item"><span class="stat-n">120</span><span class="stat-l"><span class="en">Team Led · BFSI</span><span class="de">Team geleitet</span></span></div>
   <div class="stat-sep"></div>
   <div class="stat-item"><span class="stat-n">4</span><span class="stat-l"><span class="en">Continents</span><span class="de">Kontinente</span></span></div>
 </div>
@@ -597,17 +1106,17 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
   <h2 class="section-title reveal"><span class="en">Proof Points<br>That Matter.</span><span class="de">Belege,<br>die zählen.</span></h2>
   <div class="achievements-grid reveal">
     <div class="ach-card ach-featured">
-      <div class="ach-company">Wipro · Old Mutual</div>
+      <div class="ach-company">Wipro · Major Financial Services Group</div>
       <div class="ach-value">$136M</div>
       <div class="ach-label"><span class="en">Largest single engagement secured</span><span class="de">Größtes gesichertes Einzelmandat</span></div>
-      <p class="ach-desc"><span class="en">The defining deal of the Wipro decade. A $136M IT Outsourcing and infrastructure engagement with Old Mutual — one of Africa's largest financial services groups. End-to-end IT managed services, infrastructure transformation, and application delivery across the enterprise.</span><span class="de">Das prägende Mandat der Wipro-Dekade. $136M mit Old Mutual — einer der größten Finanzdienstleistungsgruppen Afrikas.</span></p>
+      <p class="ach-desc"><span class="en">The defining deal of the Wipro decade. A $136M <strong>IT Outsourcing</strong> and infrastructure engagement with Major Financial Services Group — one of Africa's largest financial services groups. End-to-end IT managed services, infrastructure transformation, and application delivery across the enterprise.</span><span class="de">Das prägende Mandat der Wipro-Dekade. $136M mit Major Financial Services Group — einer der größten Finanzdienstleistungsgruppen Afrikas.</span></p>
       <div class="ach-tags"><span>Cape Town · 2015 to 2019</span><span>BFSI</span><span>Wipro</span></div>
     </div>
     <div class="ach-card">
       <div class="ach-company">HCLTech · Guidewire</div>
       <div class="ach-value">$15M</div>
       <div class="ach-label"><span class="en">Insurance platform deal won from scratch</span><span class="de">Versicherungsplattform-Deal aus dem Stand</span></div>
-      <p class="ach-desc"><span class="en">Joined HCLTech SA in 2019 and secured a $15M Guidewire insurance platform implementation from a standing start. IT outsourcing deal encompassing infrastructure, application managed services, and platform delivery — closed on sector depth and commercial precision.</span><span class="de">2019 zu HCLTech SA gestoßen und einen $15M Guidewire-Auftrag aus dem Stand gesichert.</span></p>
+      <p class="ach-desc"><span class="en">Joined HCLTech SA in 2019 and secured a $15M Guidewire insurance platform implementation from a standing start. <strong>IT Outsourcing</strong> deal encompassing infrastructure, application managed services, and platform delivery — closed on sector depth and commercial precision.</span><span class="de">2019 zu HCLTech SA gestoßen und einen $15M Guidewire-Auftrag aus dem Stand gesichert.</span></p>
       <div class="ach-tags"><span>South Africa · 2019</span><span>Insurance</span><span>HCLTech</span></div>
     </div>
     <div class="ach-card">
@@ -618,10 +1127,10 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="ach-tags"><span>Prague · 2020 to 2024</span><span>M&amp;A</span><span>Monstarlab</span></div>
     </div>
     <div class="ach-card">
-      <div class="ach-company">HCLTech · Equinor</div>
+      <div class="ach-company">HCLTech · Energy</div>
       <div class="ach-value">$33M ARR</div>
       <div class="ach-label"><span class="en">Strategic energy account · Current</span><span class="de">Strategisches Energiekonto · Aktuell</span></div>
-      <p class="ach-desc"><span class="en">Managing the $33M ARR Equinor engagement for HCLTech in Stavanger — AI and digital transformation at CxO level in one of the world's most strategically significant energy companies.</span><span class="de">Das $33M ARR Equinor-Mandat für HCLTech in Stavanger — KI- und digitale Transformation auf CxO-Ebene.</span></p>
+      <p class="ach-desc"><span class="en">Managing the $33M ARR strategic energy engagement for HCLTech in Stavanger — AI and digital transformation at CxO level in one of the world's most strategically significant energy companies.</span><span class="de">Das $33M ARR energy account-Mandat für HCLTech in Stavanger — KI- und digitale Transformation auf CxO-Ebene.</span></p>
       <div class="ach-tags"><span>Stavanger · Nov 2024 to Present</span><span>Energy</span><span>HCLTech</span></div>
     </div>
   </div>
@@ -637,7 +1146,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <div class="loc-label"><span class="en">Home · Siemens 2000–2009 · Wipro 2015–2019</span><span class="de">Heimat · Siemens 2000–2009 · Wipro 2015–2019</span></div>
         <div class="loc-name">South Africa</div>
         <div class="loc-city">Cape Town</div>
-        <p class="loc-desc"><span class="en">Where it all began. BCom in Industrial and Organisational Psychology at UNISA, completed 2021. The $136M Old Mutual engagement and the 120-person BFSI team at Wipro both have their roots here.</span><span class="de">Wo alles begann. BCom I&O Psychologie an der UNISA, abgeschlossen 2021. Das $136M Old Mutual-Mandat und das 120-köpfige BFSI-Team bei Wipro.</span></p>
+        <p class="loc-desc"><span class="en">Where it all began. BCom in Industrial and Organisational Psychology at UNISA, completed 2021. The $136M Major Financial Services Group engagement and the 120-person BFSI team at Wipro both have their roots here.</span><span class="de">Wo alles begann. BCom I&O Psychologie an der UNISA, abgeschlossen 2021. Das $136M Major Financial Services Group-Mandat und das 120-köpfige BFSI-Team bei Wipro.</span></p>
         <div class="loc-tags"><span>Siemens Business Services</span><span>Wipro</span><span>UNISA 2021</span></div>
       </div>
     </div>
@@ -687,8 +1196,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <div class="loc-label">HCLTech · November 2024 to Present</div>
         <div class="loc-name">Norway</div>
         <div class="loc-city">Stavanger</div>
-        <p class="loc-desc"><span class="en">Regional Commercial Director at HCLTech, managing a $33M ARR strategic energy account — the Equinor engagement — in Stavanger. Working at CxO level on AI and digital transformation.</span><span class="de">Regional Commercial Director bei HCLTech, Verwaltung des $33M ARR strategischen Energiekontos — das Equinor-Engagement — in Stavanger.</span></p>
-        <div class="loc-tags"><span>HCLTech</span><span>$33M ARR</span><span>Equinor</span><span>Nov 2024 to Present</span></div>
+        <p class="loc-desc"><span class="en">Regional Commercial Director at HCLTech, managing a $33M ARR strategic energy account — the strategic energy engagement — in Stavanger. Working at CxO level on AI and digital transformation.</span><span class="de">Regional Commercial Director bei HCLTech, Verwaltung des $33M ARR strategischen Energiekontos — in Stavanger.</span></p>
+        <div class="loc-tags"><span>HCLTech</span><span>$33M ARR</span><span>Energy Sector</span><span>Nov 2024 to Present</span></div>
       </div>
     </div>
   </div>
@@ -729,14 +1238,14 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
     <div class="ind-foundation-label"><span class="en">Foundation</span><span class="de">Fundament</span></div>
     <div>
       <div class="ind-foundation-title"><span class="en">Technology &amp; IT Services</span><span class="de">Technologie &amp; IT-Dienstleistungen</span></div>
-      <p class="ind-foundation-desc"><span class="en">The through-line across every role, every country, every deal. 25 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems, Siemens Business Services — delivering IT Outsourcing, infrastructure managed services, AI transformation, and enterprise technology strategy at C-suite level across three continents.</span><span class="de">Der rote Faden durch jede Rolle, jedes Land, jeden Deal. 25 Jahre in den weltweit führenden IT-Dienstleistungsunternehmen.</span></p>
+      <p class="ind-foundation-desc"><span class="en">The through-line across every role, every country, every deal. 25 years operating inside the world's leading IT services firms — HCLTech, Wipro, Monstarlab, Concentrix, T-Systems, Siemens Business Services — delivering <strong>IT Outsourcing</strong>, infrastructure managed services, AI transformation, and enterprise technology strategy at C-suite level across three continents.</span><span class="de">Der rote Faden durch jede Rolle, jedes Land, jeden Deal. 25 Jahre in den weltweit führenden IT-Dienstleistungsunternehmen.</span></p>
       <div class="ind-foundation-tags">
         <span>HCLTech</span><span>Wipro</span><span>Monstarlab</span><span>Concentrix</span><span>T-Systems</span><span>Siemens Business Services</span><span>IT Outsourcing</span><span>Infrastructure</span><span>AI Transformation</span>
       </div>
     </div>
     <div class="ind-foundation-stat">
-      <div class="ind-stat-num" style="font-size:2.2rem;">$150<span>M</span></div>
-      <div class="ind-stat-label" style="margin-bottom:.4rem;"><span class="en">TCV Managed</span><span class="de">TCV verwaltet</span></div>
+      <div class="ind-stat-num" style="font-size:2.2rem;">$300<span>M+</span></div>
+      <div class="ind-stat-label" style="margin-bottom:.4rem;"><span class="en">Infra Outsourcing TCV</span><span class="de">Infra Outsourcing TCV</span></div>
       <div class="ind-stat-num" style="font-size:1.6rem;">$33<span>M</span></div>
       <div class="ind-stat-label"><span class="en">ARR Current</span><span class="de">ARR Aktuell</span></div>
     </div>
@@ -763,8 +1272,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
         <div><div class="ind-name"><span class="en">Energy &amp; Utilities</span><span class="de">Energie &amp; Versorgung</span></div><div class="ind-depth"><span class="en">Current Focus</span><span class="de">Aktueller Fokus</span></div></div>
       </div>
-      <p class="ind-desc"><span class="en">Currently managing the $33M ARR Equinor account at HCLTech in Stavanger. Driving AI-led transformation strategy for a sector undergoing fundamental restructuring around sustainability and decarbonisation.</span><span class="de">Derzeit Verwaltung des $33M ARR Equinor-Kontos bei HCLTech in Stavanger.</span></p>
-      <div class="ind-tags"><span>$33M ARR</span><span>Equinor</span><span>AI in Energy</span><span>Nordics</span></div>
+      <p class="ind-desc"><span class="en">Currently managing the $33M ARR energy account account at HCLTech in Stavanger. Driving AI-led transformation strategy for a sector undergoing fundamental restructuring around sustainability and decarbonisation.</span><span class="de">Derzeit Verwaltung des $33M ARR energy account-Kontos bei HCLTech in Stavanger.</span></p>
+      <div class="ind-tags"><span>$33M ARR</span><span>Energy Sector</span><span>AI in Energy</span><span>Nordics</span></div>
     </div>
     <div class="ind-card">
       <div class="ind-card-header">
@@ -803,7 +1312,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="timeline-card">
         <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 <span class="en">South Africa &amp; United Kingdom · 2000 to 2009</span><span class="de">Südafrika &amp; Vereinigtes Königreich · 2000 bis 2009</span></div>
         <h3 class="timeline-role">Siemens Business Services — <span class="en">Commercial Manager</span><span class="de">Commercial Manager</span></h3>
-        <p class="timeline-desc"><span class="en">Nine years across South Africa and the UK at Siemens Business Services. Commercial management of large-scale IT Outsourcing and infrastructure services contracts. Engaging at senior stakeholder level in one of the world's most process-driven organisations — where structured deal management and client governance are not just disciplines but survival skills.</span><span class="de">Neun Jahre in Südafrika und dem UK bei Siemens Business Services formten das kommerzielle Fundament.</span></p>
+        <p class="timeline-desc"><span class="en">Nine years across South Africa and the UK at Siemens Business Services. Commercial management of large-scale <strong>IT Outsourcing</strong> and infrastructure services contracts. Engaging at senior stakeholder level in one of the world's most process-driven organisations — where structured deal management and client governance are not just disciplines but survival skills.</span><span class="de">Neun Jahre in Südafrika und dem UK bei Siemens Business Services formten das kommerzielle Fundament.</span></p>
         <div class="timeline-tags"><span class="tag">2000 to 2009</span><span class="tag">Siemens Business Services</span><span class="tag">SA &amp; UK</span></div>
       </div>
     </div>
@@ -812,7 +1321,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="timeline-card">
         <div class="timeline-location"><span class="flag">🇿🇦</span>🇬🇧 <span class="en">South Africa &amp; United Kingdom · 2009 to 2015</span><span class="de">Südafrika &amp; Vereinigtes Königreich · 2009 bis 2015</span></div>
         <h3 class="timeline-role">T-Systems — <span class="en">Commercial Manager</span><span class="de">Commercial Manager</span></h3>
-        <p class="timeline-desc"><span class="en">Following Siemens Business Services, continued at T-Systems across South Africa and the UK. Deep exposure to large-scale IT Outsourcing, infrastructure managed services, and technology transformation engagements — working with major corporate and public sector clients on complex, multi-year IT services contracts.</span><span class="de">Nach Siemens Business Services Fortsetzung der kommerziellen Arbeit bei T-Systems in Südafrika und dem UK.</span></p>
+        <p class="timeline-desc"><span class="en">Following Siemens Business Services, continued at T-Systems across South Africa and the UK. Deep exposure to large-scale <strong>IT Outsourcing</strong>, infrastructure managed services, and technology transformation engagements — working with major corporate and public sector clients on complex, multi-year IT services contracts.</span><span class="de">Nach Siemens Business Services Fortsetzung der kommerziellen Arbeit bei T-Systems in Südafrika und dem UK.</span></p>
         <div class="timeline-tags"><span class="tag">2009 to 2015</span><span class="tag">T-Systems</span><span class="tag">SA &amp; UK</span><span class="tag">Managed Services</span></div>
       </div>
     </div>
@@ -821,8 +1330,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="timeline-card">
         <div class="timeline-location"><span class="flag">🇿🇦</span> <span class="en">Cape Town, South Africa · 2015 to 2019</span><span class="de">Kapstadt, Südafrika · 2015 bis 2019</span></div>
         <h3 class="timeline-role">Wipro — <span class="en">BFSI Practice Lead &amp; Client Executive</span><span class="de">BFSI Practice Lead &amp; Client Executive</span></h3>
-        <p class="timeline-desc"><span class="en">Based in Cape Town, built and led a 120-person BFSI delivery team. The defining commercial win: a $136M engagement with Old Mutual. Every failed transformation confirmed the same pattern: organisations designing for systems while ignoring the humans who had to use them.</span><span class="de">In Kapstadt ein 120-köpfiges BFSI-Team aufgebaut und geleitet. Der entscheidende kommerzielle Erfolg: ein $136M-Engagement mit Old Mutual.</span></p>
-        <div class="timeline-tags"><span class="tag">2015 to 2019</span><span class="tag">Wipro</span><span class="tag">$136M Old Mutual</span><span class="tag">120-person BFSI team</span></div>
+        <p class="timeline-desc"><span class="en">Based in Cape Town, built and led a 120-person BFSI delivery team. The defining commercial win: a $136M engagement with Major Financial Services Group. Every failed transformation confirmed the same pattern: organisations designing for systems while ignoring the humans who had to use them.</span><span class="de">In Kapstadt ein 120-köpfiges BFSI-Team aufgebaut und geleitet. Der entscheidende kommerzielle Erfolg: ein $136M-Engagement mit Major Financial Services Group.</span></p>
+        <div class="timeline-tags"><span class="tag">2015 to 2019</span><span class="tag">Wipro</span><span class="tag">$136M Major Financial Services Group</span><span class="tag">120-person BFSI team</span></div>
       </div>
     </div>
     <div class="timeline-item reveal">
@@ -866,8 +1375,8 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
       <div class="timeline-card">
         <div class="timeline-location"><span class="flag">🇳🇴</span> <span class="en">Stavanger, Norway · November 2024 to Present</span><span class="de">Stavanger, Norwegen · November 2024 bis heute</span></div>
         <h3 class="timeline-role">HCLTech — <span class="en">Regional Commercial Director</span><span class="de">Regional Commercial Director</span></h3>
-        <p class="timeline-desc"><span class="en">Managing a $33M ARR strategic energy account — the Equinor engagement — for HCLTech in Stavanger. Working at CxO level to drive AI and digital transformation in one of the world's most sustainability-focused energy markets. The organisations that will win with AI are not the ones with the best models, but the ones that understand how their people will actually respond to them.</span><span class="de">Verwaltung des $33M ARR strategischen Energiekontos — das Equinor-Engagement — für HCLTech in Stavanger.</span></p>
-        <div class="timeline-tags"><span class="tag">Nov 2024 to Present</span><span class="tag">HCLTech</span><span class="tag">$33M ARR · Equinor</span><span class="tag">Energy · Norway</span></div>
+        <p class="timeline-desc"><span class="en">Managing a $33M ARR strategic energy account — the strategic energy engagement — for HCLTech in Stavanger. Working at CxO level to drive AI and digital transformation in one of the world's most sustainability-focused energy markets. The organisations that will win with AI are not the ones with the best models, but the ones that understand how their people will actually respond to them.</span><span class="de">Verwaltung des $33M ARR strategischen Energiekontos — das strategische Energiemandat für HCLTech in Stavanger.</span></p>
+        <div class="timeline-tags"><span class="tag">Nov 2024 to Present</span><span class="tag">HCLTech</span><span class="tag">$33M ARR</span><span class="tag">Energy · Norway</span></div>
       </div>
     </div>
   </div>
@@ -876,12 +1385,12 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
 <section id="cv">
   <div class="section-label"><span class="en">Professional profile</span><span class="de">Berufliches Profil</span></div>
   <h2 class="section-title reveal"><span class="en">The CV,<br>Condensed</span><span class="de">Der Lebenslauf,<br>kompakt</span></h2>
-  <div class="pull-quote reveal">"<span class="en">$136M Old Mutual. $15M Guidewire. $33M ARR Equinor. <em>The edge was never the product. It was understanding how the person across the table actually decides.</em></span><span class="de">$136M Old Mutual. $15M Guidewire. $33M ARR Equinor. <em>Der Vorteil war nie das Produkt. Es war das Verständnis, wie der Gegenüber tatsächlich entscheidet.</em></span>"</div>
+  <div class="pull-quote reveal">"<span class="en">$136M Major Financial Services Group. $15M Guidewire. $33M ARR energy account. <em>The edge was never the product. It was understanding how the person across the table actually decides.</em></span><span class="de">$136M Major Financial Services Group. $15M Guidewire. $33M ARR energy account. <em>Der Vorteil war nie das Produkt. Es war das Verständnis, wie der Gegenüber tatsächlich entscheidet.</em></span>"</div>
   <div class="cv-grid reveal">
     <div class="cv-cell">
       <div class="cv-cell-label"><span class="en">Current Role</span><span class="de">Aktuelle Rolle</span></div>
       <div class="cv-cell-title"><span class="en">Regional Commercial Director — HCLTech, Stavanger</span><span class="de">Regional Commercial Director — HCLTech, Stavanger</span></div>
-      <div class="cv-cell-sub"><span class="en">Managing the $33M ARR Equinor energy account for HCLTech. Driving AI transformation at CxO level. Applying behavioural economics to close complex, multi-stakeholder enterprise deals. November 2024 to present.</span><span class="de">Verwaltung des $33M ARR Equinor-Energiekontos für HCLTech. KI-Transformation auf CxO-Ebene. November 2024 bis heute.</span></div>
+      <div class="cv-cell-sub"><span class="en">Managing the $33M ARR energy account energy account for HCLTech. Driving AI transformation at CxO level. Applying behavioural economics to close complex, multi-stakeholder enterprise deals. November 2024 to present.</span><span class="de">Verwaltung des $33M ARR energy account-Energiekontos für HCLTech. KI-Transformation auf CxO-Ebene. November 2024 bis heute.</span></div>
     </div>
     <div class="cv-cell">
       <div class="cv-cell-label"><span class="en">Credentials</span><span class="de">Qualifikationen</span></div>
@@ -907,7 +1416,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <li><span class="en">Behavioural economics in commercial strategy</span><span class="de">Verhaltensökonomie in der Handelsstrategie</span></li>
         <li><span class="en">CxO and C-suite stakeholder engagement</span><span class="de">CxO- und C-Suite-Stakeholder-Engagement</span></li>
         <li><span class="en">Insurance platforms: Guidewire, Sapiens, Oracle HI</span><span class="de">Versicherungsplattformen: Guidewire, Sapiens, Oracle HI</span></li>
-        <li><span class="en">Cross-cultural leadership · 6 countries · 3 continents</span><span class="de">Interkulturelle Führung · 6 Länder · 4 Kontinente</span></li>
+        <li><span class="en">Cross-cultural leadership · 6 countries · 3 continents</span><span class="de">Interkulturelle Führung · 6 Länder · 3 Kontinente</span></li>
       </ul>
     </div>
     <div class="cv-cell">
@@ -1017,7 +1526,7 @@ footer{background:#060e1e;color:var(--paper);padding:4rem 5rem 3rem;display:grid
         <li><div class="update-date">APR<br>2026</div><div class="update-text"><strong><span class="en">Published:</span><span class="de">Veröffentlicht:</span></strong> <span class="en">The neuroscience of why digital transformation projects fail, and what to do about it.</span><span class="de">Die Neurowissenschaft, warum digitale Transformationsprojekte scheitern.</span></div></li>
         <li><div class="update-date">MAR<br>2026</div><div class="update-text"><strong><span class="en">New article:</span><span class="de">Neuer Artikel:</span></strong> <span class="en">25 years applying behavioural economics at enterprise scale — what I have actually learned.</span><span class="de">25 Jahre Anwendung von Verhaltensökonomie im Unternehmensmaßstab.</span></div></li>
         <li><div class="update-date">JAN<br>2026</div><div class="update-text"><strong>MIT edX:</strong> <span class="en">Completing Neuroscience for Business — adding formal credential to 25 years of applied practice.</span><span class="de">Neuroscience for Business abschließen — formale Qualifikation zu 25 Jahren Praxis hinzufügen.</span></div></li>
-        <li><div class="update-date">NOV<br>2024</div><div class="update-text"><strong>HCLTech, Stavanger:</strong> <span class="en">Joined as Regional Commercial Director, managing the $33M ARR Equinor energy account.</span><span class="de">Als Regional Commercial Director eingetreten, Verwaltung des $33M ARR Equinor-Energiekontos.</span></div></li>
+        <li><div class="update-date">NOV<br>2024</div><div class="update-text"><strong>HCLTech, Stavanger:</strong> <span class="en">Joined as Regional Commercial Director, managing the $33M ARR energy account energy account.</span><span class="de">Als Regional Commercial Director eingetreten, Verwaltung des $33M ARR energy account-Energiekontos.</span></div></li>
       </ul>
     </div>
   </div>
